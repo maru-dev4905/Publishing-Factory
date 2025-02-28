@@ -1,4 +1,4 @@
-@import './absctracts/mixin';
+@use './absctracts/mixin' as *;
 
 body {
   min-height: 100vh;

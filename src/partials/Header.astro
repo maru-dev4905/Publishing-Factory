@@ -2,29 +2,32 @@
 const {navigation} = Astro.props;
 ---
 
-<header>
-  <nav>
-    <ul>
-        {navigation ? (
-            navigation.map((item) => (
-                    <li>
-                        {item.children ? (
-                                <>
-                                  <span>{item.name}</span>
-                                  <ul>
-                                      {item.children.map((child) => (
-                                              <li><a href={child.url}>{child.name}</a></li>
-                                      ))}
-                                  </ul>
-                                </>
-                        ) : (
-                                <a href={item.url}>{item.name}</a>
-                        )}
-                    </li>
-            ))
-        ) : (
-                <li><a href="/">Home</a></li>
-        )}
-    </ul>
-  </nav>
+<header class="pf_hd">
+  <div class="pf_inner">
+  <h1 class="logo"></h1>
+    <nav class="gnb">
+      <ul>
+          {navigation ? (
+              navigation.map((item) => (
+                      <li>
+                          <!--{item.children ? (-->
+                          <!--        <>-->
+                          <!--          <span>{item.name}</span>-->
+                          <!--          <ul>-->
+                          <!--              {item.children.map((child) => (-->
+                          <!--                      <li><a href={child.url}>{child.name}</a></li>-->
+                          <!--              ))}-->
+                          <!--          </ul>-->
+                          <!--        </>-->
+                          <!--) : (-->
+                          <!--)}-->
+                                  <a href={item.url}>{item.name}</a>
+                      </li>
+              ))
+          ) : (
+                  <li><a href="/">Home</a></li>
+          )}
+      </ul>
+    </nav>
+  </div>
 </header>
