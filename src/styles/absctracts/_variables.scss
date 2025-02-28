@@ -1,0 +1,37 @@
+:root{
+  --white: #FFFFFF;
+  --white1 : #FFFFFF;
+  --white2 : #F2F3F4;
+  --white3 : #DEE3E6;
+  --gray1 : #5C676B;
+  --gray2 : #9AA2A5;
+  --gray3 : #B0B5B9;
+  --gray4 : #C6CBCE;
+  --black1 : #000000;
+  --black2 : #111719;
+  --danger	: #ff0000;
+
+  --inner_large_w: calc(100% - 40px);
+  --inner_large_mw: 1720px;
+  --inner_base_w : calc(100% - 40px);
+  --inner_base_mw : 1440px;
+  --inner_full_w : calc(100% - 40px);
+  --inner_full_mw : 100%;
+  --inner_sm_w : calc(100% - 40px);
+  --inner_sm_mw : 62.5rem;
+}
+
+$base-font-size: 16;
+$intervalSizes : [300, 280, 260, 240, 200, 180, 160, 140, 120, 100, 80, 70, 60, 50, 40, 36, 30, 20, 16, 12, 10, 8, 6, 4];
+$fontSizes: [200, 180, 160, 140, 130, 120, 100, 80, 72, 68, 64, 60, 56, 52, 50, 48, 44, 40, 36, 32, 30, 28, 24, 20, 18, 16, 14, 12, 10];
+$fontWeight: (
+  "heavy" : 900,
+  "exBold" : 800,
+  "bold" : 700,
+  "semibold" : 600,
+  "medium" : 500,
+  "regular" : 400,
+  "light" : 300,
+  "exLight" : 200,
+  "thin" : 100,
+);

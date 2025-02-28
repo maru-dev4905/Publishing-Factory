@@ -1,0 +1,119 @@
+
+.adm_guide{
+  .color_box{
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.10);
+  }
+}
+
+.dim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.wv_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  z-index: 1001;
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.wv_modal_btn:not(.close_modal){
+  padding: .625rem 1.25rem;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  background-color: #f6f6f6;
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+}
+.wv_modal_btn.close_modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent
+  }
+}
+
+
+
+
+// Guide Code Block
+.code_block{
+  position: relative;
+  code{
+    background-color: #eee !important;
+    line-height: 150%;
+  }
+  .wv_tab_menu{
+    margin-bottom: 0;
+    gap: rem(10px);
+
+    button{
+      padding: 10px 20px;
+      border-radius: 4px 4px 0 0;
+      border: 1px solid #ebebeb;
+      background-color: #f6f6f6;
+      transition: background-color .2s ease-in-out;
+      &:hover{
+        background-color: #ebebeb;
+      }
+      &.active{
+        background-color: #ebebeb;
+      }
+    }
+  }
+  .wv_tab_content .wv_tab_panel{
+    border-radius: 0 0 4px 4px
+  }
+  .wv_copy_btn{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 5px 10px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    background-color: #f6f6f6;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+
+    &:hover{
+      background-color: #ebebeb;
+    }
+  }
+}
+// Guide Code Block END
