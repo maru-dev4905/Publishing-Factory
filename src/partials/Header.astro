@@ -3,31 +3,31 @@ const {navigation} = Astro.props;
 ---
 
 <header class="pf_hd">
-  <div class="pf_inner">
   <h1 class="logo"></h1>
-    <nav class="gnb">
-      <ul>
-          {navigation ? (
-              navigation.map((item) => (
-                      <li>
-                          <!--{item.children ? (-->
-                          <!--        <>-->
-                          <!--          <span>{item.name}</span>-->
-                          <!--          <ul>-->
-                          <!--              {item.children.map((child) => (-->
-                          <!--                      <li><a href={child.url}>{child.name}</a></li>-->
-                          <!--              ))}-->
-                          <!--          </ul>-->
-                          <!--        </>-->
-                          <!--) : (-->
-                          <!--)}-->
-                                  <a href={item.url}>{item.name}</a>
-                      </li>
-              ))
-          ) : (
-                  <li><a href="/">Home</a></li>
-          )}
-      </ul>
-    </nav>
+  <nav class="gnb">
+    <ul>
+        {navigation ? (
+            navigation.map((item) => (
+                    <li>
+                        {item.children ? (
+                                <>
+                                  <button type="button" class="wv_target_btn" data-target={`['${item.name}', 'on', 'toggle']`}>{item.name}</button>
+                                  <ul id={item.name}>
+                                      {item.children.map((child) => (
+                                              <li><a href={child.url}>{child.name}</a></li>
+                                      ))}
+                                  </ul>
+                                </>
+                        ) : (
+                                <a href={item.url}>{item.name}</a>
+                        )}
+                    </li>
+            ))
+        ) : (
+                <li><a href="/">Home</a></li>
+        )}
+    </ul>
+  </nav>
+  <div class="pf_inner">
   </div>
 </header>

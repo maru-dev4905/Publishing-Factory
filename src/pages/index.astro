@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import '../assets/styles/new_guide.scss';
+import '../styles/new_guide.scss';
 
 // 페이지별 데이터: 예시로 navigation 데이터를 전달합니다.
 const navigation = [
     {name: 'Main', url: '../index.html'},
-    {name: 'Docs', url: '../docs.html'},
+    {
+        name: 'Docs',
+        children: [
+            {name: 'Display', url: '../components/display.html'},
+            {name: 'Spacing', url: '../components/spacing.html'},
+            {name: 'Sizing', url: '../components/sizing.html'},
+            {name: 'Typography', url: '../components/typography.html'},
+        ]
+    },
     {
         name: 'Components',
         children: [
@@ -18,7 +26,13 @@ const navigation = [
     },
     {name: 'Form', url: '../form.html'},
     {name: 'Download', url: '../download.html'},
-    {name: 'Admin', url: '../admin/admin.html'}
+    {
+        name: 'Admin',
+        children: [
+            {name: 'Admin', url: '../admin/admin.html'},
+            {name: 'Login', url: '../admin/login.html'},
+        ]
+    }
 ];
 ---
 
@@ -26,4 +40,3 @@ const navigation = [
 
 </BaseLayout>
 
-<script src="../assets/js/custom/pf.js"></script>
