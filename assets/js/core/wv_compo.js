@@ -2,8 +2,8 @@ import wvTab from "../module/components/Tab/Tab.js";
 import wvAccordion from "../module/components/Accordion/Accordion.js";
 import wvModal from "../module/components/Modal/Modal.js";
 import wvCopyBtn from "../module/components/Copy/CopyBtn.js"
-import wvTargetBtn from "../module/components/TargetBtn/TargetBtn";
-import wvScrBtn from "../module/components/ScrBtn/ScrBtn";
+import wvTargetBtn from "../module/components/TargetBtn/TargetBtn.js";
+import wvScrBtn from "../module/components/ScrBtn/ScrBtn.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   function wvCompoInit(){

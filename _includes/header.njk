@@ -1,0 +1,21 @@
+<header class="pf_hd">
+    <h1 class="logo"></h1>
+    <nav class="gnb">
+        <ul>
+            {% for item in navigation.navigation %}
+                <li>
+                    {% if item.children %}
+                        <button type="button" class="wv_target_btn" data-target="['{{ item.name }}', 'on', 'toggle']">{{ item.name }}</button>
+                        <ul id={{  item.name }}>
+                            {% for child in item.children %}
+                                <li><a href="{{ child.url }}">{{ child.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <a href="{{ item.url }}">{{ item.name }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

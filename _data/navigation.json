@@ -1,0 +1,33 @@
+{
+  "navigation": [
+    { "name": "Main", "url": "/index.html" },
+    {
+      "name": "Docs",
+      "children": [
+        { "name": "Display", "url": "/components/Display.html" },
+        { "name": "Spacing", "url": "/components/Spacing.html" },
+        { "name": "Sizing", "url": "/components/Sizing.html" },
+        { "name": "Typography", "url": "/components/Typography.html" }
+      ]
+    },
+    {
+      "name": "Components",
+      "children": [
+        { "name": "Tab", "url": "/components/Tab.html" },
+        { "name": "Accordion", "url": "/components/Accordion.html" },
+        { "name": "Target Button", "url": "/components/TargetButton.html" },
+        { "name": "Copy Button", "url": "/components/CopyButton.html" },
+        { "name": "Scroll Button", "url": "/components/ScrollButton.html" }
+      ]
+    },
+    { "name": "Form", "url": "/form.html" },
+    { "name": "Download", "url": "/download.html" },
+    {
+      "name": "Admin",
+      "children": [
+        { "name": "Admin", "url": "/admin/admin.html" },
+        { "name": "Login", "url": "/admin/login.html" }
+      ]
+    }
+  ]
+}
