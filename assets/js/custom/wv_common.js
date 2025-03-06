@@ -35,3 +35,4 @@
 // // 필요시 window.provide를 다른 코드에서 사용
 // window.wvCore.checkRes(provide);
 // window.wvCore.checkScrollDir();
+export const hydration = 'none';

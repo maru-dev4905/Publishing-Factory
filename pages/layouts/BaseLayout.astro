@@ -4,9 +4,8 @@ import Header from '../partials/Header.astro';
 import Footer from '../partials/Footer.astro';
 import SlotBar from '../partials/Slot.astro';
 
-import '../styles/wv.scss';
-
 const {pageTitle, navigation} = Astro.props;
+export const hydration = 'none';
 ---
 
 <!DOCTYPE html>
@@ -14,6 +13,9 @@ const {pageTitle, navigation} = Astro.props;
 <head>
   <meta charset="UTF-8"/>
   <title>{pageTitle || "FP 프로젝트" }</title>
+
+      <link src="../css/wv.css">
+      <link src="../css/new_guide.css">
     </head>
     <body>
 
@@ -26,7 +28,7 @@ const {pageTitle, navigation} = Astro.props;
     </div>
     <Footer/>
 
-    <script type="module" client:load src="/js/custom/pf.js"></script>
-    <script type="module" client:load src="/js/main.js"></script>
+    <script type="module" src="/js/custom/pf.js"></script>
+    <script type="module" src="/js/main.js"></script>
     </body>
       </html>

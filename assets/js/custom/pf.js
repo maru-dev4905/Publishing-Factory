@@ -29,4 +29,5 @@ if (typeof document !== 'undefined') {
       }
     })
   });
+  export const hydration = 'none';
 }
