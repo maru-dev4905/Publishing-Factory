@@ -1,0 +1,21 @@
+{
+  "name": "publishing-factory",
+  "version": "1.0.0",
+  "description": "```sh npm create astro@latest -- --template basics ```",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"eleventy --serve\" \"sass --watch assets/scss:dist/assets/css\"",
+    "build": "eleventy && npm run build:css && npm run build:js",
+    "build:css": "sass --no-source-map assets/scss:wv.scss:dist/assets/css/wv.css",
+    "build:js": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "concurrently": "^9.1.2",
+    "sass": "^1.85.1",
+    "vite": "^6.2.0"
+  }
+}
