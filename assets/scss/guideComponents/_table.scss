@@ -1,0 +1,32 @@
+.table{
+  $celH: 36px;
+  border-top: 1px solid var(--clr-point3);
+  border-bottomtkt: 1px solid var(--clr-point3);
+  .tb_hd{
+    display: flex;
+    background-color: var(--clr-point2);
+    height: $celH;
+    color: var(--clr-white1);
+
+    p{
+      flex: 1;
+      line-height: $celH;
+      font-size: 14px;
+    }
+  }
+  .tb_bd{
+    li{
+      display: flex;
+      height: $celH;
+      background-color: var(--clr-point5);
+      border-top: 1px solid var(--clr-point3);
+
+      p{
+        flex: 1;
+        line-height: $celH;
+        font-size: 14px;
+        color: var(--clr-point4);
+      }
+    }
+  }
+}

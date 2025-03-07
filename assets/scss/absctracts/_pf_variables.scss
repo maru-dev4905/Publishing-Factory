@@ -1,8 +1,8 @@
-:root{
-//  Base
+:root {
+  //  Base
   --pf_white1: #F2F2F2;
 
-//  Light
+  //  Light
   --l_point1: #F4F7F9;
   --l_point2: #B497BD;
   --l_point3: #4A90E2;
@@ -11,9 +11,18 @@
   --l_txtClr: #333333;
   --l_subClr: #E0E0E0;
 
-//  DARK
-    --d_point1: #080F25;
-    --d_point2: #0F1834;
-    --d_point3: #384261;
-    --d_point4: #A9B9E1;
+  //  DARK
+  --d_point1: #080F25;
+  --d_point2: #0F1834;
+  --d_point3: #384261;
+  --d_point4: #A9B9E1;
+  --d_point5: #1A2134;
+
+  //  Font Size
+  --fs1: 48px;
+  --fs2: 30px;
+  --fs3: 36px;
+  --fs4: 32px;
+  --fs5: 24px;
+  --fs6: 20px;
 }

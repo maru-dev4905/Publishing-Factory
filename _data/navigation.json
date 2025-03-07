@@ -1,13 +1,12 @@
 {
   "navigation": [
-    { "name": "Main", "url": "/index.html" },
     {
       "name": "Docs",
       "children": [
-        { "name": "Display", "url": "/components/Display.html" },
-        { "name": "Spacing", "url": "/components/Spacing.html" },
-        { "name": "Sizing", "url": "/components/Sizing.html" },
-        { "name": "Typography", "url": "/components/Typography.html" }
+        { "name": "Display", "url": "/docs/Display.html" },
+        { "name": "Spacing", "url": "/docs/Spacing.html" },
+        { "name": "Sizing", "url": "/docs/Sizing.html" },
+        { "name": "Typography", "url": "/docs/Typography.html" }
       ]
     },
     {

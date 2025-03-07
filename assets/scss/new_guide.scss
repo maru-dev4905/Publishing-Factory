@@ -1,6 +1,9 @@
 @use './absctracts/mixin' as *;
 @use './absctracts/pf_variables' as *;
 
+@import "./guideComponents/_table";
+
+
 html[color-theme='light'] {
   --clr-point1: var(--l_point1);
   --clr-point2: var(--l_point2);
@@ -15,22 +18,33 @@ html[color-theme='dark'] {
   --clr-point2: var(--d_point2);
   --clr-point3: var(--d_point3);
   --clr-point4: var(--d_point4);
+  --clr-point5: var(--d_point5);
   --clr-white1: var(--pf_white1);
-    --clr-slotBar: #f3f3f3;
+  --clr-slotBar: #f3f3f3;
 }
 
 body {
   background-color: var(--clr-point1);
 }
 
+main{
+  .tit{
+    h1,h2,h3,h4,h5,h6 {
+      color: var(--clr-white1);
+    }
+    p{
+      color: var(--clr-point4);
+      line-height: 150%;
+    }
+  }
+}
 
 .pf_inner {
-  display: flex;
-  align-items: center;
   width: calc(100% - 40px);
-  max-width: 1600px;
+  max-width: 784px;
   height: 100%;
   margin: 0 auto;
+  padding-top: 60px;
 }
 
 .pf_hd {
@@ -47,20 +61,22 @@ body {
   .logo {
     width: 280px;
     height: 30px;
-    background: url("../images/common/logo.svg") no-repeat center / cover;
-    mix-blend-mode: plus-lighter;
+    svg{
+      width: 100%;
+    }
   }
 
   nav {
     margin: 50px auto 0;
     padding: 0 20px;
+
     ul {
       display: flex;
       align-items: center;
       flex-direction: column;
       border-bottom: 1px solid var(--clr-point3);
 
-      ul{
+      ul {
         display: flex;
         flex-direction: column;
         border-bottom: none;
@@ -69,68 +85,86 @@ body {
         padding: 0 0 0 20px;
         font-size: rem(14px);
         overflow: hidden;
-        transition: padding .5s ease-in-out, max-height .5s ease-in-out;
+        transition: max-height .75s ease-in-out;
 
-        &.on{
-          max-height: 1000px;
-          padding: 20px 0 20px 20px;
+        &.on {
+          max-height: 500px;
+          //padding: 20px 0 20px 20px;
         }
 
-        li{
+        li {
           width: 100%;
+
+          &:first-child {
+            padding-top: 20px
+          }
+
+          &:last-child {
+            padding-bottom: 20px
+          }
         }
-        a{
-          display: block;
+
+        a {
+          display: flex;
+          justify-content: flex-start !important;
+          align-items: center;
+          position: relative;
           width: 100%;
           color: var(--clr-point4);
-          font-weight:400;
+          font-weight: 400;
           text-align: left;
+
+          &::before {
+            display: block;
+            content: "";
+            width: 0;
+            height: 1px;
+            margin-right: 6px;
+            background-color: var(--clr-point4);
+            transition: width .3s ease-in-out;
+          }
+
+          &.on,
+          &:hover{
+            &::before {
+              width: 10px;
+            }
+          }
         }
       }
     }
-    > ul > li{
+
+    > ul > li {
       width: 100%;
       border-top: 1px solid var(--clr-point3);
 
-      > a, > button{
+      > a, > button {
         position: relative;
         padding: 12px 0;
         font-size: rem(14px);
         color: var(--clr-white1);
-        transition: padding-left .35s ease-in-out;
 
-        &::before{
-          display:block;
-          position:absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          content: "";
-          width: 0;
-          height: 1px;
-          margin-right: 6px;
-          background-color: var(--clr-point4);
-          transition: width .35s ease-in-out;
-        }
-        &::after{
+        &::after {
           content: "";
           width: 20px;
           height: 20px;
           background: url("../images/icons/ico_arrow.svg") no-repeat center / cover;
           transition: transform .3s ease-in-out;
         }
-        &.on{
-          padding-left: 20px;
+
+        &.on {
         }
-        &.on::before{
+
+        &.on::before {
           width: 8px;
         }
-        &.on::after{
+
+        &.on::after {
           transform: rotate(90deg);
         }
       }
 
-      a,button{
+      a, button {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -204,6 +238,7 @@ footer {
     }
   }
 }
+
 html[color-theme='dark'] #slotBar .toggle_btn label:after {
   background: url(../images/icons/ico_dark.svg) no-repeat center center / 20px;
 }
