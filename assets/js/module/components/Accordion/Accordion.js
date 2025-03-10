@@ -1,19 +1,24 @@
-export default function wvAccordion() {
-  const accs = $(".wv_accordion");
+export default function wvAccordion(){
+  const accs = document.querySelectorAll(".wv_accordion");
 
-  accs.each(function () {
-    const acc = $(this); // 현재 아코디언 컨테이너
-    const accBtn = acc.find(".wv_accordion_btn");
+  accs.forEach(acc => {
+    const accBtn = acc.querySelectorAll(".wv_accordion_btn");
 
-    accBtn.off("click").on("click", function(){
-      const th = $(this);
+    accBtn.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const th = this;
 
-      if(acc.data('type') === 'single'){
-        accBtn.not(th).closest("li").removeClass("active");
-        th.closest("li").toggleClass("active");
-      }else if(acc.data('type') === 'multi'){
-        th.closest("li").toggleClass("active");
-      }
+        if (acc.dataset.type === 'single') {
+          accBtn.forEach(b => {
+            if (b !== th) {
+              b.closest("li").classList.remove("active");
+            }
+          });
+          th.closest("li").classList.toggle("active");
+        } else if (acc.dataset.type === 'multi') {
+          th.closest("li").classList.toggle("active");
+        }
+      });
     });
   })
 }

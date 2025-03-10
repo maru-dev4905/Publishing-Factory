@@ -41,7 +41,6 @@
   justify-content: center;
   align-items: center;
 }
-
 /* Flex END */
 
 /* Position */
@@ -344,6 +343,25 @@ caption.a11y-hidden {
 .table_scr_wrap{
   width: 100%;
 }
+
+/* Modal */
+.wv_modal{
+  display: block;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  outline: none;
+  border: none;
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+.wv_modal.active{
+  opacity: 1;
+  visibility: visible;
+}
+/* Modal  END */
 
 /* icons */
 [class*="ico_"]{

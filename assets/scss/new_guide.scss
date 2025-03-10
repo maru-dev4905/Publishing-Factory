@@ -23,8 +23,19 @@ html[color-theme='dark'] {
   --clr-slotBar: #f3f3f3;
 }
 
+.fc_point1 {color: var(--clr-point1);}
+.fc_point2 {color: var(--clr-point2);}
+.fc_point3 {color: var(--clr-point3);}
+.fc_point4 {color: var(--clr-point4);}
+.fc_point5{color: var(--clr-point5);}
+.fc_white1 {color: var(--clr-white1);}
+
 body {
   background-color: var(--clr-point1);
+}
+
+pre {
+  background: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto;
 }
 
 main{
