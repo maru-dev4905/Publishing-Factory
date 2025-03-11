@@ -1,0 +1,11 @@
+#slot{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 200px;
+  height: 44px;
+  border-radius: 50px;
+  background-color: var(--clr-point2);
+}

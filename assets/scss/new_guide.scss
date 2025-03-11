@@ -2,6 +2,7 @@
 @use './absctracts/pf_variables' as *;
 
 @import "./guideComponents/_table";
+@import "./guideComponents/_slot";
 
 
 html[color-theme='light'] {
@@ -40,6 +41,7 @@ pre {
 }
 
 main{
+  position: relative;
   .tit{
     h1,h2,h3,h4,h5,h6 {
       color: var(--clr-white1);
