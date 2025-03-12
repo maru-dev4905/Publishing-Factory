@@ -14,13 +14,13 @@
     display: flex;
     background-color: var(--clr-point2);
     height: $celH;
-    color: var(--clr-white1);
 
     p{
       flex: 1;
       padding: 0 14px;
       line-height: $celH;
       font-size: 14px;
+      color: var(--clr-white1);
     }
   }
   .tb_bd{

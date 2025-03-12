@@ -4,6 +4,9 @@
 @import "./guideComponents/_table";
 @import "./guideComponents/_slot";
 
+*{
+  transition: all .3s;
+}
 
 html[color-theme='light'] {
   --clr-point1: var(--l_point1);
@@ -13,6 +16,7 @@ html[color-theme='light'] {
   --clr-point5: var(--l_point5);
 
   --clr-slotBar: #1a1a1a;
+
 }
 
 html[color-theme='dark'] {
@@ -39,6 +43,9 @@ body {
 pre {
   background: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto;
 }
+strong{
+  font-weight: 500;
+}
 
 main{
   position: relative;
@@ -49,6 +56,9 @@ main{
     p{
       color: var(--clr-point4);
       line-height: 150%;
+    }
+    strong{
+      color: var(--clr-point4);
     }
   }
 }
@@ -135,7 +145,7 @@ main{
             height: 1px;
             margin-right: 6px;
             background-color: var(--clr-point4);
-            transition: width .3s ease-in-out;
+            transition: width .3s ease-in-out, background-color .3s ease-in-out;
           }
 
           &.on,
