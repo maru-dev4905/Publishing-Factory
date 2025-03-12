@@ -17,7 +17,8 @@
         { "name": "Target Button", "url": "/components/TargetButton.html" },
         { "name": "Copy Button", "url": "/components/CopyButton.html" },
         { "name": "Scroll Button", "url": "/components/ScrollButton.html" },
-        { "name": "Modal", "url": "/components/Modal.html" }
+        { "name": "Modal", "url": "/components/Modal.html" },
+        { "name": "Hide Today", "url": "/components/HideToday.html" }
       ]
     },
     { "name": "Form", "url": "/form.html" },

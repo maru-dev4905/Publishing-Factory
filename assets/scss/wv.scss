@@ -1,3 +1,15 @@
 @use './base/reset';
 @use './base/base';
-@use './base/animation';
+
+/* fade animation */
+.anim.fade{
+  transform: translateY(10%);
+  opacity: 0.1;
+  transition: opacity 0.5s ease,
+  transform 0.5s ease;
+}
+.anim.fade.show{
+  transform: translateY(0);
+  opacity: 1;
+}
+/* fade animation END */

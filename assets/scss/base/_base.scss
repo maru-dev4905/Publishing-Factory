@@ -248,6 +248,13 @@ caption.a11y-hidden {
 @each $size in $fontSizes {
   .fs_#{$size}{font-size: rem($size) !important;}
 }
+
+/* Editor FONT */
+@each $pc, $mo in $edtFontSizes {
+  .edt_fs_#{$pc}{font-size: rem($pc) !important;}
+}
+/* Editor FONT END */
+
 @each $name, $weight in $fontWeight {
   .fw_#{$name}{font-weight: $weight;}
 }
@@ -527,6 +534,9 @@ caption.a11y-hidden {
 
   @each $size in $fontSizes {
     .md_fs_#{$size}{font-size: rem($size) !important;}
+  }
+  @each $pc, $mo in $edtFontSizes {
+    .edt_fs_#{$pc}{font-size: $mo !important;}
   }
   @each $name, $weight in $fontWeight {
     .md_fw_#{$name}{font-weight: $weight;}
