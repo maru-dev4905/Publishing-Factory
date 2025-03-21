@@ -16,16 +16,16 @@ export default defineConfig({
         wv_common: resolve(process.cwd(), 'assets/js/core/wv_common.js'),
         wv_form: resolve(process.cwd(), 'assets/js/core/wv_form.js'),
         // Custom JS 엔트리 파일들 (public 폴더에 있다면 번들 대상에서 복사가 아닌 번들로 포함시키려면 위치를 옮기거나 별도 관리)
-        // pf: resolve(process.cwd(), 'public/js/custom/pf.js'),
-        // project_config: resolve(process.cwd(), 'public/js/custom/project-config.js'),
-        // custom_wv_common: resolve(process.cwd(), 'public/js/custom/wv_common.js')
+        pf: resolve(process.cwd(), 'public/js/custom/pf.js'),
+        project_config: resolve(process.cwd(), 'public/js/custom/project-config.js'),
+        custom_wv_common: resolve(process.cwd(), 'public/js/custom/wv_common.js')
       },
       output: {
         entryFileNames: (chunkInfo) => {
           const customEntries = ['pf', 'project_config', 'custom_wv_common'];
-          if (customEntries.includes(chunkInfo.name)) {
-            return 'js/custom/[name].js';
-          }
+          // if (customEntries.includes(chunkInfo.name)) {
+          //   return 'js/custom/[name].js';
+          // }
           if (['wv_compo','wv_animation','wv_common','wv_form','adm'].includes(chunkInfo.name)) {
             return 'js/core/[name].js';
           }

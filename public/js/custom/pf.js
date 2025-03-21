@@ -1,6 +1,4 @@
 if (typeof document !== 'undefined') {
-  // 브라우저 환경에서만 실행될 코드
-  console.log('브라우저 환경에서 실행됩니다.');
   document.addEventListener('DOMContentLoaded', () => {
     const slotBar = document.querySelector("#slot");
     const themeChkbox = slotBar.querySelector(".toggle_btn input");

@@ -22,25 +22,19 @@ permalink: /components/Tab.html
 
                 <div class=" fc_white1">
                     <div class="wv_tab">
-                        <ul>
-                            <li>
-                                <button class="wv_tab_btn">Tab1</button>
-                                <p>asdlnasd</p>
-                            </li>
-                            <li>
-                                <button class="wv_tab_btn">Tab2</button>
-                                <p>asdlnasd</p>
-                            </li>
-                            <li>
-                                <button class="wv_tab_btn">Tab3</button>
-                                <p>asdlnasd</p>
-                            </li>
-                        </ul>
+                        <div class="wv_tab_menu">
+                            <button type="button" class="wv_tab_btn active">Tab 1</button>
+                            <button type="button" class="wv_tab_btn">Tab 2</button>
+                            <button type="button" class="wv_tab_btn">Tab 3</button>
+                        </div>
+                        <div class="wv_tab_content">
+                            <div class="wv_tab_panel">Content for Tab 1</div>
+                            <div class="wv_tab_panel">Content for Tab 2</div>
+                            <div class="wv_tab_panel">Content for Tab 3</div>
+                        </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </main>
     {% include "slot.njk" %}

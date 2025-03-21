@@ -1,8 +1,8 @@
 @use './absctracts/mixin' as *;
 @use './absctracts/pf_variables' as *;
 
-@import "./guideComponents/_table";
-@import "./guideComponents/_slot";
+@use "./guideComponents/table";
+@use "./guideComponents/slot";
 
 *{
   transition: all .3s;

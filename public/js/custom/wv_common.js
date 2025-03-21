@@ -16,7 +16,6 @@ if (window.w >= 768) {
 }
 
 $(document).ready(function () {
-  window.wvCore.getFontCdn('Pretendard');
   console.log(1, 'document.ready');
 });
 

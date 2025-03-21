@@ -272,11 +272,35 @@ caption.a11y-hidden {
 .lih120per			{line-height: 120%;}
 .lih110per			{line-height: 110%;}
 
-//
-//@each $name, $hex in $prj_color {
-//  .fc_#{$name} {color: $hex !important;}
-//  .bg_#{$name} {background-color: $hex !important;}
-//}
+.fc_white1{color: var(--white1);}
+.fc_white2{color: var(--white2);}
+.fc_white3{color: var(--white3);}
+.fc_gray1{color: var(--gray1);}
+.fc_gray2{color: var(--gray2);}
+.fc_gray3{color: var(--gray3);}
+.fc_gray4{color: var(--gray4);}
+.fc_black1{color: var(--black1);}
+.fc_black2{color: var(--black2);}
+.fc_point1{color: var(--point1);}
+.fc_point2{color: var(--point2);}
+.fc_point3{color: var(--point3);}
+.fc_point4{color: var(--point4);}
+.fc_point5{color: var(--point5);}
+
+.bg_white1{color: var(--white1);}
+.bg_white2{color: var(--white2);}
+.bg_white3{color: var(--white3);}
+.bg_gray1{color: var(--gray1);}
+.bg_gray2{color: var(--gray2);}
+.bg_gray3{color: var(--gray3);}
+.bg_gray4{color: var(--gray4);}
+.bg_black1{color: var(--black1);}
+.bg_black2{color: var(--black2);}
+.bg_point1{color: var(--point1);}
+.bg_point2{color: var(--point2);}
+.bg_point3{color: var(--point3);}
+.bg_point4{color: var(--point4);}
+.bg_point5{color: var(--point5);}
 
 .ta_center		{text-align: center;}
 .ta_left			{text-align: left;}
@@ -331,7 +355,6 @@ caption.a11y-hidden {
   .pb_#{$size}{padding-bottom:rem($size) !important;}
   .pl_#{$size}{padding-left:rem($size) !important;}
 }
-
 /* Interval END */
 
 /* Scrollbar Custom */
@@ -386,10 +409,6 @@ caption.a11y-hidden {
 
 
 /* Form */
-.wv_hint_txt{
-  display: none;
-  color: var(--danger);
-}
 .wv_ipt{
   border-radius: 0;
   outline: none;
@@ -397,7 +416,6 @@ caption.a11y-hidden {
   padding: 10px 20px;
 }
 /* Form END */
-
 
 @media all and (max-width:1600px){
   .res_1600_s	{display : block !important;}

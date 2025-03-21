@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"eleventy --serve\" \"sass --watch assets/scss:dist/assets/css\"",
     "build": "eleventy &&  npm run build:js && npm run build:css",
-    "build:css": "sass --no-source-map assets/scss/wv.scss:dist/assets/css/wv.css",
+    "build:css": "sass --no-source-map assets/scss/wv.scss:dist/assets/css/wv.css assets/scss/wv_admin.scss:dist/assets/css/wv_admin.css assets/scss/new_guide.scss:dist/assets/css/new_guide.css",
     "build:js": "vite build"
   },
   "keywords": [],
