@@ -1,12 +1,12 @@
 const toggleClassAnim = (ctrl) => {
-  $(".anim").each(function (i) {
+  document.querySelectorAll('.anim').forEach(el => {
     new ScrollMagic.Scene({
-      triggerElement: this,
+      triggerElement: el,
       triggerHook: 0.85,
     })
-        .setClassToggle(this, 'show')
+        .setClassToggle(el, 'show')
         .addTo(ctrl);
   });
-}
+};
 
 export default toggleClassAnim;
