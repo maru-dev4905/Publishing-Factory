@@ -2,20 +2,20 @@ const checkScrollDir = () => {
   // 스크롤 방향 감지 함수
   let preScrollTop = 0;
 
-  $(window).on("scroll", ()=> {
-    let nextScrollTop = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const nextScrollTop = window.scrollY;
 
-    if(preScrollTop < nextScrollTop) {
-      $("header").addClass("hide");
-      $("body").addClass("scr_down").removeClass("scr_up");
-    }
-    else {
-      // UP
-      $("header").removeClass("hide");
-      $("body").removeClass("scr_down").addClass("scr_up");
+    if (preScrollTop < nextScrollTop) {
+      document.querySelector("header").classList.add("hide");
+      document.body.classList.add("scr_down");
+      document.body.classList.remove("scr_up");
+    } else {
+      document.querySelector("header").classList.remove("hide");
+      document.body.classList.remove("scr_down");
+      document.body.classList.add("scr_up");
     }
     preScrollTop = nextScrollTop;
-  })
-}
+  });
+};
 
 export default checkScrollDir;
