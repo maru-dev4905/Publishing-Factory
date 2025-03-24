@@ -37,7 +37,7 @@
             display: block;
             width: 20px;
             height: 20px;
-            background: url('/assets/images/icons/ico_light.svg') no-repeat center / cover;
+            background: url('/public/images/icons/ico_light.svg') no-repeat center / cover;
             border-radius: 50%;
         }
       }
@@ -46,6 +46,6 @@
 }
 [color-theme="light"]{
   #slot .toggle_btn label::after{
-    background: url('/assets/images/icons/ico_dark.svg') no-repeat center / cover;
+    background: url('/public/images/icons/ico_dark.svg') no-repeat center / cover;
   }
 }
