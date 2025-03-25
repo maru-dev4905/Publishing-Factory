@@ -15,6 +15,18 @@
 
   --adm_white3-hov: #FBFAFA;
 }
+.theme_dark {
+  --adm_white1: #111719;
+  --adm_white2: #1E2428;
+  --adm_white3: #2A3035;
+  --adm_gray1:  #CCCCCC;
+  --adm_gray2:  #AAAAAA;
+  --adm_gray3:  #888888;
+  --adm_gray4:  #666666;
+  --adm_black1: #F5F5F5;
+  --adm_black2: #E0E0E0;
+  --adm_white3-hov: #3B4248;
+}
 /* THEME END */
 
 main.admin_page{
@@ -473,7 +485,6 @@ main.admin_page{
   transform 0.2s ease-in-out,
 opacity 0.2s ease-in-out,
 visibility 0.2s ease-in-out;
-  background-color: #fff;
   z-index: 10;
   opacity: 1;
   visibility: visible;

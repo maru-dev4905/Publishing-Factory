@@ -4,8 +4,8 @@
   border-bottom: 1px solid var(--clr-point3);
 
   &[data-tb="1"]{
-    .tb_hd p:nth-child(1){flex: .2}
-    .tb_bd li p:nth-of-type(1){flex: .2}
+    .tb_hd p:nth-child(1){flex: .3}
+    .tb_bd li p:nth-of-type(1){flex: .3}
     .tb_hd p:nth-child(2){flex: .5}
     .tb_bd li p:nth-of-type(2){flex: .5}
   }
