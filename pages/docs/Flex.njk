@@ -1,0 +1,212 @@
+---
+pageTitle: "FP 프로젝트 - Flex 가이드"
+pageDir: ["Docs", "Flex"]
+permalink: /docsFlex.html
+---
+{% include "head.njk" %}
+<body>
+
+<div class="dp_f">
+    {% include "header.njk" %}
+
+    <main class="pb_200">
+        <div class="pf_inner">
+            <!-- 문서 헤더 -->
+            <div class="tit">
+                <h1 class="fs_48">CSS - Flex 유틸리티 클래스</h1>
+                <p class="fs_18 mt_20 fc_point4">
+                    이 가이드는 wv.css의 Flex 관련 클래스와 모바일 대응(md_) 클래스 사용법을 설명합니다.
+                </p>
+            </div>
+
+            <!-- Flex 클래스 테이블 -->
+            <div class="mt_80">
+                <div class="tit">
+                    <h2 class="fs_40">Flex 클래스 목록</h2>
+                    <p class="fs_18 mt_20 fc_point4">
+                        아래는 Flex 관련 클래스들의 속성과 설명입니다.
+                    </p>
+                </div>
+                <div class="table mt_60" data-tb="1">
+                    <div class="tb_hd">
+                        <p>Class Name</p>
+                        <p>CSS Attribute</p>
+                        <p>Description</p>
+                    </div>
+                    <ul class="tb_bd">
+                        <li>
+                            <p>.fd_row</p>
+                            <p>flex-direction: row;</p>
+                            <p class="fc_point4">행 방향 배치</p>
+                        </li>
+                        <li>
+                            <p>.fd_col</p>
+                            <p>flex-direction: column;</p>
+                            <p class="fc_point4">열 방향 배치</p>
+                        </li>
+                        <li>
+                            <p>.al_center</p>
+                            <p>align-items: center;</p>
+                            <p class="fc_point4">수직 중앙 정렬</p>
+                        </li>
+                        <li>
+                            <p>.jtf_center</p>
+                            <p>justify-content: center;</p>
+                            <p class="fc_point4">수평 중앙 정렬</p>
+                        </li>
+                        <li>
+                            <p>.fd_wrap</p>
+                            <p>flex-wrap: wrap;</p>
+                            <p class="fc_point4">요소 감싸기</p>
+                        </li>
+                        <li>
+                            <p>.fd_center</p>
+                            <p>
+                                display: flex;<br>
+                                justify-content: center;<br>
+                                align-items: center;
+                            </p>
+                            <p class="fc_point4">완벽한 중앙 정렬</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Flex 사용 예제 섹션 -->
+            <div class="mt_80">
+                <div class="tit">
+                    <h2 class="fs_40">사용 예제</h2>
+                </div>
+                <div class="pf_ex mt_40">
+                    <!-- 상단: 예제 결과물 영역 -->
+                    <div class="pf_cont">
+                        <div class="dp_f fd_row gap16">
+                            <div class="pf_box">Column</div>
+                            <div class="pf_box">Column</div>
+                            <div class="pf_box">Column</div>
+                            <div class="pf_box">Column</div>
+                        </div>
+                    </div>
+
+                    <!-- 하단: 코드 스니펫 영역 -->
+                    <div class="pf_code">
+                        <p class="code_tit">HTML</p>
+                        <div class="highlight">
+<pre class="chroma">
+<code class="language-html" data-lang="html">
+<span class="line"><span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"dp_f fd_row gap16"</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"pf_box"</span><span class="p">&gt;</span>Column<span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"pf_box"</span><span class="p">&gt;</span>Column<span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"pf_box"</span><span class="p">&gt;</span>Column<span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"pf_box"</span><span class="p">&gt;</span>Column<span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line"><span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+</code>
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pf_ex mt_40">
+                    <!-- 상단: 예제 결과물 영역 -->
+                    <div class="pf_cont">
+                        <div class="dp_f fd_row gap16">
+                            <div class="pf_box">Column</div>
+                            <div class="pf_box">Column</div>
+                            <div class="pf_box">Column</div>
+                            <div class="pf_box">Column</div>
+                        </div>
+                    </div>
+
+                    <!-- 하단: 코드 스니펫 영역 -->
+                    <div class="pf_code">
+                        <p class="code_tit">상단 예제물 영역 코드</p>
+                        <div class="highlight">
+<pre class="chroma">
+<code class="language-html" data-lang="html">
+<span class="line"><span class="p">&lt;</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">  <span class="p">&lt;</span><span class="el">div</span><span class="p">&gt;</span><span class="t">Column</span><span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line"><span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+</code>
+</pre>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="pf_ex mt_40">
+                    <div class="dp_f fd_row jtf_center al_center" style="gap: 10px;">
+                        <div class="pf_box p_20">Item 1</div>
+                        <div class="pf_box p_20">Item 2</div>
+                        <div class="pf_box p_20">Item 3</div>
+                    </div>
+                    <p class="fs_16 mt_10 fc_point4">
+                        사용 클래스 :
+                        <code> .fd_row .jtf_center .al_center</code>
+                    </p>
+                </div>
+                <!-- 예제 2: fd_col, jtf_center -->
+                <div class="mt_40">
+                    <div class="dp_f fd_col jtf_center" style="height:200px; gap: 10px;">
+                        <div class="pf_box p_20">Item A</div>
+                        <div class="pf_box p_20">Item B</div>
+                        <div class="pf_box p_20">Item C</div>
+                    </div>
+                    <p class="fs_16 mt_10 fc_point4"><code>.fd_col .jtf_center</code></p>
+                </div>
+                <!-- 예제 3: fd_wrap -->
+                <div class="mt_40">
+                    <div class="dp_f fd_row fd_wrap" style="gap: 10px;">
+                        <div class="pf_box p_20" style="min-width:100px;">Box 1</div>
+                        <div class="pf_box p_20" style="min-width:100px;">Box 2</div>
+                        <div class="pf_box p_20" style="min-width:100px;">Box 3</div>
+                        <div class="pf_box p_20" style="min-width:100px;">Box 4</div>
+                    </div>
+                    <p class="fs_16 mt_10 fc_point4"><code>.fd_row .fd_wrap</code></p>
+                </div>
+                <!-- 예제 4: fd_center -->
+                <div class="mt_40">
+                    <div class="fd_center" style="height:150px;">
+                        <div class="pf_box p_20">Centered Item</div>
+                    </div>
+                    <p class="fs_16 mt_10 fc_point4"><code>.fd_center</code></p>
+                </div>
+            </div>
+
+            <!-- 모바일 대응 Flex 예제 섹션 -->
+            <div class="mt_80">
+                <div class="tit">
+                    <h2 class="fs_40">모바일 대응 클래스 예제</h2>
+                </div>
+                <div class="pf_ex">
+                    <!-- 모바일 예제 1: md_fd_row, jtf_center, al_center -->
+                    <div class="mt_40">
+                        <div class="dp_f md_fd_row jtf_center al_center" style="gap: 10px;">
+                            <div class="pf_box p_20">Mobile 1</div>
+                            <div class="pf_box p_20">Mobile 2</div>
+                            <div class="pf_box p_20">Mobile 3</div>
+                        </div>
+                        <p class="fs_16 mt_10 fc_point4"><code>md_fd_row .jtf_center .al_center</code></p>
+                    </div>
+                    <!-- 모바일 예제 2: md_fd_col, jtf_center -->
+                    <div class="mt_40">
+                        <div class="dp_f md_fd_col jtf_center" style="height:200px; gap: 10px;">
+                            <div class="pf_box p_20">Mobile A</div>
+                            <div class="pf_box p_20">Mobile B</div>
+                            <div class="pf_box p_20">Mobile C</div>
+                        </div>
+                        <p class="fs_16 mt_10 fc_point4"><code>md_fd_col .jtf_center</code></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    {% include "slot.njk" %}
+</div>
+
+</body>

@@ -26,9 +26,10 @@
   .tb_bd{
     li{
       display: flex;
-      height: $celH;
+      height: max-content;
       background-color: var(--clr-point5);
       border-top: 1px solid var(--clr-point3);
+      padding: 4px 0;
 
       p{
         flex: 1;

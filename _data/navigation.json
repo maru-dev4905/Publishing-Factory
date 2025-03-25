@@ -5,7 +5,7 @@
       "children": [
         { "name": "Display", "url": "./docsDisplay.html" },
         { "name": "Aspect Ratio", "url": "./docsAspectRatio.html" },
-        { "name": "Sizing", "url": "./docsSizing.html" },
+        { "name": "Flex", "url": "./docsFlex.html" },
         { "name": "Typography", "url": "./docsTypography.html" }
       ]
     },

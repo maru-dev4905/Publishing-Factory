@@ -4,7 +4,7 @@
 @use "./guideComponents/table";
 @use "./guideComponents/slot";
 
-*{
+* {
   transition: all .3s;
 }
 
@@ -16,7 +16,12 @@ html[color-theme='light'] {
   --clr-point5: var(--l_point5);
 
   --clr-slotBar: #1a1a1a;
-
+  --code-base-color: #333333;   /* 기본 텍스트 */
+  --code-el-color:   #d63384;   /* 태그명 */
+  --code-at-color:   #0d6efd;   /* 속성명 */
+  --code-va-color:   #fd7e14;   /* 속성값 */
+  --code-p-color:    #6c757d;   /* 꺾쇠/슬래시 등 구두점 */
+  --code-o-color:    #6c757d;   /* = 등 연산자 */
 }
 
 html[color-theme='dark'] {
@@ -27,37 +32,62 @@ html[color-theme='dark'] {
   --clr-point5: var(--d_point5);
   --clr-white1: var(--pf_white1);
   --clr-slotBar: #f3f3f3;
+
+  --code-base-color: #e1e1e1;   /* 기본 텍스트 */
+  --code-el-color:   #d63384;   /* 태그명 */
+  --code-at-color:   #0d6efd;   /* 속성명 */
+  --code-va-color:   #fd7e14;   /* 속성값 */
+  --code-p-color:    #6c757d;   /* 꺾쇠/슬래시 등 구두점 */
+  --code-o-color:    #6c757d;   /* = 등 연산자 */
 }
 
-.fc_point1 {color: var(--clr-point1);}
-.fc_point2 {color: var(--clr-point2);}
-.fc_point3 {color: var(--clr-point3);}
-.fc_point4 {color: var(--clr-point4);}
-.fc_point5{color: var(--clr-point5);}
-.fc_white1 {color: var(--clr-white1);}
+.fc_point1 {
+  color: var(--clr-point1);
+}
+
+.fc_point2 {
+  color: var(--clr-point2);
+}
+
+.fc_point3 {
+  color: var(--clr-point3);
+}
+
+.fc_point4 {
+  color: var(--clr-point4);
+}
+
+.fc_point5 {
+  color: var(--clr-point5);
+}
+
+.fc_white1 {
+  color: var(--clr-white1);
+}
 
 body {
   background-color: var(--clr-point1);
 }
 
-pre {
-  background: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto;
-}
-strong{
+
+strong {
   font-weight: 500;
 }
 
-main{
+main {
   position: relative;
-  .tit{
-    h1,h2,h3,h4,h5,h6 {
+
+  .tit {
+    h1, h2, h3, h4, h5, h6 {
       color: var(--clr-white1);
     }
-    p{
+
+    p {
       color: var(--clr-point4);
       line-height: 150%;
     }
-    strong{
+
+    strong {
       color: var(--clr-point4);
     }
   }
@@ -85,7 +115,8 @@ main{
   .logo {
     width: 280px;
     height: 30px;
-    svg{
+
+    svg {
       width: 100%;
     }
   }
@@ -149,7 +180,7 @@ main{
           }
 
           &.on,
-          &:hover{
+          &:hover {
             &::before {
               width: 10px;
             }
@@ -275,7 +306,87 @@ main {
 }
 
 
-.wv_tab{
+.wv_tab {
   width: 100%;
+}
 
+
+.pf_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: var(--clr-point2);
+  border-radius: 10px;
+  color: var(--clr-white1);
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid var(--clr-point3);
+}
+
+
+/* 예제 전체 컨테이너 */
+.pf_ex {
+  margin-bottom: 2rem;
+  border: 1px solid var(--clr-point3);
+  border-radius: 10px;
+  overflow: hidden;
+
+  /* 상단 예제 영역 */
+  .pf_cont {
+    padding: 1rem;
+    background-color: var(--clr-point1);
+  }
+
+  /* 하단 코드 영역 */
+  .pf_code {
+    background-color: var(--clr-point1);
+    border-top: 1px solid var(--clr-point3);
+
+    .code_tit {
+      padding: 10px 16px;
+      font-weight: 700;
+      color: var(--clr-white1);
+      background-color: var(--clr-point2)
+    }
+
+    .highlight {
+      overflow-x: auto;
+      font-size: 0.875rem;
+      background-color: var(--clr-point1);
+      border-top: 1px solid var(--clr-point3);
+
+      pre{
+        padding: 16px;
+      }
+      code {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: "Noto Sans KR";
+        color: var(--code-base-color); /* 기본 텍스트 색상 */
+
+        /* 태그명 */
+        .el {
+          color: var(--code-el-color);
+        }
+        /* 속성명 */
+        .at {
+          color: var(--code-at-color);
+        }
+        /* 속성값 */
+        .va {
+          color: var(--code-va-color);
+        }
+        /* 꺾쇠/슬래시 등 구두점 */
+        .p {
+          color: var(--code-p-color);
+        }
+        /* = 등 연산자 */
+        .o {
+          color: var(--code-o-color);
+        }
+      }
+    }
+  }
 }
