@@ -1,0 +1,122 @@
+/* pagination */
+.wv_pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wv_pagination .next,
+.wv_pagination .prev{
+  width : 1.5rem;
+  height: 1.5rem;
+  background: url("../images/icons/ico_pagination_arrow.svg") no-repeat center / cover;
+  cursor: pointer;
+}
+.wv_pagination .prev.disabled,
+.wv_pagination .next.disabled{
+  opacity: .2;
+  cursor: auto;
+}
+.wv_pagination .prev{
+  transform: rotate(180deg);
+  margin-right : 0.625rem;
+}
+.wv_pagination .next{
+  margin-left: 0.625rem;
+}
+.wv_pagination .page_num{
+  position: relative;
+  width : 0.625rem;
+  height: 0.625rem;
+  margin: 0 1.25rem;
+  transition: opacity 0.2s ease-in-out,
+  transform 0.2s ease-in-out,
+  background-color 0.2s ease-in-out;
+}
+.wv_pagination .page_num::before{
+  display : block;
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width : 0.625rem;
+  height: 0.625rem;
+  background-color: rgba(0,0,0,1);
+  opacity: .2;
+  border-radius: 50%;
+  transition: opacity 0.2s ease-in-out,
+  transform 0.2s ease-in-out,
+  background-color 0.2s ease-in-out;
+}
+.wv_pagination .page_num span{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.wv_pagination .page_num:hover::before{
+  transform: translate(-50%,-50%) scale(3);
+  opacity: 1;
+  background-color: #5B5B5B;
+}
+.wv_pagination .page_num:hover span{
+  opacity: 1;
+}
+.wv_pagination .page_num.on::before{
+  transform: translate(-50%,-50%) scale(3);
+  opacity: 1;
+  background-color: #5B5B5B;
+}
+.wv_pagination .page_num.on span{
+  opacity: 1;
+}
+/* pagination END */
+
+
+
+/* view */
+.sec_view .back_btn{
+  width: 50px;
+  height: 50px;
+}
+.sec_view .view_hd{
+  border-bottom: 2px solid #000;
+}
+.sec_view .view_hd h2{
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 130%;
+  color: var(--point1);
+  margin-bottom: 20px;
+}
+.sec_view .view_hd p{
+  padding-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #999;
+}
+.sec_view .view_bd{
+  padding: 60px 0;
+  border-bottom: 1px solid #000;
+}
+.sec_view .view_bd > div{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.sec_view .view_ft{
+  padding-top: 20px;
+}
+.sec_view .view_ft a,
+.sec_view .view_ft button{
+  padding: 10px 31.5px;
+  border-radius: 50px;
+  background-color: #ECECEC;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+}
+/* view END */

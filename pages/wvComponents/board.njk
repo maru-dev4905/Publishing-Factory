@@ -1,0 +1,86 @@
+---
+pageTitle: "FP 프로젝트 - Display 가이드"
+pageDir: ["WVComponents", "Board"]
+permalink: /board.html
+---
+{% include "head.njk" %}
+<body>
+
+<div class="dp_f">
+    {% include "header.njk" %}
+
+    <main>
+        <div class="pf_inner board sec_view">
+            <!-- 문서 헤더 -->
+            <div class="tit">
+                <h1 class="fs_48">WV Components - Board View</h1>
+                <p>
+                    [상단 .view_hd] <br>
+                    [내용 .view_bd] <br>
+                    [하단 .view_ft] <br>
+                    으로 나뉘며 상단으로.view_hd 에는 제목, 날짜, 작성자, 조회수 등이 들어갑니다. <br>
+                    .view_bd 에는 관리자에서 등록하는 게시글 내용이 들어가며 간혹 다운로드 버튼 영역이 추가로 들어갑니다. <br>
+                    .view_ft 에는 수정, 삭제, 목록으로 이동, 다음 or 이전 게시글 링크, 공유하기 등이 들어갑니다. <br><br>
+                    ( 게시판 상세 페이지 스타일은 sec_view를 넣어주세요 )
+                </p>
+            </div>
+
+
+            <div class="pf_ex mt_40">
+                <div class="pf_cont" style="background-color: #fff;">
+                    <div class="pt_100 pb_100">
+                        <div class="inner_base grid_lay md_dp_b">
+                            <a href="#" class="back_btn"><img src="../assets/images/icons/back_btn.svg" alt=""></a>
+                            <div class="view_wrap grid_col md_mt_40" style="--colST: 3; --colED: -3;">
+                                <div class="view_hd">
+                                    <h2>[제목]</h2>
+                                    <p>[날짜]</p>
+                                </div>
+                                <div class="view_bd">
+                                    <div>
+                                        [콘텐츠 내용]
+                                    </div>
+                                </div>
+
+                                <div class="view_ft">
+                                    [수정, 삭제, 목록으로 이동, 다음 or 이전 게시글 링크, 공유하기 등]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pf_code">
+                    <p class="code_tit">HTML</p>
+                    <div class="highlight">
+<pre class="chroma">
+<code class="language-html" data-lang="html">
+<span class="line"><span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"inner_base grid_lay md_dp_b"</span><span class="p">&gt;</span></span>
+<span class="line">  <span class="p">&lt;</span><span class="el">a</span> <span class="at">href</span><span class="o">=</span><span class="va">"#"</span> <span class="at">class</span><span class="o">=</span><span class="va">"back_btn"</span><span class="p">&gt;</span><span class="p">&lt;</span><span class="el">img</span> <span class="at">src</span><span class="o">=</span><span class="va">"../assets/images/icons/back_btn.svg"</span> <span class="at">alt</span><span class="o">=</span><span class="va">""</span><span class="p">&gt;</span><span class="p">&lt;/</span><span class="el">a</span><span class="p">&gt;</span></span>
+<span class="line">  <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"view_wrap grid_col md_mt_40"</span> <span class="at">style</span><span class="o">=</span><span class="va">"--colST: 3; --colED: -3;"</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"view_hd"</span><span class="p">&gt;</span></span>
+<span class="line">      <span class="p">&lt;</span><span class="el">h2</span><span class="p">&gt;</span><span class="t">[제목]</span><span class="p">&lt;/</span><span class="el">h2</span><span class="p">&gt;</span></span>
+<span class="line">      <span class="p">&lt;</span><span class="el">p</span><span class="p">&gt;</span><span class="t">[날짜]</span><span class="p">&lt;/</span><span class="el">p</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"view_bd"</span><span class="p">&gt;</span></span>
+<span class="line">      <span class="p">&lt;</span><span class="el">div</span><span class="p">&gt;</span><span class="t">[콘텐츠 내용]</span><span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">    <span class="p">&lt;</span><span class="el">div</span> <span class="at">class</span><span class="o">=</span><span class="va">"view_ft"</span><span class="p">&gt;</span></span>
+<span class="line">      <span class="t">[수정, 삭제, 목록으로 이동, 다음 or 이전 게시글 링크, 공유하기 등]</span></span>
+<span class="line">    <span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line">  <span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+<span class="line"><span class="p">&lt;/</span><span class="el">div</span><span class="p">&gt;</span></span>
+</code>
+</pre>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include "slot.njk" %}
+</div>
+
+</body>

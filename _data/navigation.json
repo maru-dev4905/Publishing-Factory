@@ -21,7 +21,14 @@
         { "name": "Hide Today", "url": "./compoHideToday.html" }
       ]
     },
-    { "name": "Form", "url": "./form.html" },
+    {
+      "name": "WVComponents",
+      "children": [
+        { "name": "Pagination", "url": "./Pagination.html" },
+        { "name": "Board", "url": "./Board.html" },
+        { "name": "Search", "url": "./Search.html" }
+      ]
+    },
     { "name": "Download", "url": "./download.html" },
     {
       "name": "Admin",

@@ -99,6 +99,11 @@ main {
   height: 100%;
   margin: 0 auto;
   padding-top: 60px;
+  padding-bottom: 200px;
+
+  &.board{
+    max-width: 1320px;
+  }
 }
 
 .pf_hd {
