@@ -37,13 +37,36 @@ permalink: /board.html
                                     <p>[날짜]</p>
                                 </div>
                                 <div class="view_bd">
-                                    <div>
+                                    <div class="download_wrap">
+                                        <a href="/download/e7494477-9f2b-43ca-b5e8-486a2a5dd549" download class="file_down" title="파일 내려받기">
+                                            <span class="file_name"><i class="ico_attachment"></i>첨부파일.pdf</span><i class="ico_download_gray"></i>
+                                        </a>
+                                        <a href="/download/e7494477-9f2b-43ca-b5e8-486a2a5dd549" download class="file_down mt_10" title="파일 내려받기">
+                                            <span class="file_name"><i class="ico_attachment"></i>첨부파일.pdf</span><i class="ico_download_gray"></i>
+                                        </a>
+                                    </div>
+                                    <div class="mt_60">
                                         [콘텐츠 내용]
                                     </div>
                                 </div>
 
-                                <div class="view_ft">
-                                    [수정, 삭제, 목록으로 이동, 다음 or 이전 게시글 링크, 공유하기 등]
+                                <div class="view_ft grid_col" style="--colST: 3; --colED: -3;">
+                                    <div class="share_wrap">
+                                        <button type="button" class="share_btn wv_target_btn show" data-target="[&quot;shareWrap&quot;,&quot;show&quot;,&quot;add&quot;]">공유하기</button>
+                                        <div id="shareWrap" class="show">
+                                            <button type="button" class="wv_target_btn close_btn" data-target="[&quot;shareWrap&quot;, &quot;show&quot;, &quot;remove&quot;]"></button>
+                                            <p>공유하기</p>
+                                            <ul>
+                                                <li><button class="wv_copy_btn facebook" data-type="social" data-platform="facebook"></button></li>
+                                                <li><button class="wv_copy_btn kakao" data-type="social" data-platform="kakao"></button></li>
+                                                <li><button class="wv_copy_btn blog" data-type="social" data-platform="blog"></button></li>
+                                                <li><button class="wv_copy_btn link" data-type="window"></button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="btn_wrap mt_60 dp_f jtf_center">
+                                        <a href="/news/notice">목록으로</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
