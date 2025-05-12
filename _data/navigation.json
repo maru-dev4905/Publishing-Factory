@@ -18,15 +18,16 @@
         { "name": "Copy Button", "url": "./compoCopyButton.html" },
         { "name": "Scroll Button", "url": "./compoScrollButton.html" },
         { "name": "Modal", "url": "./compoModal.html" },
-        { "name": "Hide Today", "url": "./compoHideToday.html" }
+        { "name": "Hide Today", "url": "./compoHideToday.html" },
+        { "name": "Select", "url": "./compoSelect.html" }
       ]
     },
     {
       "name": "WVComponents",
       "children": [
-        { "name": "Pagination", "url": "./Pagination.html" },
-        { "name": "Board", "url": "./Board.html" },
-        { "name": "Search", "url": "./Search.html" }
+        { "name": "Pagination", "url": "./pagination.html" },
+        { "name": "Board", "url": "./board.html" },
+        { "name": "Search", "url": "./search.html" }
       ]
     },
     { "name": "Download", "url": "./download.html" },

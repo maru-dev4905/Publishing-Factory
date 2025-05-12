@@ -41,6 +41,12 @@
   justify-content: center;
   align-items: center;
 }
+
+@for $i from 0 through 12 {
+  .fx_#{$i} {
+    flex: #{$i};
+  }
+}
 /* Flex END */
 
 /* Position */
@@ -80,6 +86,21 @@
 }
 .grid_col{
   grid-column: var(--colST) / var(--colED);
+}
+
+@for $i from 1 through 12 {
+  .colST#{$i}{
+    grid-column-start: #{$i};
+  }
+  .colST-#{$i}{
+    grid-column-start: -#{$i};
+  }
+  .colED#{$i}{
+    grid-column-end: #{$i};
+  }
+  .colED-#{$i}{
+    grid-column-end: -#{$i};
+  }
 }
 
 
@@ -266,11 +287,15 @@ caption.a11y-hidden {
 .lih24					{line-height: rem(24px)}
 .lih20					{line-height: rem(20px)}
 
+.lih220per			{line-height: 220%;}
+.lih170per			{line-height: 170%;}
+.lih160per			{line-height: 160%;}
 .lih150per			{line-height: 150%;}
 .lih135per			{line-height: 135%;}
 .lih125per			{line-height: 125%;}
 .lih120per			{line-height: 120%;}
 .lih110per			{line-height: 110%;}
+.lih100per			{line-height: 100%;}
 
 .fc_white1{color: var(--white1);}
 .fc_white2{color: var(--white2);}
@@ -415,6 +440,11 @@ caption.a11y-hidden {
   border: none;
   padding: 10px 20px;
 }
+@for $i from 1 through $zIndex {
+  .z_idx#{$i} {
+    z-index: $i;
+  }
+}
 /* Form END */
 
 @media all and (max-width:1600px){
@@ -533,8 +563,20 @@ caption.a11y-hidden {
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 20px;
   }
-  .md_grid_col{
-    grid-column: var(--mdColST) / var(--mdColED);
+
+  @for $i from 1 through 12 {
+    .md_colST#{$i}{
+      grid-column-start: #{$i};
+    }
+    .md_colST-#{$i}{
+      grid-column-start: -#{$i};
+    }
+    .md_colED#{$i}{
+      grid-column-end: #{$i};
+    }
+    .md_colED-#{$i}{
+      grid-column-end: -#{$i};
+    }
   }
 
   .md_w_100per{width: 100%;}
@@ -566,6 +608,16 @@ caption.a11y-hidden {
   .md_lih30					{line-height: 30px;}	/* 30px */
   .md_lih24					{line-height: 24px;}	/* 24px */
   .md_lih20					{line-height: 20px;}	/* 20px */
+
+  .md_lih220per			{line-height: 220%;}
+  .md_lih170per			    {line-height: 170%;}
+  .md_lih160per			{line-height: 160%;}
+  .md_lih150per			{line-height: 150%;}
+  .md_lih135per			{line-height: 135%;}
+  .md_lih125per			{line-height: 125%;}
+  .md_lih120per			{line-height: 120%;}
+  .md_lih110per			    {line-height: 110%;}
+  .md_lih100per			{line-height: 100%;}
 
   @each $size in $intervalSizes {
     .md_mt_#{$size}{margin-top:rem($size) !important;}
@@ -616,6 +668,12 @@ caption.a11y-hidden {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @for $i from 0 through 12 {
+    .md_fx_#{$i} {
+      flex: #{$i};
+    }
   }
 
   .wv_md_row .col6{

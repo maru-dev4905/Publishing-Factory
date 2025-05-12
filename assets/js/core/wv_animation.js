@@ -1,14 +1,16 @@
-import toggleClassAnim from '../module/animations/ToggleClassAnim';
+import toggleClassAnim from '../module/animations/ToggleClassAnim.js';
 
+gsap.registerPlugin(ScrollTrigger);
 
-window.onload = function() {
-  const ctrl = new ScrollMagic.Controller();
+window.onload = function () {
   const components = {
-    anim: $(".anim"),
-  }
+    anim: document.querySelectorAll('.anim'),
+  };
 
   const init = () => {
-    components.anim.length !== 0 && toggleClassAnim(ctrl);
-  }
+    if (components.anim.length > 0) {
+      toggleClassAnim();
+    }
+  };
   init();
-}
+};

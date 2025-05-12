@@ -1,11 +1,13 @@
-const toggleClassAnim = (ctrl) => {
+gsap.registerPlugin(ScrollTrigger);
+
+const toggleClassAnim = () => {
   document.querySelectorAll('.anim').forEach(el => {
-    new ScrollMagic.Scene({
-      triggerElement: el,
-      triggerHook: 0.85,
-    })
-        .setClassToggle(el, 'show')
-        .addTo(ctrl);
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      toggleClass: { targets: el, className: 'show' },
+      once: projectConfig.animationConfig.toggleClassOnce
+    });
   });
 };
 

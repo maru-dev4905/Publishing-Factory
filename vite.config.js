@@ -20,10 +20,11 @@ export default defineConfig({
         pf: resolve(process.cwd(), 'public/js/custom/pf.js'),
         project_config: resolve(process.cwd(), 'public/js/custom/project-config.js'),
         custom_wv_common: resolve(process.cwd(), 'public/js/custom/wv_common.js')
+      //   plugin
       },
       output: {
         entryFileNames: (chunkInfo) => {
-          const customEntries = ['pf', 'project_config', 'custom_wv_common'];
+          const customEntries = ['pf', 'project-config', 'custom_wv_common'];
           // if (customEntries.includes(chunkInfo.name)) {
           //   return 'js/custom/[name].js';
           // }
