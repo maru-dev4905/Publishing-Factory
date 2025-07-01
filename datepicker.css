@@ -1,0 +1,90 @@
+/* CSS */
+.wv_datepicker { position: relative; display: inline-block; font-family: sans-serif; }
+.wv_datepicker_btn { padding: 6px 12px; cursor: pointer; }
+
+.hidden { display: none; }
+
+.wv_dp_calendar {
+  position: absolute; top: 100%; left: 0;
+  background: #fff; border: 1px solid #ccc; border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); width: 260px;
+  user-select: none; z-index: 10;
+}
+
+.wv_dp_header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; border-bottom: 1px solid #eee;
+}
+
+.wv_dp_prev,
+.wv_dp_next {
+  background: none; border: none; font-size: 16px; cursor: pointer;
+}
+
+.wv_dp_prev.disabled,
+.wv_dp_next.disabled {
+  opacity: 0.3; cursor: default; pointer-events: none;
+}
+
+.wv_dp_selects { display: flex; gap: 8px; }
+
+.wv_dp_year, .wv_dp_month {
+  position: relative;
+}
+
+.wv_dp_year_label,
+.wv_dp_month_label {
+  cursor: pointer; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px;
+}
+
+.wv_dp_year_list,
+.wv_dp_month_list {
+  position: absolute; top: 100%; left: 0;
+  background: #fff; border: 1px solid #ccc; border-radius: 4px;
+  max-height: 150px; overflow-y: auto; padding: 4px 0; margin-top: 4px;
+  width: max-content;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.wv_dp_year_list li,
+.wv_dp_month_list li {
+  padding: 4px 12px; cursor: pointer;
+}
+
+.wv_dp_year_list li:hover,
+.wv_dp_month_list li:hover {
+  background: #f0f0f0;
+}
+
+.wv_dp_weekdays,
+.wv_dp_days {
+  display: grid; grid-template-columns: repeat(7,1fr); text-align: center;
+}
+
+.wv_dp_weekdays { padding: 8px 0; font-weight: bold; }
+
+.wv_dp_days button {
+  border: none; background: none; padding: 6px 0; cursor: pointer;
+}
+
+.wv_dp_days button.disabled {
+  color: #ddd; cursor: default;
+}
+
+.wv_dp_days button.on {
+  background: #00114D; color: #fff; border-radius: 50%;
+}
+
+.wv_dp_footer {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding: 8px 12px; border-top: 1px solid #eee;
+}
+
+.wv_dp_footer button {
+  padding: 4px 12px; border: 1px solid #ccc; border-radius: 4px;
+  cursor: pointer;
+}
+
+.wv_dp_footer .wv_dp_confirm {
+  background: #00114D; color: #fff; border-color: #00114D;
+}

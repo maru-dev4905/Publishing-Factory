@@ -1,75 +1,69 @@
+// Modal.js - event delegation & dynamic init
 export default function wvModal(closeOnOverlayClick = true) {
-  // 모달 열기 및 닫기를 위한 이벤트 위임
-  document.addEventListener('click', function(event) {
-    // 모달 버튼 (열기 또는 닫기) 확인
-    const btn = event.target.closest('.wv_modal_btn');
-    if (!btn) return;
+  const selector = '.wv_modal';
+  let inited = false;
 
-    event.preventDefault();
+  function init() {
+    if (inited) return;
+    inited = true;
 
-    // 닫기 버튼인 경우
-    if (btn.classList.contains('close_modal')) {
-      closeModal();
-      return;
-    }
+    // Delegate click events for open/close buttons
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('.wv_modal_btn');
+      if (!btn) return;
+      e.preventDefault();
 
-    // 모달 열기
-    const modalId = btn.getAttribute('data-modal');
-    if (!modalId) {
-      console.warn("data-modal 속성이 설정되어 있지 않습니다.");
-      return;
-    }
-    const targetModal = document.getElementById(modalId);
-    if (!targetModal) {
-      console.warn(`ID가 ${modalId}인 모달 요소를 찾을 수 없습니다.`);
-      return;
-    }
+      // Close button
+      if (btn.classList.contains('close_modal')) {
+        closeModal();
+        return;
+      }
 
-    // data-chain 속성이 있으면, 활성화된 다른 모달 제거
-    const chain = targetModal.getAttribute('data-chain');
-    if (chain) {
-      document.querySelectorAll('.wv_modal.active').forEach(modal => {
-        modal.classList.remove('active');
+      // Open modal
+      const modalId = btn.getAttribute('data-modal');
+      const target = document.getElementById(modalId);
+      if (!modalId || !target) {
+        console.warn(`Modal target not found: ${modalId}`);
+        return;
+      }
+
+      // If chaining, close others first
+      if (target.dataset.chain !== undefined) {
+        document.querySelectorAll(`${selector}.active`).forEach(m => m.classList.remove('active'));
+      }
+
+      target.classList.add('active');
+      document.body.classList.add('scrollLock');
+      document.querySelector('.dim')?.classList.add('active');
+      target.focus();
+    });
+
+    // Overlay click to close
+    if (closeOnOverlayClick) {
+      document.addEventListener('click', e => {
+        if (e.target.classList.contains('dim')) {
+          e.preventDefault();
+          closeModal();
+        }
       });
     }
 
-    targetModal.classList.add('active');
-    const dim = document.querySelector('.dim');
-    if (dim) {
-      dim.classList.add('active');
-    }
-    targetModal.focus();
-    document.body.classList.add('scrollLock');
-  });
+    // ESC key to close
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
 
   function closeModal() {
-    document.querySelectorAll('.wv_modal.active').forEach(modal => {
-      modal.classList.remove('active');
-    });
-    const dim = document.querySelector('.dim');
-    if (dim) {
-      dim.classList.remove('active');
-    }
+    document.querySelectorAll(`${selector}.active`).forEach(m => m.classList.remove('active'));
     document.body.classList.remove('scrollLock');
+    document.querySelector('.dim')?.classList.remove('active');
   }
 
-  // 오버레이 클릭 시 닫기
-  if (closeOnOverlayClick) {
-    document.addEventListener('click', function(event) {
-      if (event.target.classList.contains('dim')) {
-        event.preventDefault();
-        closeModal();
-      }
-    });
+  // Auto-init
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
-
-  // ESC 키로 닫기
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      const activeModal = document.querySelector('.wv_modal.active');
-      if (activeModal) {
-        closeModal();
-      }
-    }
-  });
 }

@@ -1,49 +1,77 @@
+// ScrBtn.js
 export default function wvScrBtn() {
-  const scrBtns = $(".wv_scr_btn");
+  const selector = '.wv_scr_btn';
+  let inited = false;
 
-  scrBtns.off("click").on("click", function () {
-    const btn = $(this);
-    const targetId = btn.data("scr-target");
-    const useOffset = btn.data("scr-offset") || false;
-    const scrollSpeed = btn.data("scr-speed") || 500;
-    const scrollEasing = btn.data("scr-easing") || "swing";
+  function init() {
+    if (inited) return;
+    inited = true;
 
-    // 스크롤 대상 ID 확인
-    if (!targetId) {
-      console.error("스크롤 대상이 지정되지 않았습니다.");
-      return;
-    }
+    // Delegate all click events on .wv_scr_btn
+    document.addEventListener('click', e => {
+      const btn = e.target.closest(selector);
+      if (!btn) return;
+      e.preventDefault();
 
-    const targetElem = $(`#${targetId}`);
-    if (!targetElem.length) {
-      console.error(`ID가 ${targetId}인 요소를 찾을 수 없습니다.`);
-      return;
-    }
+      const targetId   = btn.dataset.scrTarget;
+      const useOffset  = btn.dataset.scrOffset === 'true';
+      const scrollSpeed= parseInt(btn.dataset.scrSpeed, 10) || 500;
+      const scrollEasing = btn.dataset.scrEasing || 'swing';
 
-    // 헤더 오프셋 계산
-    let offset = 0;
-    if (useOffset) {
-      const headerElem = $(".hd_offset");
-      if (headerElem.length) {
-        offset = headerElem.outerHeight();
+      if (!targetId) {
+        console.error('wvScrBtn: data-scr-target is missing.');
+        return;
       }
-    }
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) {
+        console.error(`wvScrBtn: no element with ID “${targetId}”`);
+        return;
+      }
 
-    // 스크롤 애니메이션
-    $("html, body").animate(
-        {
-          scrollTop: targetElem.offset().top - offset,
-        },
-        scrollSpeed,
-        scrollEasing
-    );
-  });
+      // Compute offset for fixed header
+      let offset = 0;
+      if (useOffset) {
+        const header = document.querySelector('.hd_offset');
+        if (header) offset = header.offsetHeight;
+      }
 
-  // 헤더 높이 갱신 (헤더가 변동될 경우 대비)
-  $(window).on("resize", function () {
-    const headerElem = $(".hd_offset");
-    if (headerElem.length) {
-      headerElem.data("currentHeight", headerElem.outerHeight());
-    }
-  });
+      // Smooth scroll implementation
+      const startY = window.pageYOffset;
+      const endY   = targetEl.getBoundingClientRect().top + startY - offset;
+      const duration = scrollSpeed;
+      const startTime = performance.now();
+
+      function easeSwing(t) {
+        // approximate jQuery swing: 0.5 - cos(pi*t)/2
+        return 0.5 - Math.cos(t * Math.PI) / 2;
+      }
+
+      function animate(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const factor = (scrollEasing === 'swing') ? easeSwing(progress) : progress;
+        window.scrollTo(0, startY + (endY - startY) * factor);
+        if (elapsed < duration) {
+          requestAnimationFrame(animate);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    });
+
+    // Keep header height up-to-date in dataset
+    window.addEventListener('resize', () => {
+      const header = document.querySelector('.hd_offset');
+      if (header) {
+        header.dataset.currentHeight = header.offsetHeight;
+      }
+    });
+  }
+
+  // Auto-init on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 }
