@@ -1,18 +1,11 @@
-
-module.exports = function (eleventyConfig) {
-
-  eleventyConfig.addPassthroughCopy("assets");
-
+module.exports = function(eleventyConfig) {
   return {
     dir: {
-      input: ".",
+      input: "page",     // .njk 소스가 있는 폴더
       includes: "_includes",
-      data: "_data",
-      output: "dist"
+      layouts: "_includes",
+      output: "public",  // Eleventy가 HTML을 생성할 폴더
     },
-    templateFormats: ["njk", "html"],
-    htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk",
-    pathPrefix: "./"
-  };
-};
+    templateFormats: ["njk","html","md"]
+  }
+}

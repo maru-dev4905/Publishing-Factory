@@ -18,7 +18,6 @@ if (window.w >= 768) {
 } else {
   window.provide.res = "mo";
 }
-console.log('test');
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log(1, 'document.ready');

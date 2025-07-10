@@ -1,0 +1,43 @@
+{#---#}
+{#pageTitle: "FP 프로젝트 - Target Button"#}
+{#pageDir: [Components, Target Button]#}
+{#permalink: /compoTargetButton.html#}
+{#---#}
+{#{% include "head.njk" %}#}
+{#<body>#}
+{#<div class="dp_f">#}
+{#    {% include "header.njk" %}#}
+
+{#    <main>#}
+{#        <div class="pf_inner">#}
+{#            <div class="tit">#}
+{#                <h2 class="fs_48">Components - Target Button</h2>#}
+{#                <p class="fs_18 mt_20">#}
+{#                    이 컴포넌트는 사용자가 특정 버튼(<strong>.wv_target_btn</strong>)을 클릭했을 때, <br>#}
+{#                    버튼의 <strong>data-target</strong> 속성에 지정된 값을 파싱하여, <br>#}
+{#                    해당 ID를 가진 타겟 요소에 클래스 추가/제거 또는 토글 동작을 수행하도록 돕는 기능을 제공합니다.#}
+{#                </p>#}
+{#            </div>#}
+
+{#            <div class="tit mt_80">#}
+{#                <h3 class="fs_40">사용 방법</h3>#}
+
+{#                <button class="wv_target_btn fs_20 fc_white1" data-target="['test1', 'on', 'toggle']">타겟 버튼</button>#}
+{#                <style>#}
+{#                    #test1{#}
+{#                      color: #1e76e9;#}
+{#                    }#}
+{#                    #test1.on{#}
+{#                      color: red;#}
+{#                      background-color: #000;#}
+{#                    }#}
+{#                </style>#}
+{#                <div id="test1">TEST</div>#}
+
+{#            </div>#}
+
+{#        </div>#}
+{#    </main>#}
+{#    {% include "slot.njk" %}#}
+{#</div>#}
+{#</body>#}

@@ -4,17 +4,21 @@
   "description": "```sh npm create astro@latest -- --template basics ```",
   "main": "index.js",
   "scripts": {
-    "build:css": "sass --no-source-map --style=compressed assets/scss/wv.scss:dist/assets/css/wv.css assets/scss/wv_admin.scss:dist/assets/css/wv_admin.css assets/scss/new_guide.scss:dist/assets/css/new_guide.css assets/scss/prj_compo.scss:dist/assets/css/prj_compo.css && powershell -NoProfile -Command \"(Get-Content 'dist/assets/css/wv.css' -Raw) -replace '}', ('}' + [Environment]::NewLine) | Set-Content 'dist/assets/css/wv.css'\"",
-    "build:js": "vite build",
-    "build": "eleventy && npm run build:js && npm run build:css",
-    "dev": "concurrently \"eleventy --serve\" \"sass --watch assets/scss:dist/assets/css\" \"npm run build\""
+    "eleventy": "eleventy --config .eleventy.js",
+    "eleventy:watch": "eleventy --config .eleventy.js --watch",
+    "dev": "concurrently \"npm run eleventy:watch\" \"vite\"",
+    "build": "cross-env PROJECT_NAME=wv npm run _build",
+    "_build": "npm run eleventy && vite build",
+    "docs": "cross-env PROJECT_NAME=wv npm run eleventy && vite build --mode docs",
+    "preview": "vite preview --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
     "sass": "^1.85.1",
     "vite": "^6.2.0"
   }
