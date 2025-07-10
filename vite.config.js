@@ -35,38 +35,46 @@ export default defineConfig(({command}) => {
         ? {port: 3000, open: '/demo/index.html'}
         : undefined,
     build: {
-          outDir: 'public',
-          assetsDir: 'assets',
-          emptyOutDir: false,
-          lib: {
-            entry: entries,
-            formats: ['es'],
-            fileName: (_, name) => {
-              if(name in coreEntries) {
-                return `assets/js/core/${name}.js`;
+      outDir: 'public',
+      assetsDir: 'assets',
+      emptyOutDir: false,
+      lib: {
+        entry: entries,
+        formats: ['es'],
+        fileName: (_, name) => {
+          if (name in coreEntries) {
+            return `assets/js/core/${name}.js`;
+          }
+          if (name in customEntries) {
+            return `assets/js/custom/${name}.js`;
+          }
+          return `assets/js/${name}.js`;
+        }
+      },
+      rollupOptions: {
+        output: {
+          assetFileNames: info => {
+            const ext = path.extname(info.name);
+            if (ext === '.css') {
+              const n = path.basename(info.name, '.css');
+              // CSS도 동일하게 assets/css 로 분리
+              if (n in coreEntries) {
+                return `assets/css/core/${n}.css`;
               }
-              if(name in customEntries) {
-                return `assets/js/custom/${name}.js`;
+              if (n in customEntries) {
+                return `assets/css/custom/${n}.css`;
               }
-              return `assets/js/${name}.js`;
+              return `assets/css/${n}.css`;
             }
-          },
-          rollupOptions: {
-            output: {
-              assetFileNames: info => {
-                const ext = path.extname(info.name);
-                if (ext === '.css') {
-                  const n = path.basename(info.name, '.css');
-                  return n in coreEntries
-                      ? `css/core/[name].css`
-                      : n in customEntries
-                        ? `css/custom/[name].css`
-                          : `css/[name].css`;
-                }
-                return 'assets/[name][extname]';
-              }
+            // 이미지, 폰트 등 기타 자산도 assets 폴더로
+            if (info.name.startsWith('images/') || info.name.startsWith('plugins/')) {
+              return `assets/${info.name}`;
             }
+            // 그 외
+            return `assets/[name][extname]`;
           }
         }
+      }
+    }
   };
 });
