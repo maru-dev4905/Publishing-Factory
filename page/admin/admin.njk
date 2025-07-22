@@ -1,175 +1,175 @@
----
-pageTitle: "Admin"
-pageDir: [Admin, Admin]
-permalink: /admin/admin.html
----
-{% include "head.njk" %}
-<body>
+{#---#}
+{#pageTitle: "Admin"#}
+{#pageDir: [Admin, Admin]#}
+{#permalink: /admin/admin.html#}
+{#---#}
+{#{% include "head.njk" %}#}
+{#<body>#}
 
-<div id="wv" class="theme_dark">
-    <header class="adm_hd">
-        <h1 class="adm_logo">
-            <a href="../../index.html"><img src="../../../assets/images/common/logo_b.svg" alt="wever 로고"></a>
-        </h1>
-        <div class="adm_hd_cont">
-            <div class="countdown fs_16 fw_regular">
-                <span class="countdown_minutes">9</span>
-                분
-                <span class="countdown_seconds">59</span>
-                초
-            </div>
-            <button type="button" class="renew_btn">
-                <i class="material-symbols-outlined fill fs_20 adm_fc_gray1">refresh</i>
-                갱신
-            </button>
-            <button type="button" class="logout_btn">
-                <i class="material-symbols-outlined fill ico_logout fs_20 adm_fc_gray1">logout</i>
-                로그아웃
-            </button>
-            <h2 class="adm_name"><strong>최고관리자</strong> 님</h2>
-        </div>
-    </header>
-    <aside class="adm_menu">
-        <div class="lang_select">
-            <button class="lang_btn dp_f al_center gap10 wv_target_btn gifont" type="button" role="combobox" data-target='["langList"]'>
-                <i class="material-symbols-outlined fill fs_24 adm_fc_gray1">language</i>
-                <div class="dp_f al_center jtf_bet w_100">
-                    <span class="selected_value clamp1 lih125per adm_fc_gray1 txt_over_dot fs_16">매칭코리아 - 한국어</span><i class="ico_arrow_bold fs_24 adm_fc_gray1"></i>
-                </div>
-            </button>
-            <div class="side_lang_list scrollbar_custom" id="langList">
-                <div class="dp_f fd_col">
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=ko">매칭코리아 - 한국어</a>
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=en">매칭코리아 - 영어</a>
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=zh">매칭코리아 - 중국어</a>
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=es">매칭코리아 - 스페인어</a>
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=fr">매칭코리아 - 프랑스어</a>
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=hi">매칭코리아 - 힌디어</a>
-                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=ar">매칭코리아 - 아랍어</a>
-                </div>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#" class="active">
-                        <i class="material-symbols-outlined fill fw_light fs_24 ">
-                            extension
-                        </i>
-                        <span>프로젝트 매칭 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <button type="button" class="wv_target_btn gifont" data-target='["navList2"]'>
+{#<div id="wv" class="theme_dark">#}
+{#    <header class="adm_hd">#}
+{#        <h1 class="adm_logo">#}
+{#            <a href="../../index.html"><img src="../../../assets/images/common/logo_b.svg" alt="wever 로고"></a>#}
+{#        </h1>#}
+{#        <div class="adm_hd_cont">#}
+{#            <div class="countdown fs_16 fw_regular">#}
+{#                <span class="countdown_minutes">9</span>#}
+{#                분#}
+{#                <span class="countdown_seconds">59</span>#}
+{#                초#}
+{#            </div>#}
+{#            <button type="button" class="renew_btn">#}
+{#                <i class="material-symbols-outlined fill fs_20 adm_fc_gray1">refresh</i>#}
+{#                갱신#}
+{#            </button>#}
+{#            <button type="button" class="logout_btn">#}
+{#                <i class="material-symbols-outlined fill ico_logout fs_20 adm_fc_gray1">logout</i>#}
+{#                로그아웃#}
+{#            </button>#}
+{#            <h2 class="adm_name"><strong>최고관리자</strong> 님</h2>#}
+{#        </div>#}
+{#    </header>#}
+{#    <aside class="adm_menu">#}
+{#        <div class="lang_select">#}
+{#            <button class="lang_btn dp_f al_center gap10 wv_target_btn gifont" type="button" role="combobox" data-target='["langList"]'>#}
+{#                <i class="material-symbols-outlined fill fs_24 adm_fc_gray1">language</i>#}
+{#                <div class="dp_f al_center jtf_bet w_100">#}
+{#                    <span class="selected_value clamp1 lih125per adm_fc_gray1 txt_over_dot fs_16">매칭코리아 - 한국어</span><i class="ico_arrow_bold fs_24 adm_fc_gray1"></i>#}
+{#                </div>#}
+{#            </button>#}
+{#            <div class="side_lang_list scrollbar_custom" id="langList">#}
+{#                <div class="dp_f fd_col">#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=ko">매칭코리아 - 한국어</a>#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=en">매칭코리아 - 영어</a>#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=zh">매칭코리아 - 중국어</a>#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=es">매칭코리아 - 스페인어</a>#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=fr">매칭코리아 - 프랑스어</a>#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=hi">매칭코리아 - 힌디어</a>#}
+{#                    <a href="/d5056fd0471372cb2ad2b197836acf4b4f68fb1670f766587ed089f0564a8067/Language?lang=ar">매칭코리아 - 아랍어</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <nav>#}
+{#            <ul>#}
+{#                <li>#}
+{#                    <a href="#" class="active">#}
+{#                        <i class="material-symbols-outlined fill fw_light fs_24 ">#}
+{#                            extension#}
+{#                        </i>#}
+{#                        <span>프로젝트 매칭 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <button type="button" class="wv_target_btn gifont" data-target='["navList2"]'>#}
 
-                        <i class="material-symbols-outlined fill fw_light fs_24">cancel</i>
-                        <span>미매칭 종료건 관리</span>
-                    </button>
-                    <ul class="sub_menu scrollbar_custom" id="navList2">
-                        <li><a href="#">미매칭 종료건 관리1</a></li>
-                        <li>
-                            <button type="button" class="wv_target_btn gifont" data-target='["navList2-2"]'>미매칭 종료건 관리2</button>
-                            <ul id="navList2-2">
-                                <li><a href="#">미매칭 종료건 관리2-1</a></li>
-                                <li><a href="#">미매칭 종료건 관리2-2</a></li>
-                                <li><a href="#">미매칭 종료건 관리2-3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button type="button" class="wv_target_btn gifont" data-target='["navList2-3"]'>미매칭 종료건 관리3</button>
-                            <ul id="navList2-3">
-                                <li><a href="#">미매칭 종료건 관리3-1</a></li>
-                                <li><a href="#">미매칭 종료건 관리3-2</a></li>
-                                <li><a href="#">미매칭 종료건 관리3-3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">business_center</i>
-                        <span>제안분야 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">psychology</i>
-                        <span>관심분야 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">forum</i>
-                        <span>FAQ 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">description</i>
-                        <span>서비스 약관 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">desktop_windows</i>
-                        <span>홈페이지 콘텐츠 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">group</i>
-                        <span>회원 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">manage_accounts</i>
-                        <span>관리자 관리</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./adm_login.html">
-                        <i class=" material-symbols-outlined fill fw_light fs_24">account_circle</i>
-                        <span>로그인</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <button type="button" class="adm_menu_btn gifont">
-            <i class="material-symbols-outlined material-icons adm_fc_gray1">
-                arrow_back_ios_new
-            </i>
-        </button>
-    </aside>
-    <main class="admin_page ">
+{#                        <i class="material-symbols-outlined fill fw_light fs_24">cancel</i>#}
+{#                        <span>미매칭 종료건 관리</span>#}
+{#                    </button>#}
+{#                    <ul class="sub_menu scrollbar_custom" id="navList2">#}
+{#                        <li><a href="#">미매칭 종료건 관리1</a></li>#}
+{#                        <li>#}
+{#                            <button type="button" class="wv_target_btn gifont" data-target='["navList2-2"]'>미매칭 종료건 관리2</button>#}
+{#                            <ul id="navList2-2">#}
+{#                                <li><a href="#">미매칭 종료건 관리2-1</a></li>#}
+{#                                <li><a href="#">미매칭 종료건 관리2-2</a></li>#}
+{#                                <li><a href="#">미매칭 종료건 관리2-3</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <button type="button" class="wv_target_btn gifont" data-target='["navList2-3"]'>미매칭 종료건 관리3</button>#}
+{#                            <ul id="navList2-3">#}
+{#                                <li><a href="#">미매칭 종료건 관리3-1</a></li>#}
+{#                                <li><a href="#">미매칭 종료건 관리3-2</a></li>#}
+{#                                <li><a href="#">미매칭 종료건 관리3-3</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">business_center</i>#}
+{#                        <span>제안분야 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">psychology</i>#}
+{#                        <span>관심분야 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">forum</i>#}
+{#                        <span>FAQ 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">description</i>#}
+{#                        <span>서비스 약관 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">desktop_windows</i>#}
+{#                        <span>홈페이지 콘텐츠 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">group</i>#}
+{#                        <span>회원 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">manage_accounts</i>#}
+{#                        <span>관리자 관리</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="./adm_login.html">#}
+{#                        <i class=" material-symbols-outlined fill fw_light fs_24">account_circle</i>#}
+{#                        <span>로그인</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </nav>#}
+{#        <button type="button" class="adm_menu_btn gifont">#}
+{#            <i class="material-symbols-outlined material-icons adm_fc_gray1">#}
+{#                arrow_back_ios_new#}
+{#            </i>#}
+{#        </button>#}
+{#    </aside>#}
+{#    <main class="admin_page ">#}
 
-        <div class="adm_content">
-            <div class="adm_cont_hd">
-                <ol class="adm_breadcrumb">
-                    <li>
-                        <a href="/">1depth</a>
-                    </li>
-                    <li aria-current="page">
-                        현재 페이지
-                    </li>
-                </ol>
-                <h2 class="dp_f al_end gap10 fs_40 fw_bold lih125per fc_black1">
-                    페이지에 타이틀 영역입니다
-                    <span class="fs_20 fw_regular fc_gray1 lih150per">페이지에 관한 간단한 설명 영역입니다</span>
-                </h2>
-                <p class="fs_16 fw_regular lih150per mt_20">
-                    현재 관리자 페이지에 관한 사용 방법이나 자세한 설명을 적는 영역입니다.
-                </p>
-            </div>
+{#        <div class="adm_content">#}
+{#            <div class="adm_cont_hd">#}
+{#                <ol class="adm_breadcrumb">#}
+{#                    <li>#}
+{#                        <a href="/">1depth</a>#}
+{#                    </li>#}
+{#                    <li aria-current="page">#}
+{#                        현재 페이지#}
+{#                    </li>#}
+{#                </ol>#}
+{#                <h2 class="dp_f al_end gap10 fs_40 fw_bold lih125per fc_black1">#}
+{#                    페이지에 타이틀 영역입니다#}
+{#                    <span class="fs_20 fw_regular fc_gray1 lih150per">페이지에 관한 간단한 설명 영역입니다</span>#}
+{#                </h2>#}
+{#                <p class="fs_16 fw_regular lih150per mt_20">#}
+{#                    현재 관리자 페이지에 관한 사용 방법이나 자세한 설명을 적는 영역입니다.#}
+{#                </p>#}
+{#            </div>#}
 
-            <div class="adm_cont">
-                <div class="adm_inner">
+{#            <div class="adm_cont">#}
+{#                <div class="adm_inner">#}
 
-                </div>
-            </div>
-        </div>
-    </main>
-    <div class="dim"></div>
-</div>
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </main>#}
+{#    <div class="dim"></div>#}
+{#</div>#}
 
-</body>
+{#</body>#}

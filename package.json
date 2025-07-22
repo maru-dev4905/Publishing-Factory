@@ -1,16 +1,17 @@
 {
-  "name": "publishing-factory",
+  "name": "wv",
   "version": "1.0.0",
   "description": "```sh npm create astro@latest -- --template basics ```",
   "main": "index.js",
   "scripts": {
-    "eleventy": "eleventy --config .eleventy.js",
-    "eleventy:watch": "eleventy --config .eleventy.js --watch",
-    "dev": "concurrently \"npm run eleventy:watch\" \"vite\"",
-    "build": "cross-env PROJECT_NAME=wv npm run _build",
-    "_build": "npm run eleventy && vite build",
-    "docs": "cross-env PROJECT_NAME=wv npm run eleventy && vite build --mode docs",
-    "preview": "vite preview --port 3000"
+    "eleventy":       "eleventy --config .eleventy.js",
+    "eleventy:watch": "cross-env PROJECT_NAME=wv eleventy --config .eleventy.js --watch",
+    "watch:css":      "sass --watch src/scss:public/assets/css",
+    "build:css":      "sass --no-source-map src/scss:public/assets/css",
+    "dev":  "concurrently \"npm run watch:css\" \"npm run eleventy:watch\" \"vite\"",
+    "build": "npm run build:css && cross-env PROJECT_NAME=wv eleventy --config .eleventy.js && vite build",
+    "docs":           "cross-env PROJECT_NAME=wv npm run eleventy && vite build --mode docs",
+    "preview":        "vite preview --port 3000"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "@11ty/eleventy": "^3.0.0",
     "concurrently": "^9.2.0",
     "cross-env": "^7.0.3",
+    "dart-sass": "^1.25.0",
     "sass": "^1.85.1",
     "vite": "^6.2.0"
   }
