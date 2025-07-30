@@ -4,6 +4,7 @@ import wvModal from "../module/components/Modal/Modal.js";
 import wvCopyBtn from "../module/components/Copy/CopyBtn.js";
 import wvTargetBtn from "../module/components/TargetBtn/TargetBtn.js";
 import wvScrBtn from "../module/components/ScrBtn/ScrBtn.js";
+import wvLinkBtn from "../module/components/LinkBtn/LinkBtn.js";
 
 const wvCompo = {
   _inited: false,
@@ -12,12 +13,13 @@ const wvCompo = {
     this._inited = true;
 
     // Initialize each component module (each should use event delegation internally)
-    wvTargetBtn();                                        // target-btn delegation
-    wvTab();                                              // tab component delegation
-    wvAccordion();                                        // accordion component delegation
-    wvModal();                                            // modal component delegation
-    wvCopyBtn({ feedback: "modal" });                   // copy button with modal feedback
-    wvScrBtn();                                           // scroll button delegation
+    wvTargetBtn();
+    wvTab();
+    wvAccordion();
+    wvModal();
+    wvCopyBtn({ feedback: "modal" });
+    wvScrBtn();
+    wvLinkBtn();
   }
 };
 
