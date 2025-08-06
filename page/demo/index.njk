@@ -12,6 +12,12 @@ permalink: /demo/index.html
     <main>
         <div class="pf_inner">
             <h2 class="fs_48 adm_fc_white1 fade anim">DEMO Main</h2>
+
+            <button type="button" class="wv_modal_btn" data-modal="youtubeModal" data-youtube="https://www.youtube.com/watch?v=CcntnGuUm4g">열기라오</button>
+
+            <dialog class="wv_modal" id="youtubeModal">
+                <iframe src="" frameborder="0"></iframe>
+            </dialog>
         </div>
 
         {% include "slot.njk" %}

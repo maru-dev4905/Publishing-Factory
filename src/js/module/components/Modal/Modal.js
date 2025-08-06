@@ -12,7 +12,6 @@ export default function wvModal(closeOnOverlayClick = true) {
       const btn = e.target.closest('.wv_modal_btn');
       if (!btn) return;
       e.preventDefault();
-
       // Close button
       if (btn.classList.contains('close_modal')) {
         closeModal();
@@ -21,6 +20,7 @@ export default function wvModal(closeOnOverlayClick = true) {
 
       // Open modal
       const modalId = btn.getAttribute('data-modal');
+      const isYoutube = btn.getAttribute('data-youtube');
       const target = document.getElementById(modalId);
       if (!modalId || !target) {
         console.warn(`Modal target not found: ${modalId}`);
@@ -36,6 +36,8 @@ export default function wvModal(closeOnOverlayClick = true) {
       document.body.classList.add('scrollLock');
       document.querySelector('.dim')?.classList.add('active');
       target.focus();
+
+
     });
 
     // Overlay click to close
