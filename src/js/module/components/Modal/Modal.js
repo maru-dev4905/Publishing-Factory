@@ -20,7 +20,7 @@ export default function wvModal(closeOnOverlayClick = true) {
 
       // Open modal
       const modalId = btn.getAttribute('data-modal');
-      const isYoutube = btn.getAttribute('data-youtube');
+      const modalYoutube = btn.getAttribute('data-youtube');
       const target = document.getElementById(modalId);
       if (!modalId || !target) {
         console.warn(`Modal target not found: ${modalId}`);
@@ -37,7 +37,10 @@ export default function wvModal(closeOnOverlayClick = true) {
       document.querySelector('.dim')?.classList.add('active');
       target.focus();
 
-
+      if(modalYoutube){
+        target.querySelector("iframe").setAttribute('src',`https://www.youtube.com/embed/${modalYoutube}`)
+        target.classList.add("is_youtube");
+      }
     });
 
     // Overlay click to close
@@ -57,7 +60,12 @@ export default function wvModal(closeOnOverlayClick = true) {
   }
 
   function closeModal() {
-    document.querySelectorAll(`${selector}.active`).forEach(m => m.classList.remove('active'));
+    document.querySelectorAll(`${selector}.active`).forEach(m => {
+      m.classList.remove('active');
+      if(m.classList.contains("is_youtube")){
+        m.querySelector("iframe").setAttribute('src', '');
+      }
+    });
     document.body.classList.remove('scrollLock');
     document.querySelector('.dim')?.classList.remove('active');
   }
