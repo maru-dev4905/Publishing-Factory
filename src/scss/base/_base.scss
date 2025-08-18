@@ -3,14 +3,14 @@
 @use '../absctracts/variables' as *;
 
 /* Display */
-.dp_b{display: block;}
-.dp_ib{display: inline-block;}
-.dp_i{display: inline;}
-.dp_f{display: flex;}
-.dp_if{display: inline-flex;}
-.dp_n{display: none;}
-.dp_g{display: grid;}
-.dp_ig{display: inline-grid;}
+.dp_b{display: block !important;}
+.dp_ib{display: inline-block !important;}
+.dp_i{display: inline !important;}
+.dp_f{display: flex !important;}
+.dp_if{display: inline-flex !important;}
+.dp_n{display: none !important;}
+.dp_g{display: grid !important;}
+.dp_ig{display: inline-grid !important;}
 /* Display END */
 
 /* Aspect Ratio */
@@ -20,21 +20,21 @@
 /* Aspect Ratio END */
 
 /* Flex */
-.fd_col{flex-direction: column;}
-.fd_col_rvs{flex-direction: column-reverse;}
-.fd_row{flex-direction: row;}
-.fd_row_rvs{flex-direction: row-reverse;}
-.al_start{align-items: flex-start;}
-.al_center{align-items: center;}
-.al_end{align-items: flex-end;}
-.jtf_start{justify-content: flex-start;}
-.jtf_center{justify-content: center;}
-.jtf_end{justify-content: flex-end;}
-.jtf_bet{justify-content: space-between;}
-.jtf_aro{justify-content: space-around;}
+.fd_col{flex-direction: column !important;}
+.fd_col_rvs{flex-direction: column-reverse !important;}
+.fd_row{flex-direction: row !important;}
+.fd_row_rvs{flex-direction: row-reverse !important;}
+.al_start{align-items: flex-start !important;}
+.al_center{align-items: center !important;}
+.al_end{align-items: flex-end !important;}
+.jtf_start{justify-content: flex-start !important;}
+.jtf_center{justify-content: center !important;}
+.jtf_end{justify-content: flex-end !important;}
+.jtf_bet{justify-content: space-between !important;}
+.jtf_aro{justify-content: space-around !important;}
 
-.fd_wrap{flex-wrap: wrap;}
-.fd_nowrap{flex-wrap: nowrap;}
+.fd_wrap{flex-wrap: wrap !important;}
+.fd_nowrap{flex-wrap: nowrap !important;}
 
 .fd_center{
   display: flex;
@@ -44,7 +44,7 @@
 
 @for $i from 0 through 12 {
   .fx_#{$i} {
-    flex: #{$i};
+    flex: #{$i} !important;
   }
 }
 /* Flex END */
@@ -195,63 +195,63 @@ caption.a11y-hidden {
   .fw_#{$name}{font-weight: $weight;}
 }
 
-.lih64					{line-height: rem(64px)}
-.lih42					{line-height: rem(42px)}
-.lih36					{line-height: rem(36px)}
-.lih30					{line-height: rem(30px)}
-.lih24					{line-height: rem(24px)}
-.lih20					{line-height: rem(20px)}
+.lih64					{line-height: rem(64px) !important;}
+.lih42					{line-height: rem(42px) !important;}
+.lih36					{line-height: rem(36px) !important;}
+.lih30					{line-height: rem(30px) !important;}
+.lih24					{line-height: rem(24px) !important;}
+.lih20					{line-height: rem(20px) !important;}
 
-.lih220per			{line-height: 220%;}
-.lih170per			{line-height: 170%;}
-.lih160per			{line-height: 160%;}
-.lih150per			{line-height: 150%;}
-.lih135per			{line-height: 135%;}
-.lih130per			{line-height: 130%;}
-.lih125per			{line-height: 125%;}
-.lih120per			{line-height: 120%;}
-.lih110per			{line-height: 110%;}
-.lih100per			{line-height: 100%;}
+.lih220per			{line-height: 220% !important;}
+.lih170per			{line-height: 170% !important;}
+.lih160per			{line-height: 160% !important;}
+.lih150per			{line-height: 150% !important;}
+.lih135per			{line-height: 135% !important;}
+.lih130per			{line-height: 130% !important;}
+.lih125per			{line-height: 125% !important;}
+.lih120per			{line-height: 120% !important;}
+.lih110per			{line-height: 110% !important;}
+.lih100per			{line-height: 100% !important;}
 
-.fc_white1{color: var(--white1);}
-.fc_white2{color: var(--white2);}
-.fc_white3{color: var(--white3);}
-.fc_gray1{color: var(--gray1);}
-.fc_gray2{color: var(--gray2);}
-.fc_gray3{color: var(--gray3);}
-.fc_gray4{color: var(--gray4);}
-.fc_black1{color: var(--black1);}
-.fc_black2{color: var(--black2);}
-.fc_point1{color: var(--point1);}
-.fc_point2{color: var(--point2);}
-.fc_point3{color: var(--point3);}
-.fc_point4{color: var(--point4);}
-.fc_point5{color: var(--point5);}
+.fc_white1{color: var(--white1) !important;}
+.fc_white2{color: var(--white2) !important;}
+.fc_white3{color: var(--white3) !important;}
+.fc_gray1{color: var(--gray1) !important;}
+.fc_gray2{color: var(--gray2) !important;}
+.fc_gray3{color: var(--gray3) !important;}
+.fc_gray4{color: var(--gray4) !important;}
+.fc_black1{color: var(--black1) !important;}
+.fc_black2{color: var(--black2) !important;}
+.fc_point1{color: var(--point1) !important;}
+.fc_point2{color: var(--point2) !important;}
+.fc_point3{color: var(--point3) !important;}
+.fc_point4{color: var(--point4) !important;}
+.fc_point5{color: var(--point5) !important;}
 
-.bg_white1{color: var(--white1);}
-.bg_white2{color: var(--white2);}
-.bg_white3{color: var(--white3);}
-.bg_white4{color: var(--white4);}
-.bg_white5{color: var(--white5);}
-.bg_gray1{color: var(--gray1);}
-.bg_gray2{color: var(--gray2);}
-.bg_gray3{color: var(--gray3);}
-.bg_gray4{color: var(--gray4);}
-.bg_gray5{color: var(--gray5);}
-.bg_black1{color: var(--black1);}
-.bg_black2{color: var(--black2);}
-.bg_black3{color: var(--black3);}
-.bg_black4{color: var(--black4);}
-.bg_black5{color: var(--black5);}
-.bg_point1{color: var(--point1);}
-.bg_point2{color: var(--point2);}
-.bg_point3{color: var(--point3);}
-.bg_point4{color: var(--point4);}
-.bg_point5{color: var(--point5);}
+.bg_white1{color: var(--white1) !important;}
+.bg_white2{color: var(--white2) !important;}
+.bg_white3{color: var(--white3) !important;}
+.bg_white4{color: var(--white4) !important;}
+.bg_white5{color: var(--white5) !important;}
+.bg_gray1{color: var(--gray1) !important;}
+.bg_gray2{color: var(--gray2) !important;}
+.bg_gray3{color: var(--gray3) !important;}
+.bg_gray4{color: var(--gray4) !important;}
+.bg_gray5{color: var(--gray5) !important;}
+.bg_black1{color: var(--black1) !important;}
+.bg_black2{color: var(--black2) !important;}
+.bg_black3{color: var(--black3) !important;}
+.bg_black4{color: var(--black4) !important;}
+.bg_black5{color: var(--black5) !important;}
+.bg_point1{color: var(--point1) !important;}
+.bg_point2{color: var(--point2) !important;}
+.bg_point3{color: var(--point3) !important;}
+.bg_point4{color: var(--point4) !important;}
+.bg_point5{color: var(--point5) !important;}
 
-.ta_center		{text-align: center;}
-.ta_left			{text-align: left;}
-.ta_right			{text-align: right;}
+.ta_center		{text-align: center !important;}
+.ta_left			{text-align: left !important;}
+.ta_right			{text-align: right !important;}
 
 .dot{display: flex; gap: 0.25rem;}
 .dot::before{
