@@ -7,6 +7,9 @@ module.exports = function(eleventyConfig) {
       process.env.PROJECT_NAME || pkg.name
   );
 
+  eleventyConfig.addPassthroughCopy({"src/images" : "assets/images"});
+  eleventyConfig.addWatchTarget("src/images");
+
   // 2) 디렉터리 설정
   return {
     dir: {
