@@ -1,21 +1,106 @@
-{#---#}
-{#pageTitle: "FP 프로젝트 - Main"#}
-{#pageDir: ["Main"]#}
-{#permalink: /index.html#}
-{#---#}
-{#{% include "head.njk" %}#}
-{#<body>#}
+---
+pageTitle: "PF - Main"
+pageDir: ["main"]
+permalink: /index.html
+---
+{% include "head.njk" %}
+<body class="bg-glass-dark">
 
-{#<div class="dp_f">#}
-{#    {% include "header.njk" %}#}
+<div class="pf_main ">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section class="">
+            <div class="pf_inner scrollbar_custom">
+                <div class="sec_tit">
+                    <h2 class="fs_36">Publishing Factory</h2>
+                    <p class="fs_14 mt_10 txtClr1">재사용 가능한 컴포넌트·유틸로 퍼블리싱 속도를 높이는 내부 프레임워크</p>
+                </div>
+                <div class="pf_links">
+                    <a href="/notes/index.html">
+                        <strong>Notes</strong>
+                        <p class="txtClr1">
+                            Base 유틸리티 클래스 사용법 모음 <br>
+                            레이아웃·간격·타이포 토큰 빠른 참조
+                        </p>
+                    </a>
+                    <a href="/demo/index.html">
+                        <strong>Demo</strong>
+                        <p class="txtClr1">
+                            스크립트 컴포넌트 동작을 직접 <br>
+                            테스트. 예제 코드와 사용 가이드 제공
+                        </p>
+                    </a>
+                    <a href="/download/index.html">
+                        <strong>Download</strong>
+                        <p class="txtClr1">
+                            최신 PF 기본 셋팅 번들 다운로드 <br>
+                            공통 CSS/JS와 필수 플러그인 포함
+                        </p>
+                    </a>
+                    <a href="/tools/index.html">
+                        <strong>Tools</strong>
+                        <p class="txtClr1">
+                            퍼블리싱 작업 시 자주 사용하는 도구 <br>
+                            반복 작업을 빠르게 처리합니다
+                        </p>
+                    </a>
+                </div>
 
-{#    <main>#}
-{#        <div class="pf_inner">#}
-{#            <h2 class="fs_48 adm_fc_white1 fade anim">Main</h2>#}
-{#        </div>#}
+                <div class="dp_f gap20">
+                    <div class="fx_1">
+                        <article id="pf-latest" data-gh-owner="maru-dev4905" data-gh-repo="publishing-factory">
+                            <h3 class="fs_24 fc_white1">Release</h3>
+                            <p class="fs_14 mt_6 txtClr1">
+                                가장 최근 버전의 기본 셋팅 번들을 다운로드할 수 있습니다. <br>
+                            </p>
+                            <p class="fs_14 mt_16 txtClr2">
+                                Currently <span class="fw_semibold">v1.0.2</span>
+                                <strong data-role="version" class="ml_10">로딩중…</strong>
+                            </p>
+                            <div class="latest-row">
+                                <p data-role="date"></p>
+                                <div class="dp_f mt_6 txtClr2 fs_14 gap6">
+                                    <a class="underline" data-role="download" target="_blank">Download</a> ·
+                                    <a class="underline" data-role="changelog" >All releases</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="fx_1">
+                        <div class="dp_f al_center gap10">
+                            <h3 class="fs_24 fc_white1">Recent Commits</h3>
+                            <a class="txtClr2 pt_6" data-role="repo" href="" target="_blank" rel="noreferrer">GitHub에서 보기</a>
+                        </div>
+                        <article class="mt_6" id="pf-commits" data-gh-owner="maru-dev4905" data-gh-repo="publishing-factory">
+                            <div class="pf_box">
+                                <ul class="commit-list" data-role="commits">
+                                    <li class="muted">불러오는 중…</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
 
-{#        {% include "slot.njk" %}#}
-{#    </main>#}
-{#</div>#}
 
-{#</body>#}
+                <!-- Recent Commits -->
+                <!-- Quick Start -->
+{#                <section class="pf-glass">#}
+{#                    <h2>Quick Start</h2>#}
+{#                    <pre class="code">#}
+{#&lt;link rel="stylesheet" href="/assets/css/common.css"&gt;#}
+{#&lt;link rel="stylesheet" href="/assets/css/{{ projectName }}.css"&gt;#}
+
+{#&lt;script type="module" src="/assets/js/core/{{ projectName }}_common.js"&gt;&lt;/script&gt;#}
+{#&lt;script type="module" src="/assets/js/core/{{ projectName }}_compo.js"&gt;&lt;/script&gt;#}
+{#&lt;script type="module" src="/assets/js/core/{{ projectName }}_animation.js"&gt;&lt;/script&gt;#}
+{#    </pre>#}
+{#                    <p class="muted">프로젝트에 맞는 접두사(<code>{{ projectName }}</code>)로 자동 출력됩니다.</p>#}
+{#                </section>#}
+
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/assets/js/custom/github-widgets.js"></script>
+</div>
+</body>

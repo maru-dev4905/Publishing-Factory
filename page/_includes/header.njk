@@ -1,33 +1,11 @@
 <header class="pf_hd">
     <a href="/index.html">
         <h1 class="logo">
+            P. F.
         </h1>
     </a>
-    <nav class="gnb">
-        <ul>
-            {% for item in navigation.navigation %}
-                {# pageDir가 전달되었는지 확인하고, 조건에 맞으면 "on" 클래스를 추가 #}
-                <li>
-                    {% if item.children %}
-                        <button type="button"
-                                class="wv_target_btn {{ pageDir and pageDir[0] == item.name and 'on' or '' }}"
-                                data-target="['{{ item.name }}', 'on', 'toggle']">
-                            {{ item.name }}
-                        </button>
-                        <ul id="{{ item.name }}" class=" {{ pageDir and pageDir[0] == item.name and 'on' or '' }}">
-                            {% for child in item.children %}
-                                <li >
-                                    <a href="{{ child.url }}" class="{{ pageDir and pageDir[1] == child.name and 'on' or '' }}">{{ child.name }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <a href="{{ item.url }}" class="{{ pageDir and pageDir[0] == item.name and 'on' or '' }}">
-                            {{ item.name }}
-                        </a>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
+    <div class="dp_f al_center gap20">
+        <p class="date">2025-08-22</p>
+        <p class="clock">17:19:00</p>
+    </div>
 </header>

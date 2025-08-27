@@ -21,7 +21,8 @@ export default defineConfig({
       entry: {
         'project-config':            path.resolve(__dirname, 'src/js/custom/project-config.js'),
         'pf':                        path.resolve(__dirname, 'src/js/custom/pf.js'),
-        [`${projectName}_common`]:   path.resolve(__dirname, `src/js/custom/${projectName}_common.js`)
+        [`${projectName}_common`]:   path.resolve(__dirname, `src/js/custom/${projectName}_common.js`),
+        'github-widgets': path.resolve(__dirname, 'src/js/custom/github-widgets.js'),
       },
       formats: ['es'],
       fileName: (_, name) => `assets/js/custom/${name}.js`

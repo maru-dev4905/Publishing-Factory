@@ -1,31 +1,41 @@
-if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', () => {
-    const slotBar = document.querySelector("#slot");
-    const themeChkbox = slotBar.querySelector(".toggle_btn input");
-    const isUserColorTheme = localStorage.getItem('color-theme');
-    const isOsColorTheme = window.matchMedia('(prefers-color-scheme: dark').matches ? 'dark' : 'light';
+const pfFunc = {
+  _inited: false,
 
-    const getUserTheme = () => isUserColorTheme ? isUserColorTheme : isOsColorTheme;
+  dateTime: {
+    updateDateTime:  () => {
+      const now = new Date;
 
-    window.onload = function(){
-      if(getUserTheme() == 'dark'){
-        localStorage.setItem('color-theme', 'dark');
-        document.documentElement.setAttribute('color-theme', 'dark');
-        themeChkbox.setAttribute('checked', true)
-      } else {
-        localStorage.setItem('color-theme', 'light');
-        document.documentElement.setAttribute('color-theme', 'light');
-      }
+      const year = now.getFullYear();
+      const month = String(now.getMonth()+1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const dateEl = document.querySelector('.date');
+      const clockEl = document.querySelector('.clock');
+      dateEl.innerHTML = `
+        ${year}-${month}-${day} 
+      `;
+      clockEl.innerHTML = `
+        ${hour}:${minutes}:${seconds}
+      `;
+    },
+
+    init: function(){
+      this.updateDateTime();
+      setInterval(()=>{
+        this.updateDateTime();
+      },1000)
     }
+  },
 
-    themeChkbox.addEventListener('change', e=>{
-      if (e.target.checked) {
-        localStorage.setItem('color-theme', 'dark');
-        document.documentElement.setAttribute('color-theme', 'dark');
-      } else {
-        localStorage.setItem('color-theme', 'light');
-        document.documentElement.setAttribute('color-theme', 'light');
-      }
-    })
-  });
-}
+  init: function () {
+    if (pfFunc._inited) return;
+    pfFunc._inited = true;
+    pfFunc.dateTime.init();
+  }
+};
+
+document.addEventListener("DOMContentLoaded", pfFunc.init);

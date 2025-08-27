@@ -1,0 +1,13 @@
+<aside class="pf_side">
+    <nav>
+        <ul>
+            {% for menu in navigation.gnb %}
+                <li>
+                    <a type="button" class="{{ pageDir[0] == menu and 'on' or '' }}" href="#">
+                        <i class={{ menu }}></i>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</aside>
