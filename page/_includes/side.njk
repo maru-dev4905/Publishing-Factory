@@ -1,10 +1,36 @@
+
+
+
+{# _data/navigation.json → navigation.gnb 사용 #}
+{% set nav = navigation.gnb %}
+
+{# 보이는 라벨/아이콘 매핑 (원하면 취향대로 교체) #}
+{% set labels = {
+    main: 'Home',
+    demo: 'Demo',
+    notes: 'Notes',
+    tools: 'Tools',
+    downloads: 'Download'
+} %}
+{% set icons = {
+    main: 'main',
+    demo: 'demo',
+    notes: 'notes',
+    tools: 'tools',
+    downloads: 'download'
+} %}
+
 <aside class="pf_side">
-    <nav>
+    <nav aria-label="Primary">
         <ul>
-            {% for menu in navigation.gnb %}
+            {# key = main/demo/notes/tools/downloads, url = "/..." #}
+            {% for key, url in nav %}
+                {% set active = (pageDir and (pageDir[0] | lower) == (key | lower)) %}
                 <li>
-                    <a type="button" class="{{ pageDir[0] == menu and 'on' or '' }}" href="#">
-                        <i class={{ menu }}></i>
+                    <a href="{{ url }}"
+                       class="pf_side__link{% if active %} on{% endif %}"
+                       {% if active %}aria-current="page"{% endif %}>
+                        <i class="{{ icons[key] or ('ico-' ~ key) }}" aria-hidden="true"></i>
                     </a>
                 </li>
             {% endfor %}

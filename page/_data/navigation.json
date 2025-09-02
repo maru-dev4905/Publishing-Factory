@@ -1,11 +1,9 @@
 {
-  "gnb": [
-    "main",
-    "download",
-    "demo",
-    "notes",
-    "tools"
-  ]
+  "gnb": {
+    "main": "/index.html",
+    "demo": "/demo/index.html",
+    "notes": "/notes/index.html",
+    "tools": "/tools/index.html",
+    "downloads": "/downloads/index.html"
+  }
 }
-
-

@@ -1,21 +1,52 @@
 ---
-pageTitle: "PF Tools"
-pageDir: ["Tools"]
-permalink: /tool/index.html
+pageTitle: "PF - Tools"
+pageDir: ["tools"]
+permalink: /tools/index.html
 ---
 {% include "head.njk" %}
-<body>
+<body class="bg-glass-dark">
 
-<div class="dp_f">
+<div class="pf_main ">
+    {% include "side.njk" %}
     {% include "header.njk" %}
-
     <main>
-        <div class="pf_inner">
-            <h2 class="fs_48 adm_fc_white1 fade anim">Tools Main</h2>
-        </div>
-
-        {% include "slot.njk" %}
+        <section class="">
+            <div class="pf_inner scrollbar_custom">
+                <div class="sec_tit">
+                    <h2 class="fs_36">Tools</h2>
+                    <p class="fs_14 mt_10 txtClr1">퍼블리싱 작업 시 자주 사용하는 도구 반복 작업을 빠르게 처리합니다.</p>
+                </div>
+                <div class="pf_links no_ico">
+                    <a href="/tools/png-to-webp.html">
+                        <strong>PNG to WEBP</strong>
+                        <p class="txtClr1">
+                        </p>
+                    </a>
+                    <a href="/demo/index.html">
+                        <strong>Demo</strong>
+                        <p class="txtClr1">
+                            스크립트 컴포넌트 동작을 직접 <br>
+                            테스트. 예제 코드와 사용 가이드 제공
+                        </p>
+                    </a>
+                    <a href="/download/index.html">
+                        <strong>Download</strong>
+                        <p class="txtClr1">
+                            최신 PF 기본 셋팅 번들 다운로드 <br>
+                            공통 CSS/JS와 필수 플러그인 포함
+                        </p>
+                    </a>
+                    <a href="/tools/index.html">
+                        <strong>Tools</strong>
+                        <p class="txtClr1">
+                            퍼블리싱 작업 시 자주 사용하는 도구 <br>
+                            반복 작업을 빠르게 처리합니다
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+    <script type="module" src="/assets/js/custom/github-widgets.js"></script>
 </div>
-
 </body>
