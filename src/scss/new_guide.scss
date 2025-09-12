@@ -5,7 +5,6 @@
 @use "./guideComponents/slot";
 
 * {
-  transition: all .3s;
   font-family: "Pretendard";
 }
 
@@ -106,7 +105,8 @@ main {
   }
 
   .pf_links{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     gap:1.25rem;
     margin-top: 2.5rem;
     margin-bottom: 1.25rem;
@@ -115,7 +115,6 @@ main {
     border-top: 1px solid rgba(255,255,255,.6);
 
     a{
-      flex: 1;
       position: relative;
       height: 100px;
       padding: 12px 14px;

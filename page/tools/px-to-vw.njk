@@ -1,0 +1,116 @@
+---
+pageTitle: "PF - px to vw"
+pageDir: ["tools"]
+permalink: /tools/px-to-vw.html
+---
+{% include "head.njk" %}
+<body class="bg-glass-dark">
+
+<div class="pf_main ">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section class="">
+            <div class="pf_inner scrollbar_custom">
+                <div class="sec_tit">
+                    <h2 class="fs_36">PX to VW</h2>
+                </div>
+
+                <div class="mt_10">
+                    <div class="dp_f al_center gap10">
+                        <b data-role="pxText">300 PX</b>
+                        <span class="txtClr2">→</span>
+                        <b data-role="vwText">15.63 VW</b>
+                    </div>
+                    <div style="height:8px;border-radius:999px;background:rgba(255,255,255,.08);margin-top:8px;overflow:hidden;">
+                        <div data-role="bar" style="height:100%;width:300px;background:rgba(255,255,255,.4);"></div>
+                    </div>
+                </div>
+
+                <div class="dp_f gap20 mt_16 wrap">
+                    <!-- 숫자: px → vw -->
+                    <form class="pf_card fx_1" data-form="px2vw">
+                        <h4 class="fs_16 fc_white1">PX → VW</h4>
+                        <div class="dp_f gap10 mt_8">
+                            <label class="fs_14 txtClr2">PX</label>
+                            <input class="pf_input" data-input="px" value="300" />
+                            <label class="fs_14 txtClr2">Viewport</label>
+                            <input class="pf_input" data-input="vw-base" value="1920" />
+                            <label class="fs_14 txtClr2">소수</label>
+                            <input class="pf_input" data-input="dec1" value="2" />
+                            <button class="pf_btn" type="submit">변환</button>
+                        </div>
+                        <div class="mt_8">
+                            <input class="pf_input" data-output="vw" placeholder="vw 결과" readonly />
+                        </div>
+                    </form>
+
+                    <!-- 숫자: vw → px -->
+                    <form class="pf_card fx_1" data-form="vw2px">
+                        <h4 class="fs_16 fc_white1">VW → PX</h4>
+                        <div class="dp_f gap10 mt_8">
+                            <label class="fs_14 txtClr2">VW</label>
+                            <input class="pf_input" data-input="vw2" value="10" />
+                            <label class="fs_14 txtClr2">Viewport</label>
+                            <input class="pf_input" data-input="vw-base" value="1920" />
+                            <button class="pf_btn" type="submit">변환</button>
+                        </div>
+                        <div class="mt_8">
+                            <input class="pf_input" data-output="px2" placeholder="px 결과" readonly />
+                        </div>
+                    </form>
+                </div>
+
+                <div class="dp_f gap20 mt_16 wrap">
+                    <!-- CSS: px → vw -->
+                    <form class="pf_card fx_1" data-form="css-px2vw">
+                        <h4 class="fs_16 fc_white1">CSS (px → vw)</h4>
+                        <div class="dp_f gap10 mt_8">
+                            <label class="fs_14 txtClr2">Viewport</label>
+                            <input class="pf_input" data-input="vw-base" value="1920" />
+                            <label class="fs_14 txtClr2">소수</label>
+                            <input class="pf_input" data-input="dec-css1" value="2" />
+                            <label class="fs_14 txtClr2 dp_f al_center gap6">
+                                <input type="checkbox" data-chk="strip1"> 속성 정리
+                            </label>
+                        </div>
+                        <div class="mt_8">
+                            <textarea class="pf_textarea" data-ta="src1" rows="6" placeholder="예) .box{ width:300px; padding:20px 10px; }"></textarea>
+                        </div>
+                        <div class="mt_8">
+                            <textarea class="pf_textarea" data-ta="out1" rows="6" placeholder="결과" readonly></textarea>
+                        </div>
+                        <div class="mt_8 right">
+                            <button class="pf_btn" type="submit">변환</button>
+                            <button class="pf_btn" type="button" data-btn="copy1">Copy</button>
+                        </div>
+                    </form>
+
+                    <!-- CSS: vw → px -->
+                    <form class="pf_card fx_1" data-form="css-vw2px">
+                        <h4 class="fs_16 fc_white1">CSS (vw → px)</h4>
+                        <div class="dp_f gap10 mt_8">
+                            <label class="fs_14 txtClr2">Viewport</label>
+                            <input class="pf_input" data-input="vw-base" value="1920" />
+                            <label class="fs_14 txtClr2 dp_f al_center gap6">
+                                <input type="checkbox" data-chk="strip2"> 속성 정리
+                            </label>
+                        </div>
+                        <div class="mt_8">
+                            <textarea class="pf_textarea" data-ta="src2" rows="6" placeholder="예) .box{ width:15.63vw; }"></textarea>
+                        </div>
+                        <div class="mt_8">
+                            <textarea class="pf_textarea" data-ta="out2" rows="6" placeholder="결과" readonly></textarea>
+                        </div>
+                        <div class="mt_8 right">
+                            <button class="pf_btn" type="submit">변환</button>
+                            <button class="pf_btn" type="button" data-btn="copy2">Copy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/assets/js/custom/github-widgets.js"></script>
+</div>
+</body>
