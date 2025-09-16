@@ -4,6 +4,8 @@ pageDir: ["tools"]
 permalink: /tools/png-to-webp.html
 ---
 {% include "head.njk" %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
+</head>
 <body class="bg-glass-dark">
 
 <div class="pf_main ">
@@ -19,16 +21,31 @@ permalink: /tools/png-to-webp.html
             </ul>
         </nav>
         <section class="">
-            <div class="pf_inner scrollbar_custom ipt_st1"  data-pf-tool="pxvw">
+            <div class="pf_inner scrollbar_custom ipt_st1"  data-pf-tool="pngtowebp">
                 <div class="sec_tit">
                     <h2 class="fs_36">PNG to WEBP</h2>
                 </div>
 
                 <div class="pf_cont">
+                    <!-- 파일 선택 인풋 -->
+                    <div class="file_wrap">
+                        <input type="file" id="fileInput" accept="image/png, image/jpeg" multiple>
+                        <!-- 드래그 앤 드랍 영역 -->
+                        <label id="dropZone" for="fileInput">
+                            <img src="/assets/images/icons/ico_upload.svg" alt="">
+                            Drag & Drop to Upload File
+                        </label>
+                    </div>
+                    <div class="dp_f jtf_center gap20 mt_20">
+                        <button id="convertBtn" class="pf_btn ml_0 mr_0">변환하기</button>
+                        <button id="downloadAllBtn" class="pf_btn st2 ml_0 mr_0" style="display:none;">전체 다운로드</button>
+                    </div>
+
+                    <div id="output"></div>
+
                 </div>
             </div>
         </section>
     </main>
-    <script type="module" src="/assets/js/custom/github-widgets.js"></script>
 </div>
 </body>
