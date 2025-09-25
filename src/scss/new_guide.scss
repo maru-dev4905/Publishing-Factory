@@ -15,7 +15,7 @@ body {
 
 :root{
   --white1: #fff;
-  --pf_point1: #F57A24;
+  --pf_point1: #5576F8;
   --pf_txtClr1: #ddd;
   --pf_txtClr2: #aaa;
 }
@@ -327,7 +327,7 @@ main {
   label{
     cursor: auto;
   }
-  input{
+  input:not([type=range]){
     width: 150px;
     padding: 0 4px;
     height: 40px;
@@ -457,12 +457,84 @@ main {
 
     .image-result{
       display: flex;
+      justify-content: space-between;
       align-items: center;
+
+      &:not(:first-child){
+        margin-top: 20px;
+      }
     }
     h2{
       font-size: 20px;
       font-weight: 600;
       color: var(--pf_white1);
+    }
+    p{
+      color: rgba(242, 242, 242, 0.6);
+    }
+    a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 40px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: var(--pf_point1);
+      color: var(--pf_white1);
+    }
+  }
+
+  .range_wrap{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    span{
+      width: 44px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 25px;
+      vertical-align: middle;
+      text-align: center;
+      color: #fff;
+      pointer-events: none;
+    }
+  }
+  #qualityRange{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 500px;
+    height: 6px;
+    background: linear-gradient(to right, rgba(242, 242, 242, 0.6) 0%, rgba(85, 118, 248, 0.6) 100%);
+    border: none;
+    border-radius: 8px;
+  }
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    width: 44px;
+    height: 25px;
+    background: #5576F8;
+    border-radius: 24px;
+  }
+
+  .range_wrap + label{
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+  }
+  #downloadAllBtn{
+    opacity: 0;
+    visibility: hidden;
+
+    &.show{
+      opacity: 1;
+      visibility: visible;
     }
   }
 }

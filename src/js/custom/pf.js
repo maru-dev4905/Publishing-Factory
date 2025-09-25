@@ -205,11 +205,23 @@ const pfFunc = {
 
   pngToWebp: {
     _fileIpt: null,
-    _convertBtn: null,
     _downloadAllBtn: null,
     _dropZone: null,
     _output: null,
+    _range: null,
+    _rangeVal: null,
     _convertedFiles: [],
+
+    _formatFileSize: function(bytes, decimals = 2){
+      if(!Number.isFinite(bytes) || bytes <= 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B','KB','MB','GB','TB','PB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      const idx = Math.min(i, sizes.length - 1);
+      const value = bytes / Math.pow(k,idx);
+
+      return `${value.toFixed(decimals)} ${sizes[idx]}`;
+    },
 
     processFiles: function (files) {
       if (!files.length) {
@@ -222,6 +234,8 @@ const pfFunc = {
 
       Array.from(files).forEach(file => {
         const reader = new FileReader();
+        let qualityVal = this._rangeVal / 100;
+
         reader.onload = function (event) {
           const img = new Image();
           img.onload = function () {
@@ -232,27 +246,48 @@ const pfFunc = {
             ctx.drawImage(img, 0, 0);
 
             // quality 값은 0~1 사이에서 조절 (예: 0.9)
-            const webpDataUrl = canvas.toDataURL('image/webp', 0.9);
+            const quality = qualityVal;
+            canvas.toBlob(async (blob) => {
+              if(!blob) {
+                console.error('toBlob returned null');
+                return;
+              }
 
-            // 결과 출력
-            const div = document.createElement('div');
-            div.className = 'image-result';
-            div.innerHTML = `
-              <h2>${file.name}</h2>
-              <a href="${webpDataUrl}" download="${file.name.split('.')[0]}.webp">다운로드</a>
-            `;
-            pfFunc.pngToWebp. _output.appendChild(div);
+              const convertedSizeBytes = blob.size;
+              const convertedSizeFormat = pfFunc.pngToWebp._formatFileSize(convertedSizeBytes);
+              const originalSizeFormat = pfFunc.pngToWebp._formatFileSize(file.size);
 
-            // 변환된 파일 정보를 배열에 저장
-            pfFunc.pngToWebp._convertedFiles.push({
-              filename: file.name.split('.')[0] + '.webp',
-              dataUrl: webpDataUrl
-            });
+              const blobUrl = URL.createObjectURL(blob);
 
-            // 모든 파일이 처리되면 전체 다운로드 버튼 보이기
-            if (pfFunc.pngToWebp._convertedFiles.length === files.length) {
-              pfFunc.pngToWebp._downloadAllBtn.style.display = 'inline-block';
-            }
+              const div = document.createElement('div');
+              div.className = 'image-result';
+              div.innerHTML = `
+                <div class="dp_f al_end gap10">
+                <h2>${file.name}</h2>
+                <div class="dp_f al_center gap20">
+                  <p>${originalSizeFormat} -></p>
+                  <p>${convertedSizeFormat}</p>
+                </div>
+                </div>
+                <a href="${blobUrl}" download="${file.name.split('.')[0]}.webp">다운로드</a>
+              `;
+              pfFunc.pngToWebp. _output.appendChild(div);
+
+              pfFunc.pngToWebp._convertedFiles.push({
+                filename: file.name.split('.')[0] + '.webp',
+                blob: blob,
+                size: blob.size,
+                sizeText: pfFunc.pngToWebp._formatFileSize(blob.size),
+                dataUrl: blobUrl
+              });
+              // 모든 파일이 처리되면 전체 다운로드 버튼 보이기
+              if(pfFunc.pngToWebp._convertedFiles.length === files.length){
+                pfFunc.pngToWebp._downloadAllBtn.classList.add('show');
+              }
+            }, 'image/webp', quality);
+          };
+          img.onerror = (err) => {
+            console.error('Image load error', err);
           };
           img.src = event.target.result;
         };
@@ -261,36 +296,70 @@ const pfFunc = {
     },
 
     download: function () {
-      if (this._convertedFiles.length === 0) return;
+      if (! pfFunc.pngToWebp._convertedFiles ||  pfFunc.pngToWebp._convertedFiles.length === 0) return;
+      console.log('convertedFiles raw:', this._convertedFiles);
+      pfFunc.pngToWebp._convertedFiles.forEach((f,i) => {
+        console.log(i);
+        console.log(f);
+        // console.log(i, f.filename, 'blob?', !!f.blob, 'blob instanceof Blob?', f.blob instanceof Blob, 'size:', f.blob ? f.blob.size : f.size, 'url?', f.dataUrl);
+      });
+
+      // 디버그: blob 상태 체크
+      console.log('Preparing ZIP, items:',  pfFunc.pngToWebp._convertedFiles.map(f => ({ name: f.filename, size: f.size })));
 
       const zip = new JSZip();
 
-      // 각 변환된 파일을 zip에 추가 (dataUrl에서 base64 데이터 추출)
-      this._convertedFiles.forEach(file => {
-        const base64Data = file.dataUrl.split(',')[1];
-        zip.file(file.filename, base64Data, {base64: true});
+      pfFunc.pngToWebp._convertedFiles.forEach(file => {
+        if (file.blob && file.blob.size > 0) {
+          zip.file(file.filename, file.blob);
+        } else {
+          console.warn('Skipping empty/invalid file in zip:', file.filename);
+        }
       });
 
-      // ZIP 파일 생성 후 다운로드 링크 생성
-      zip.generateAsync({type: 'blob'}).then(function (content) {
+      zip.generateAsync({ type: 'blob' }).then(content => {
         const link = document.createElement('a');
         link.href = URL.createObjectURL(content);
         link.download = 'converted_images.zip';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+
+        // 메모리 해제: 각 blob url revoke (선택사항, 만약 만들었다면)
+        this._convertedFiles.forEach(f => {
+          if (f.url) {
+            URL.revokeObjectURL(f.url);
+            delete f.url;
+          }
+        });
       });
+    },
+
+    range:{
+      _label: null,
+      change: function() {
+        const value = pfFunc.pngToWebp._range.value;
+        pfFunc.pngToWebp._rangeVal = value;
+        const label = pfFunc._q('.range_wrap > span');
+        label.innerHTML = `${value}%`;
+      },
+      init: function(){
+        this._label = pfFunc._q('.range_wrap > span')
+        this._label.innerHTML = `${pfFunc.pngToWebp._rangeVal}%`;
+
+        pfFunc.pngToWebp._range.addEventListener('input', this.change);
+      }
     },
 
     init: function () {
       this._fileIpt = pfFunc._q('#fileInput');
       this._fileInput = pfFunc._q('#fileInput');
-      this._convertBtn = pfFunc._q('#convertBtn');
       this._downloadAllBtn = pfFunc._q('#downloadAllBtn');
       this._dropZone = pfFunc._q('#dropZone');
       this._output = pfFunc._q('#output');
+      this._range = pfFunc._q('#qualityRange');
+      this._rangeVal = this._range.value;
 
-      this._convertBtn.addEventListener('click', () => this.processFiles(this._fileInput.files))
       this._dropZone.addEventListener('dragover', e => {
         e.preventDefault();
         this._dropZone.classList.add('hover');
@@ -313,6 +382,8 @@ const pfFunc = {
       this._downloadAllBtn.addEventListener('click', () => {
         this.download();
       });
+
+      this.range.init();
     }
   },
 

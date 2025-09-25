@@ -28,6 +28,13 @@ permalink: /tools/png-to-webp.html
 
                 <div class="pf_cont">
                     <!-- 파일 선택 인풋 -->
+                    <div class="dp_f jtf_center al_center fd_row_rvs gap10 pt_30 pb_12">
+                        <div class="range_wrap">
+                            <span>0%</span>
+                            <input type="range" id="qualityRange" min="0" max="100" value="50">
+                        </div>
+                        <label for="qualityRange">Quality</label>
+                    </div>
                     <div class="file_wrap">
                         <input type="file" id="fileInput" accept="image/png, image/jpeg" multiple>
                         <!-- 드래그 앤 드랍 영역 -->
@@ -36,13 +43,11 @@ permalink: /tools/png-to-webp.html
                             Drag & Drop to Upload File
                         </label>
                     </div>
-                    <div class="dp_f jtf_center gap20 mt_20">
-                        <button id="convertBtn" class="pf_btn ml_0 mr_0">변환하기</button>
-                        <button id="downloadAllBtn" class="pf_btn st2 ml_0 mr_0" style="display:none;">전체 다운로드</button>
+
+                    <div class="dp_f jtf_end gap20 mt_20">
+                        <button id="downloadAllBtn" class="pf_btn st2 ml_0 mr_0">전체 다운로드</button>
                     </div>
-
                     <div id="output"></div>
-
                 </div>
             </div>
         </section>
