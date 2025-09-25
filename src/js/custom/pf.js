@@ -1,4 +1,4 @@
-const pfFunc = {
+const pf = {
   _inited: false,
   _q(sel, ctx = document) {
     return ctx.querySelector(sel);
@@ -16,8 +16,8 @@ const pfFunc = {
       const hh = String(now.getHours()).padStart(2, '0');
       const mm = String(now.getMinutes()).padStart(2, '0');
       const ss = String(now.getSeconds()).padStart(2, '0');
-      const dateEl = pfFunc._q('.date');
-      const clockEl = pfFunc._q('.clock');
+      const dateEl = pf._q('.date');
+      const clockEl = pf._q('.clock');
       if (dateEl) dateEl.textContent = `${y}-${m}-${d}`;
       if (clockEl) clockEl.textContent = `${hh}:${mm}:${ss}`;
     },
@@ -107,32 +107,32 @@ const pfFunc = {
       const r = this.root;
       this.els = {
         // 숫자 변환 박스
-        boxPx2Vw: pfFunc._q('[data-box="px2vw"]', r),
-        boxVw2Px: pfFunc._q('[data-box="vw2px"]', r),
+        boxPx2Vw: pf._q('[data-box="px2vw"]', r),
+        boxVw2Px: pf._q('[data-box="vw2px"]', r),
 
-        inPx: pfFunc._q('[data-input="px"]', r),
-        inVw: pfFunc._q('[data-input="vw"]', r),
-        inBase1: pfFunc._q('[data-input="base1"]', r), // px→vw 기준 뷰포트
-        inBase2: pfFunc._q('[data-input="base2"]', r), // vw→px 기준 뷰포트
-        inDec1: pfFunc._q('[data-input="dec1"]', r),  // 소수 자리수
+        inPx: pf._q('[data-input="px"]', r),
+        inVw: pf._q('[data-input="vw"]', r),
+        inBase1: pf._q('[data-input="base1"]', r), // px→vw 기준 뷰포트
+        inBase2: pf._q('[data-input="base2"]', r), // vw→px 기준 뷰포트
+        inDec1: pf._q('[data-input="dec1"]', r),  // 소수 자리수
 
-        outVw: pfFunc._q('[data-output="vw"]', r),
-        outPx: pfFunc._q('[data-output="px"]', r),
+        outVw: pf._q('[data-output="vw"]', r),
+        outPx: pf._q('[data-output="px"]', r),
 
         // CSS 변환 박스
-        boxCssPx2Vw: pfFunc._q('[data-box="css-px2vw"]', r),
-        boxCssVw2Px: pfFunc._q('[data-box="css-vw2px"]', r),
+        boxCssPx2Vw: pf._q('[data-box="css-px2vw"]', r),
+        boxCssVw2Px: pf._q('[data-box="css-vw2px"]', r),
 
-        taSrc1: pfFunc._q('[data-ta="src1"]', r),
-        taOut1: pfFunc._q('[data-ta="out1"]', r),
-        inBase3: pfFunc._q('[data-input="base3"]', r), // css px→vw 기준 뷰포트
-        inDecCss: pfFunc._q('[data-input="dec-css"]', r),
-        chkStrip1: pfFunc._q('[data-chk="strip1"]', r),
+        taSrc1: pf._q('[data-ta="src1"]', r),
+        taOut1: pf._q('[data-ta="out1"]', r),
+        inBase3: pf._q('[data-input="base3"]', r), // css px→vw 기준 뷰포트
+        inDecCss: pf._q('[data-input="dec-css"]', r),
+        chkStrip1: pf._q('[data-chk="strip1"]', r),
 
-        taSrc2: pfFunc._q('[data-ta="src2"]', r),
-        taOut2: pfFunc._q('[data-ta="out2"]', r),
-        inBase4: pfFunc._q('[data-input="base4"]', r), // css vw→px 기준 뷰포트
-        chkStrip2: pfFunc._q('[data-chk="strip2"]', r),
+        taSrc2: pf._q('[data-ta="src2"]', r),
+        taOut2: pf._q('[data-ta="out2"]', r),
+        inBase4: pf._q('[data-input="base4"]', r), // css vw→px 기준 뷰포트
+        chkStrip2: pf._q('[data-chk="strip2"]', r),
       };
     },
 
@@ -203,7 +203,7 @@ const pfFunc = {
     }
   },
 
-  pngToWebp: {
+  imgToWebp: {
     _fileIpt: null,
     _downloadAllBtn: null,
     _dropZone: null,
@@ -254,8 +254,8 @@ const pfFunc = {
               }
 
               const convertedSizeBytes = blob.size;
-              const convertedSizeFormat = pfFunc.pngToWebp._formatFileSize(convertedSizeBytes);
-              const originalSizeFormat = pfFunc.pngToWebp._formatFileSize(file.size);
+              const convertedSizeFormat = pf.imgToWebp._formatFileSize(convertedSizeBytes);
+              const originalSizeFormat = pf.imgToWebp._formatFileSize(file.size);
 
               const blobUrl = URL.createObjectURL(blob);
 
@@ -265,24 +265,25 @@ const pfFunc = {
                 <div class="dp_f al_end gap10">
                 <h2>${file.name}</h2>
                 <div class="dp_f al_center gap20">
-                  <p>${originalSizeFormat} -></p>
+                  <p>${originalSizeFormat} </p>
+                  <span>→</span>
                   <p>${convertedSizeFormat}</p>
                 </div>
                 </div>
                 <a href="${blobUrl}" download="${file.name.split('.')[0]}.webp">다운로드</a>
               `;
-              pfFunc.pngToWebp. _output.appendChild(div);
+              pf.imgToWebp. _output.appendChild(div);
 
-              pfFunc.pngToWebp._convertedFiles.push({
+              pf.imgToWebp._convertedFiles.push({
                 filename: file.name.split('.')[0] + '.webp',
                 blob: blob,
                 size: blob.size,
-                sizeText: pfFunc.pngToWebp._formatFileSize(blob.size),
+                sizeText: pf.imgToWebp._formatFileSize(blob.size),
                 dataUrl: blobUrl
               });
               // 모든 파일이 처리되면 전체 다운로드 버튼 보이기
-              if(pfFunc.pngToWebp._convertedFiles.length === files.length){
-                pfFunc.pngToWebp._downloadAllBtn.classList.add('show');
+              if(pf.imgToWebp._convertedFiles.length === files.length){
+                pf.imgToWebp._downloadAllBtn.classList.add('show');
               }
             }, 'image/webp', quality);
           };
@@ -296,20 +297,20 @@ const pfFunc = {
     },
 
     download: function () {
-      if (! pfFunc.pngToWebp._convertedFiles ||  pfFunc.pngToWebp._convertedFiles.length === 0) return;
+      if (! pf.imgToWebp._convertedFiles ||  pf.imgToWebp._convertedFiles.length === 0) return;
       console.log('convertedFiles raw:', this._convertedFiles);
-      pfFunc.pngToWebp._convertedFiles.forEach((f,i) => {
+      pf.imgToWebp._convertedFiles.forEach((f,i) => {
         console.log(i);
         console.log(f);
         // console.log(i, f.filename, 'blob?', !!f.blob, 'blob instanceof Blob?', f.blob instanceof Blob, 'size:', f.blob ? f.blob.size : f.size, 'url?', f.dataUrl);
       });
 
       // 디버그: blob 상태 체크
-      console.log('Preparing ZIP, items:',  pfFunc.pngToWebp._convertedFiles.map(f => ({ name: f.filename, size: f.size })));
+      console.log('Preparing ZIP, items:',  pf.imgToWebp._convertedFiles.map(f => ({ name: f.filename, size: f.size })));
 
       const zip = new JSZip();
 
-      pfFunc.pngToWebp._convertedFiles.forEach(file => {
+      pf.imgToWebp._convertedFiles.forEach(file => {
         if (file.blob && file.blob.size > 0) {
           zip.file(file.filename, file.blob);
         } else {
@@ -338,26 +339,28 @@ const pfFunc = {
     range:{
       _label: null,
       change: function() {
-        const value = pfFunc.pngToWebp._range.value;
-        pfFunc.pngToWebp._rangeVal = value;
-        const label = pfFunc._q('.range_wrap > span');
+        const value = pf.imgToWebp._range.value;
+        pf.imgToWebp._rangeVal = value;
+        const label = pf._q('.range_wrap > span');
         label.innerHTML = `${value}%`;
       },
       init: function(){
-        this._label = pfFunc._q('.range_wrap > span')
-        this._label.innerHTML = `${pfFunc.pngToWebp._rangeVal}%`;
+        this._label = pf._q('.range_wrap > span')
+        this._label.innerHTML = `${pf.imgToWebp._rangeVal}%`;
 
-        pfFunc.pngToWebp._range.addEventListener('input', this.change);
+        pf.imgToWebp._range.addEventListener('input', this.change);
       }
     },
 
-    init: function () {
-      this._fileIpt = pfFunc._q('#fileInput');
-      this._fileInput = pfFunc._q('#fileInput');
-      this._downloadAllBtn = pfFunc._q('#downloadAllBtn');
-      this._dropZone = pfFunc._q('#dropZone');
-      this._output = pfFunc._q('#output');
-      this._range = pfFunc._q('#qualityRange');
+    init(container = '[data-pf-tool="imgtowebp"]') {
+      this.root = document.querySelector(container);
+      if (!this.root) return;
+      this._fileIpt = pf._q('#fileInput');
+      this._fileInput = pf._q('#fileInput');
+      this._downloadAllBtn = pf._q('#downloadAllBtn');
+      this._dropZone = pf._q('#dropZone');
+      this._output = pf._q('#output');
+      this._range = pf._q('#qualityRange');
       this._rangeVal = this._range.value;
 
       this._dropZone.addEventListener('dragover', e => {
@@ -387,13 +390,64 @@ const pfFunc = {
     }
   },
 
+  pxToRem: {
+    root: null,
+    _pxIpt: null,
+    _remIpt: null,
+    _baseFsIpt: null,
+    _baseFs: null,
+
+    convert: (e) => {
+      const bs = pf.pxToRem._baseFs;
+      const val = e.target.value;
+
+      if(e.target === pf.pxToRem._pxIpt){
+        pf.pxToRem._remIpt.value = val / bs;
+      }else if(e.target === pf.pxToRem._remIpt){
+        pf.pxToRem._pxIpt.value = val * bs;
+      }
+    },
+
+    changeBase: (e)=>{
+      pf.pxToRem._baseFs = e.target.value;
+
+      const pxVal = parseFloat(pf.pxToRem._pxIpt.value);
+      const remVal = parseFloat(pf.pxToRem._remIpt.value);
+
+      if (Number.isFinite(pxVal)) {
+        // px 기준으로 다시 계산
+        const rem = pxVal / pf.pxToRem._baseFs;
+        pf.pxToRem._remIpt.value = rem;
+      } else if (Number.isFinite(remVal)) {
+        // rem 기준으로 다시 계산
+        const px = remVal * this._baseFs;
+        this._pxIpt.value = px;
+      }
+    },
+
+    init(container = '[data-pf-tool="pxtorem"]'){
+      this.root = document.querySelector(container);
+      if (!this.root) return;
+
+      this._pxIpt = pf._q('#pxIpt');
+      this._remIpt = pf._q('#remIpt');
+      this._baseFsIpt = pf._q('#baseFontIpt');
+      this._baseFs = this._baseFsIpt.value;
+
+      this._pxIpt.addEventListener('input', (e)=>{this.convert(e, this._remIpt)});
+      this._remIpt.addEventListener('input', (e)=>{this.convert(e, this._pxIpt)});
+      this._baseFsIpt.addEventListener('input', (e)=>{this.changeBase(e)});
+    }
+  },
+
   init() {
     if (this._inited) return;
     this._inited = true;
     this.dateTime.init();
     this.pxToVw.init();
-    this.pngToWebp.init();
+    this.imgToWebp.init();
+    this.pxToRem.init();
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => pfFunc.init());
+document.addEventListener('DOMContentLoaded', () => pf.init());

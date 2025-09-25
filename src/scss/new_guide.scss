@@ -388,12 +388,13 @@ main {
   .chk_ipt{cursor: pointer;}
   button.pf_btn{
     display:block;
-    width: 100px;
+    min-width: 120px;
     height: 40px;
     margin: 0 auto;
+    padding: 0 10px;
     font-size: 16px;
     font-weight: 600;
-    border-radius: 4px;
+    border-radius: 16px;
     background-color: var(--pf_point1);
     color: var(--pf_white1);
 
@@ -405,7 +406,7 @@ main {
   }
 }
 
-[data-pf-tool='pngtowebp']{
+[data-pf-tool='imgtowebp']{
   .file_wrap{
     position:relative;
     width: 100%;
@@ -459,9 +460,13 @@ main {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-left: 10px;
 
       &:not(:first-child){
-        margin-top: 20px;
+        margin-top: 14px;
+      }
+      & > div{
+        width: calc(100% - 140px);
       }
     }
     h2{
@@ -470,7 +475,12 @@ main {
       color: var(--pf_white1);
     }
     p{
+      font-size: 14px;
       color: rgba(242, 242, 242, 0.6);
+    }
+    span{
+      font-size: 14px;
+      color: rgba(242,242,242,0.6);
     }
     a{
       display: flex;
@@ -480,7 +490,7 @@ main {
       height: 40px;
       font-size: 16px;
       font-weight: 600;
-      border-radius: 4px;
+      border-radius: 16px;
       background-color: var(--pf_point1);
       color: var(--pf_white1);
     }
@@ -538,6 +548,56 @@ main {
     }
   }
 }
+
+[data-pf-tool='pxtorem']{
+  .calc_wrap{
+    margin-top: 2.5rem;
+  }
+  .calc_wrap label{
+    font-size: 1.25rem;
+    color: var(--pf_txtClr1);
+  }
+  .calc_wrap input{
+    width: 350px;
+    height: 62px;
+    padding: 0 40px;
+    font-size: 36px;
+    color: var(--pf_white1);
+  }
+  .calc_wrap .ipt_wrap{
+    position: relative;
+  }
+  .calc_wrap p{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--pf_txtClr2)
+  }
+  .calc_wrap span{
+    padding-top: 34px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pf_txtClr2);
+    opacity: 0.6;
+  }
+
+  label[for=baseFontIpt]{
+    display: block;
+    margin: 2.5rem auto 0;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--pf_txtClr2);
+  }
+  label[for=baseFontIpt] input{
+    width: 50px;
+    margin: 0 4px
+  }
+}
+
 #pf-commits{
   position: relative;
 

@@ -20,12 +20,30 @@ permalink: /tools/px-to-rem.html
             </ul>
         </nav>
         <section class="">
-            <div class="pf_inner scrollbar_custom ipt_st1"  data-pf-tool="pxvw">
+            <div class="pf_inner scrollbar_custom ipt_st1"  data-pf-tool="pxtorem">
                 <div class="sec_tit">
                     <h2 class="fs_36">PX to REM</h2>
                 </div>
 
                 <div class="pf_cont">
+                    <div class="dp_f jtf_center al_center gap20 calc_wrap">
+                        <div class="dp_f fd_col jtf_center al_center gap10">
+                            <label for="pxIpt">Pixels</label>
+                            <div class="ipt_wrap">
+                                <input type="text" id="pxIpt" value="10">
+                                <p>px</p>
+                            </div>
+                        </div>
+                        <span>⇄</span>
+                        <div class="dp_f fd_col jtf_center al_center gap10">
+                            <label for="remIpt">REM</label>
+                            <div class="ipt_wrap">
+                                <input type="text" id="remIpt">
+                                <p>rem</p>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="baseFontIpt">based on a root font-size of <input type="text" value="16" size="2"decimals="1" id="baseFontIpt"> pixel.</label>
                 </div>
             </div>
         </section>
