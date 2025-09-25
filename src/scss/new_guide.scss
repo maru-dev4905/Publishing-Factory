@@ -633,11 +633,11 @@ main {
       border-radius: 50%;
       content: "";
     }
-    &:nth-child(1)::before{background-color: #F57A24;}
-    &:nth-child(2)::before{background-color: #D16D26;}
-    &:nth-child(3)::before{background-color: #AC5F29;}
-    &:nth-child(4)::before{background-color: #88522B;}
-    &:nth-child(5)::before{background-color: #63442E;}
+    &:nth-child(1)::before{background-color: #5576F8FF;}
+    &:nth-child(2)::before{background-color: #6683f4;}
+    &:nth-child(3)::before{background-color: #7792fa;}
+    &:nth-child(4)::before{background-color: #8aa0f4;}
+    &:nth-child(5)::before{background-color: #a7b8fb;}
   }
 }
 
