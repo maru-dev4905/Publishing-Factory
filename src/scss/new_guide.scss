@@ -641,6 +641,39 @@ main {
   }
 }
 
+.hljs{
+  background-color: transparent !important;
+
+  &.pf_box,
+  .pf_box{
+  }
+}
+.pf_box.code_wrap{
+  background: transparent;
+  padding: 0;
+
+  .example_wrap{
+    padding: 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+  }
+  .cont_wrap{
+    padding: 0.325rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,.05);
+
+    p{
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--pf_white1);
+    }
+    .copy_btn{
+      width: 18px;
+      height: 18px;
+      background: url("../images/icons/ico_copy_w.svg") no-repeat center / cover;
+    }
+  }
+}
+
 footer {
   position: relative;
   z-index: 10;
@@ -660,3 +693,59 @@ footer {
 .wv_tab {
   width: 100%;
 }
+
+.pf_accordion{
+  width: 100%;
+}
+.pf_accordion li:not(:last-child){
+  margin-bottom: 0.625rem;
+}
+.pf_accordion .wv_accordion_btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0.625rem 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--pf_white1);
+  background-color: #67666F;
+  border-radius: 10px;
+  transition: background-color .25s ease-in-out
+}
+.pf_accordion .wv_accordion_btn:hover{
+  background-color: #4e4d54;
+}
+.pf_accordion .wv_accordion_btn::after{
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url("../images/icons/ico_accordion_arrow_w.svg") no-repeat center / cover;
+  transform: rotate(90deg);
+  display: block;
+  transition: transform .25s ease-in-out
+}
+.pf_accordion .active .wv_accordion_btn::after{
+  transform: rotate(-90deg);
+}
+.pf_accordion .wv_accordion_panel{
+  position: relative;
+  top: -0.625rem;
+  background-color: rgba(255,255,255,.1);
+  color: var(--pf_white1);
+  padding: 0 1.25rem;
+  border-radius: 0 0 0.625rem 0.625rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .45s ease-in-out;
+}
+.pf_accordion .wv_accordion_panel div{
+  padding: 1.875rem 0 1.25rem;
+}
+.pf_accordion .active .wv_accordion_panel{
+  max-height: 500px;
+}
+

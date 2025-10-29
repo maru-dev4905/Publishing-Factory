@@ -440,6 +440,13 @@ const pf = {
     }
   },
 
+  hlJS: {
+    init:()=>{
+      if(!pf._q('.hljs')) return;
+      hljs.highlightAll();
+    }
+  },
+
   init() {
     if (this._inited) return;
     this._inited = true;
@@ -447,6 +454,7 @@ const pf = {
     this.pxToVw.init();
     this.imgToWebp.init();
     this.pxToRem.init();
+    this.hlJS.init();
   }
 };
 

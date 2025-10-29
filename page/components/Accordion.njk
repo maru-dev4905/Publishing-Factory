@@ -1,52 +1,91 @@
-{#---#}
-{#pageTitle: "FP 프로젝트 - Accordion"#}
-{#pageDir: [Components, Accordion]#}
-{#permalink: /compoAccordion.html#}
-{#---#}
-{#{% include "head.njk" %}#}
-{#<body>#}
-{#<div class="dp_f">#}
-{#    {% include "header.njk" %}#}
+---
+pageTitle: "PF - Demo"
+pageDir: ["demo"]
+permalink: /demo/accordion.html
+---
+{% include "head.njk" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
-{#    <main>#}
-{#        <div class="pf_inner">#}
-{#            <div class="tit">#}
-{#                <h2 class="fs_48">Components - Accordion</h2>#}
-{#                <p class="fs_18 mt_20">#}
-{#                    asdasdasdasd#}
-{#                </p>#}
-{#            </div>#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+</head>
+<body class="bg-glass-dark">
 
-{#            <div class="tit mt_80">#}
-{#                <h3 class="fs_40">사용 방법</h3>#}
-
-{#                <div class="">#}
-{#                    <ul class="wv_accordion" data-type="multi">#}
-{#                        <li>#}
-{#                            <button type="button" class="wv_accordion_btn">test1</button>#}
-{#                            <div class="wv_accordion_panel">#}
-{#                                asldjkalsndklasnd#}
-{#                            </div>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <button type="button" class="wv_accordion_btn">test1</button>#}
-{#                            <div class="wv_accordion_panel">#}
-{#                                asldjkalsndklasnd#}
-{#                            </div>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <button type="button" class="wv_accordion_btn">test1</button>#}
-{#                            <div class="wv_accordion_panel">#}
-{#                                asldjkalsndklasnd#}
-{#                            </div>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                </div>#}
-
-{#            </div>#}
-
-{#        </div>#}
-{#    </main>#}
-{#    {% include "slot.njk" %}#}
-{#</div>#}
-{#</body>#}
+<div class="pf_main ">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section>
+            <div class="pf_inner scrollbar_custom">
+                <div class="sec_tit">
+                    <h2 class="fs_36">Components - Accordion</h2>
+                    <p class="fs_14 mt_10 txtClr1">퍼블리싱 작업 시 자주 사용하는 스크립트 기능들입니다.</p>
+                </div>
+                <div class="tit mt_80">
+                    <h3 class="fs_24 fw_medium fc_white1">EXAMPLE</h3>
+                </div>
+                <div class="code_wrap pf_box mt_20">
+                    <div class="example_wrap">
+                        <div class="">
+                            <ul class="wv_accordion pf_accordion" data-type="multi">
+                                <li>
+                                    <button type="button" class="wv_accordion_btn">What is Lorem Ipsum?</button>
+                                    <div class="wv_accordion_panel">
+                                        <div>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                            industry.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button type="button" class="wv_accordion_btn">Why do we use it?</button>
+                                    <div class="wv_accordion_panel">
+                                        <div>It is a long established fact that a reader will be distracted by the
+                                            readable content.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button type="button" class="wv_accordion_btn">Where does it come from?</button>
+                                    <div class="wv_accordion_panel">
+                                        <div>Contrary to popular belief, Lorem Ipsum is not simply random text.</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cont_wrap">
+                        <div class="dp_f jtf_bet al_center">
+                            <p>HTML</p>
+                            <button type="button" class="wv_copy_btn copy_btn" data-target="hl1"></button>
+                        </div>
+                    </div>
+                    <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl1">
+&lt;ul class="wv_accordion" data-type="multi"&gt;
+    &lt;li&gt;
+        &lt;button type="button" class="wv_accordion_btn"&gt;What is Lorem Ipsum?&lt;/button&gt;
+        &lt;div class="wv_accordion_panel"&gt;
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;button type="button" class="wv_accordion_btn"&gt;Why do we use it?&lt;/button&gt;
+        &lt;div class="wv_accordion_panel"&gt;
+            It is a long established fact that a reader will be distracted by the readable content.
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;button type="button" class="wv_accordion_btn"&gt;Where does it come from?&lt;/button&gt;
+        &lt;div class="wv_accordion_panel"&gt;
+           Contrary to popular belief, Lorem Ipsum is not simply random text.
+        &lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+                            </code></pre>
+                </div>
+                <p class="fs_14 fw_regular mt_10 txtClr1">.wv_accordion에 [data-type]을 multi 값을 넣었을 경우 여러개의 패널을 열어둘 수
+                    있습니다.</p>
+            </div>
+        </section>
+    </main>
+</div>
+</body>

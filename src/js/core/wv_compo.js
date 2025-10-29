@@ -17,7 +17,7 @@ const wvCompo = {
     wvTab();
     wvAccordion();
     wvModal();
-    wvCopyBtn({ feedback: "modal" });
+    wvCopyBtn({ feedback: "alert" });
     wvScrBtn();
     wvLinkBtn();
   }
