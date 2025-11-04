@@ -1,48 +1,65 @@
-# Astro Starter Kit: Basics
+# 🏗️ Publishing-Factory
 
-```sh
-npm create astro@latest -- --template basics
-```
+> **A modular front-end framework built by maru**  
+> Design, structure, and motion — all connected by lines.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🌐 Overview
+**Publishing-Factory (PF)** is a personal front-end framework and design system  
+built to unify maru’s workflow as a **web publisher, designer, and developer**.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+It connects reusable UI components, motion systems, and visual logic  
+into a single, maintainable ecosystem — making publishing faster, cleaner, and more expressive.
 
-## 🚀 Project Structure
+> “Each line connects code, design, and flow — this is my language.”
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
+## ⚙️ Tech Stack
+| Category | Technology |
+|-----------|-------------|
+| **Template Engine** | [Nunjucks](https://mozilla.github.io/nunjucks/) (Eleventy compatible) |
+| **CSS Preprocessor** | SCSS |
+| **JavaScript** | jQuery + ES Module |
+| **Task Runner** | Gulp |
+| **Animation** | GSAP |
+| **Structure** | Adaptive Layout (not responsive) |
+
+---
+
+## 🧩 Components & Modules
+| Component | Description |
+|------------|-------------|
+| `Tab` | Switch content with fade or slide motion |
+| `Accordion` | Expand/collapse panels with accessible event delegation |
+| `Modal` | Includes overlay, scroll lock, and overlay-click options |
+| `Copy Button` | Copies text or target content with feedback (alert or modal) |
+| `More Button` | Dynamically loads additional content (AJAX-ready) |
+
+Each component follows a **modular pattern** and can be initialized dynamically  
+through a single entry script: `wv_compo.js`
+
+---
+
+## 📁 Folder Structure
 ```text
-/
-├── public/
-│   └── favicon.svg
+Publishing-Factory/
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│ ├── assets/
+│ │ ├── js/core/ # Core UI components (e.g. Tab, Accordion, Modal)
+│ │ ├── scss/ # Variables, mixins, component styles
+│ │ └── images/
+│ ├── pages/ # Page templates (Nunjucks)
+│ ├── partials/ # Header, footer, component snippets
+│ └── utilities/ # GSAP, Swiper, and other helpers
+└── dist/ # Compiled output
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## 🧠 Author
+**maru (이승열)**  
+Web Publisher
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
