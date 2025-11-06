@@ -64,7 +64,7 @@ export const img2webp = {
               div.className = "image-result";
               div.innerHTML = `
                 <div class="dp_f al_end gap10">
-                <h2>${file.name}</h2>
+                <h2 class="txt_over_dot clamp1">${file.name}</h2>
                 <div class="dp_f al_center gap20">
                   <p>${originalSizeFormat} </p>
                   <span>→</span>

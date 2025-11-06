@@ -474,6 +474,9 @@ main {
       font-weight: 600;
       color: var(--pf_white1);
     }
+    h2 + div{
+      min-width: max-content;
+    }
     p{
       font-size: 14px;
       color: rgba(242, 242, 242, 0.6);
