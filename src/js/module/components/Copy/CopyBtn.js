@@ -35,7 +35,10 @@ export default function wvCopyBtn({ feedback = 'alert' } = {}) {
 
       // Copy to clipboard
       navigator.clipboard.writeText(text)
-          .then(() => handleFeedback(feedback))
+          .then(() =>{
+            const fb = btn.dataset.feedback || feedback;
+            handleFeedback(fb);
+          })
           .catch(err => console.error('Copy failed:', err));
     });
   }
