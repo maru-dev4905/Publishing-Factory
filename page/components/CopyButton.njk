@@ -8,7 +8,9 @@ permalink: /demo/copy.html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 </head>
 <body class="bg-glass-dark">
-
+<div id="copySuccessModal" class="wv_modal">
+    <div class="modal_inner">Copied Successfully!</div>
+</div>
 <div class="pf_main">
     {% include "side.njk" %}
     {% include "header.njk" %}
@@ -18,194 +20,90 @@ permalink: /demo/copy.html
 
                 <div class="sec_tit">
                     <h2 class="fs_36">Components - Copy Button</h2>
-                    <p class="fs_14 mt_10 txtClr1">
+                    <p class="fs_16 mt_10 txtClr1 lih150per">
                         지정한 텍스트나 요소의 내용을 클립보드로 복사하는 기능입니다.<br>
                         복사 후 알림창(alert) 또는 모달(modal) 형태의 피드백을 제공합니다.
                     </p>
                 </div>
-
-                <!-- Example 1 : data-text -->
-                <div class="tit mt_80">
-                    <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – data-text</h3>
-                </div>
-                <div class="code_wrap pf_box mt_20">
-                    <div class="example_wrap">
-                        <button type="button" class="wv_copy_btn" data-text="Hello PF!">Copy Text</button>
+                <div class="pf_container">
+                    <!-- Example 1 : data-text -->
+                    <div class="tit">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – data-text</h3>
                     </div>
-                    <div class="cont_wrap">
-                        <div class="dp_f jtf_bet al_center">
-                            <p>HTML</p>
-                            <button type="button" class="wv_copy_btn copy_btn" data-target="hl1"></button>
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+                            <button type="button" class="wv_copy_btn pf_copy" data-text="Hello PF!">Copy Text</button>
                         </div>
-                    </div>
-                    <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl1">
-&lt;button type="button" class="wv_copy_btn" data-text="Hello PF!"&gt;Copy Text&lt;/button&gt;
-          </code></pre>
-                </div>
-                <p class="fs_16 fw_regular mt_10 txtClr1">
-                    <code>data-text</code> 속성을 사용하면 지정된 문자열을 복사할 수 있습니다.
-                </p>
-
-                <!-- Example 2 : data-target -->
-                <div class="tit mt_100">
-                    <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – data-target</h3>
-                </div>
-                <div class="code_wrap pf_box mt_20">
-                    <div class="example_wrap">
-                        <p id="copyTarget">PF Component Guide</p>
-                        <button type="button" class="wv_copy_btn" data-target="copyTarget">Copy Target Text</button>
-                    </div>
-                    <div class="cont_wrap">
-                        <div class="dp_f jtf_bet al_center">
-                            <p>HTML</p>
-                            <button type="button" class="wv_copy_btn copy_btn" data-target="hl2"></button>
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="hl1"></button>
+                            </div>
                         </div>
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl1">
+        &lt;button type="button" class="wv_copy_btn" data-text="Hello PF!"&gt;Copy Text&lt;/button&gt;
+                  </code></pre>
                     </div>
-                    <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl2">
-&lt;p id="copyTarget"&gt;PF Component Guide&lt;/p&gt;
-&lt;button type="button" class="wv_copy_btn" data-target="copyTarget"&gt;Copy Target Text&lt;/button&gt;
-          </code></pre>
-                </div>
-                <p class="fs_16 fw_regular mt_10 txtClr1">
-                    <code>data-target</code> 속성은 지정한 ID 요소의 텍스트 내용을 복사합니다.
-                </p>
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-text</code> 속성을 사용하면 지정된 문자열을 복사할 수 있습니다.
+                    </p>
 
-                <!-- Example 3 : feedback modal -->
-                <div class="tit mt_100">
-                    <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – Feedback Modal</h3>
-                </div>
-                <div class="code_wrap pf_box mt_20">
-                    <div class="example_wrap">
-                        <button type="button" class="wv_copy_btn" data-text="Modal Feedback!" data-type="text" data-feedback="modal">Copy with Modal</button>
-                        <div id="copySuccessModal" class="wv_modal">
-                            <div class="modal_inner">Copied Successfully!</div>
+                    <!-- Example 2 : data-target -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – data-target</h3>
+                    </div>
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+                            <p id="copyTarget">PF Component Guide</p>
+                            <button type="button" class="wv_copy_btn pf_copy" data-target="copyTarget">Copy Target
+                                Text
+                            </button>
                         </div>
-                    </div>
-                    <div class="cont_wrap">
-                        <div class="dp_f jtf_bet al_center">
-                            <p>HTML</p>
-                            <button type="button" class="wv_copy_btn copy_btn" data-target="hl3"></button>
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn " data-target="hl2"></button>
+                            </div>
                         </div>
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl2">
+        &lt;p id="copyTarget"&gt;PF Component Guide&lt;/p&gt;
+        &lt;button type="button" class="wv_copy_btn" data-target="copyTarget"&gt;Copy Target Text&lt;/button&gt;
+                  </code></pre>
                     </div>
-                    <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl3">
-&lt;button type="button" class="wv_copy_btn" data-text="Modal Feedback!"&gt;Copy with Modal&lt;/button&gt;
-&lt;div id="copySuccessModal" class="wv_modal"&gt;
-  &lt;div class="modal_inner"&gt;Copied Successfully!&lt;/div&gt;
-&lt;/div&gt;
-          </code></pre>
-                </div>
-                <p class="fs_16 fw_regular mt_10 txtClr1">
-                    <code>feedback</code> 옵션을 <code>modal</code>로 설정하면 복사 완료 시 모달을 표시할 수 있습니다.
-                </p>
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-target</code> 속성은 지정한 ID 요소의 텍스트 내용을 복사합니다.
+                    </p>
 
-                <!-- JS code section -->
-                <div class="tit mt_120">
-                    <h3 class="fs_24 fw_medium fc_white1">SCRIPT</h3>
-                </div>
-                <div class="code_wrap pf_box mt_20">
-                    <div class="cont_wrap">
-                        <div class="dp_f jtf_bet al_center">
-                            <p>JavaScript</p>
-                            <button type="button" class="wv_copy_btn copy_btn" data-target="hl4"></button>
+                    <!-- Example 3 : feedback modal -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – Feedback Modal</h3>
+                    </div>
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+                            <button type="button" class="wv_copy_btn pf_copy" data-text="Modal Feedback!"
+                                    data-feedback="modal">Copy with Modal
+                            </button>
                         </div>
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="hl3"></button>
+                            </div>
+                        </div>
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl3">
+        &lt;button type="button" class="wv_copy_btn" data-text="Modal Feedback!" data-feedback="modal"&gt;Copy with Modal&lt;/button&gt;
+        &lt;div id="copySuccessModal" class="wv_modal"&gt;
+          &lt;div class="modal_inner"&gt;Copied Successfully!&lt;/div&gt;
+        &lt;/div&gt;
+                  </code></pre>
                     </div>
-                    <pre class="hljs"><code class="language-javascript pt_0 pb_0 pr_0 pl_0" id="hl4">
-// CopyBtn.js - event delegation & dynamic init
-export default function wvCopyBtn({ feedback = 'alert' } = {}) {
-  const selector = '.wv_copy_btn';
-  let inited = false;
-
-  function init() {
-    if (inited) return;
-    inited = true;
-
-    document.addEventListener('click', e => {
-      const btn = e.target.closest(selector);
-      if (!btn) return;
-      e.preventDefault();
-
-      const copyType = btn.dataset.type;
-      const textToCopy = btn.dataset.text;
-      const targetId = btn.dataset.target;
-      let text = '';
-
-      if (copyType === 'window') {
-        text = window.location.href;
-      } else if (copyType === 'social') {
-        shareSocial(btn.dataset.platform);
-        return;
-      } else if (textToCopy) {
-        text = textToCopy;
-      } else if (targetId) {
-        const targetEl = document.getElementById(targetId);
-        text = targetEl ? targetEl.textContent : '';
-      } else {
-        console.warn('wvCopyBtn: no text or target specified');
-        return;
-      }
-
-      navigator.clipboard.writeText(text)
-        .then(() => handleFeedback(feedback))
-        .catch(err => console.error('Copy failed:', err));
-    });
-  }
-
-  function handleFeedback(type) {
-    if (type === 'alert') {
-      alert('Copied to clipboard.');
-    } else if (type === 'modal') {
-      const modal = document.getElementById('copySuccessModal');
-      if (modal) {
-        modal.classList.add('active');
-        setTimeout(() => modal.classList.remove('active'), 2000);
-      }
-    }
-  }
-
-  function shareSocial(platform) {
-    const { kakaoKey, baseUrl } = window.projectConfig.socialShareConfig;
-    const url = `${baseUrl}${window.location.pathname}`;
-    const title = document.title;
-
-    switch (platform) {
-      case 'kakao':
-        if (window.Kakao) {
-          if (!Kakao.isInitialized()) Kakao.init(kakaoKey);
-          Kakao.Link.sendDefault({
-            objectType: 'feed',
-            content: { title, description: '', link: { mobileWebUrl: url, webUrl: url } }
-          });
-        } else {
-          console.error('Kakao SDK not loaded');
-        }
-        break;
-      case 'facebook':
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
-        break;
-      case 'twitter':
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`);
-        break;
-      case 'blog':
-        window.open(`https://share.naver.com/web/shareView?url=${encodeURIComponent(url)}`);
-        break;
-      default:
-        console.warn('Unsupported platform:', platform);
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-}
-          </code></pre>
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-feedback</code> 속성을 <code>modal</code>로 설정하면 복사 완료 시 모달을 표시할 수 있습니다.
+                    </p>
                 </div>
-
             </div>
         </section>
     </main>
 </div>
 
-<script>hljs.highlightAll();</script>
 </body>

@@ -1,33 +1,218 @@
-{#---#}
-{#pageTitle: "FP 프로젝트 - Hide Today"#}
-{#pageDir: [Components, Hide Today]#}
-{#permalink: /compoHideToday.html#}
-{#---#}
-{#{% include "head.njk" %}#}
-{#<body>#}
-{#<div class="dp_f">#}
-{#    {% include "header.njk" %}#}
+---
+pageTitle: "PF - Demo"
+pageDir: ["demo"]
+permalink: /demo/hideToday.html
+---
+{% include "head.njk" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</head>
+<body class="bg-glass-dark">
 
-{#    <main>#}
-{#        <div class="pf_inner">#}
-{#            <div class="tit">#}
-{#                <h2 class="fs_48">Components - Hide Today</h2>#}
-{#                <p class="fs_18 mt_20">#}
-{#                    asdasdasdasd#}
-{#                </p>#}
-{#            </div>#}
+<div class="pf_main">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section>
+            <div class="pf_inner scrollbar_custom pb_100">
 
-{#            <div class="tit mt_80">#}
-{#                <h3 class="fs_40">사용 방법</h3>#}
+                <div class="sec_tit">
+                    <h2 class="fs_36">Components - Hide Today</h2>
+                    <p class="fs_16 mt_10 txtClr1 lih150per">
+                        “오늘 하루 보지 않기” 패턴. 체크 후 닫기를 누르면 대상 요소가 숨겨지고,
+                        <code>localStorage</code>로 24시간 유지됩니다.
+                    </p>
+                </div>
 
-{#                <div class=" fc_white1">#}
+                <div class="pf_container">
+                    <div class="tit">
+                        <h3 class="fs_24 fw_medium fc_white1">ATTRIBUTE REFERENCE</h3>
+                    </div>
+                    <table class="pf_table attr_table mt_20">
+                        <thead>
+                        <tr>
+                            <th>속성명</th>
+                            <th>필수</th>
+                            <th>타입 / 예시</th>
+                            <th>기본값</th>
+                            <th>설명</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><code>data-close</code></td>
+                            <td>필수</td>
+                            <td>string<br><small>"promo_banner"</small></td>
+                            <td>-</td>
+                            <td>닫기 시 숨길 대상 요소의 ID를 지정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-expire-hours</code></td>
+                            <td>선택</td>
+                            <td>number<br><small>"12"</small></td>
+                            <td>24</td>
+                            <td>숨김 유지 시간(시간 단위)을 지정합니다. 미입력 시 24시간 유지.</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-controls</code></td>
+                            <td>필수</td>
+                            <td>string<br><small>"promo_banner"</small></td>
+                            <td>-</td>
+                            <td>체크박스가 제어하는(숨길) 요소의 ID입니다.</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-describedby</code></td>
+                            <td>선택</td>
+                            <td>string<br><small>"chk_hide_promo"</small></td>
+                            <td>-</td>
+                            <td>버튼과 연결된 체크박스 ID를 지정하여 접근성을 높입니다.</td>
+                        </tr>
+                        <tr>
+                            <td><code>localStorage</code> 키</td>
+                            <td>자동</td>
+                            <td><small>"hideToday-[data-close]"</small></td>
+                            <td>-</td>
+                            <td>숨김 상태가 저장되는 키 이름. 예: <code>hideToday-promo_banner</code></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-{#                </div>#}
+                    <!-- Example 1 : 기본 -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – 기본</h3>
+                    </div>
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+                            <!-- 숨길 대상 -->
+                            <div id="promo_banner" class="pf_banner wv_box">
+                                <p class="fc_white1">프로모션 배너입니다. 체크 후 “닫기”를 누르면 24시간 숨겨집니다.</p>
 
-{#            </div>#}
+                                <div class="hide_today_compo mt_12">
+                                    <input
+                                            type="checkbox"
+                                            id="chk_hide_promo"
+                                            class="hide_today_chk"
+                                            data-close="promo_banner"
+                                            aria-controls="promo_banner"
+                                            aria-label="프로모션 배너 오늘 하루 보지 않기"
+                                    >
+                                    <label for="chk_hide_promo">오늘 하루 보지 않기</label>
+                                    <button type="button" class="hide_today_btn ml_8" aria-describedby="chk_hide_promo">
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-{#        </div>#}
-{#    </main>#}
-{#    {% include "slot.njk" %}#}
-{#</div>#}
-{#</body>#}
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="hl1"></button>
+                            </div>
+                        </div>
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl1">
+&lt;div id="promo_banner"&gt;
+  &lt;p&gt;프로모션 배너입니다...&lt;/p&gt;
+  &lt;div class="hide_today_compo"&gt;
+    &lt;input type="checkbox"
+           id="chk_hide_promo"
+           class="hide_today_chk"
+           data-close="promo_banner"
+           aria-controls="promo_banner"
+           aria-label="프로모션 배너 오늘 하루 보지 않기"&gt;
+    &lt;label for="chk_hide_promo"&gt;오늘 하루 보지 않기&lt;/label&gt;
+    &lt;button type="button" class="hide_today_btn" aria-describedby="chk_hide_promo"&gt;닫기&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+            </code></pre>
+                    </div>
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>id</code>/<code>for</code>로 체크박스-라벨 연결, <code>data-close</code>로 숨길 대상의 <code>id</code>를
+                        지정합니다.
+                    </p>
+
+                    <!-- Example 2 : 만료시간 옵션 & 다중 인스턴스 -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – 만료시간 옵션 & 다중</h3>
+                    </div>
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+                            <div id="notice_bar" class="pf_banner wv_box mb_12">
+                                <p class="fc_white1">공지 영역: 12시간 숨김</p>
+                                <div class="hide_today_compo mt_12">
+                                    <input
+                                            type="checkbox"
+                                            id="chk_hide_notice"
+                                            class="hide_today_chk"
+                                            data-close="notice_bar"
+                                            data-expire-hours="12"
+                                            aria-controls="notice_bar"
+                                            aria-label="공지 오늘 하루 보지 않기"
+                                    >
+                                    <label for="chk_hide_notice">오늘 하루 보지 않기</label>
+                                    <button type="button" class="hide_today_btn ml_8"
+                                            aria-describedby="chk_hide_notice">닫기
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="event_toast" class="pf_banner wv_box">
+                                <p class="fc_white1">이벤트 알림: 기본 24시간 숨김</p>
+                                <div class="hide_today_compo mt_12">
+                                    <input
+                                            type="checkbox"
+                                            id="chk_hide_event"
+                                            class="hide_today_chk"
+                                            data-close="event_toast"
+                                            aria-controls="event_toast"
+                                            aria-label="이벤트 알림 오늘 하루 보지 않기"
+                                    >
+                                    <label for="chk_hide_event">오늘 하루 보지 않기</label>
+                                    <button type="button" class="hide_today_btn ml_8" aria-describedby="chk_hide_event">
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="hl2"></button>
+                            </div>
+                        </div>
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl2">
+&lt;div id="notice_bar"&gt;
+  ...
+  &lt;input type="checkbox" id="chk_hide_notice" class="hide_today_chk"
+         data-close="notice_bar" data-expire-hours="12"
+         aria-controls="notice_bar"&gt;
+  &lt;label for="chk_hide_notice"&gt;오늘 하루 보지 않기&lt;/label&gt;
+  &lt;button type="button" class="hide_today_btn" aria-describedby="chk_hide_notice"&gt;닫기&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id="event_toast"&gt;
+  ...
+  &lt;input type="checkbox" id="chk_hide_event" class="hide_today_chk"
+         data-close="event_toast" aria-controls="event_toast"&gt;
+  &lt;label for="chk_hide_event"&gt;오늘 하루 보지 않기&lt;/label&gt;
+  &lt;button type="button" class="hide_today_btn" aria-describedby="chk_hide_event"&gt;닫기&lt;/button&gt;
+&lt;/div&gt;
+            </code></pre>
+                    </div>
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-expire-hours</code>로 만료 시간을 시간 단위로 지정할 수 있습니다(미지정 시 24시간).
+                    </p>
+
+                    <p class="fs_14 txtClr1 mt_40">
+                        🔎 데모를 반복 확인하려면 <code>localStorage</code>에서 <code>hideToday-*</code> 키를 삭제하세요.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>hljs.highlightAll();</script>
+</body>

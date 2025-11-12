@@ -5,6 +5,7 @@ import wvCopyBtn from "../module/components/Copy/CopyBtn.js";
 import wvTargetBtn from "../module/components/TargetBtn/TargetBtn.js";
 import wvScrBtn from "../module/components/ScrBtn/ScrBtn.js";
 import wvLinkBtn from "../module/components/LinkBtn/LinkBtn.js";
+import hideTodayCompo from "../module/components/HideToday/HideToday.js";
 
 const wvCompo = {
   _inited: false,
@@ -20,6 +21,7 @@ const wvCompo = {
     wvCopyBtn({ feedback: "alert" });
     wvScrBtn();
     wvLinkBtn();
+    hideTodayCompo();
   }
 };
 
