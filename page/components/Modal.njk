@@ -1,40 +1,304 @@
-{#---#}
-{#pageTitle: "FP 프로젝트 - Modal"#}
-{#pageDir: [Components, Modal]#}
-{#permalink: /compoModal.html#}
-{#---#}
-{#{% include "head.njk" %}#}
-{#<body>#}
-{#<div class="dp_f">#}
-{#    {% include "header.njk" %}#}
+---
+pageTitle: "PF - Demo"
+pageDir: ["demo"]
+permalink: /demo/modal.html
+---
+{% include "head.njk" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</head>
+<body class="bg-glass-dark">
 
-{#    <main>#}
-{#        <div class="pf_inner">#}
-{#            <div class="tit">#}
-{#                <h2 class="fs_48">Components - Modal</h2>#}
-{#                <p class="fs_18 mt_20">#}
-{#                    asdasdasdasd#}
-{#                </p>#}
-{#            </div>#}
+<div class="pf_main">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section>
+            <div class="pf_inner scrollbar_custom pb_100">
 
-{#            <div class="tit mt_80">#}
-{#                <h3 class="fs_40">사용 방법</h3>#}
+                <!-- TIT -->
+                <div class="sec_tit">
+                    <h2 class="fs_36">Components – Modal</h2>
+                    <p class="fs_16 mt_10 txtClr1 lih150per">
+                        버튼 클릭으로 특정 모달을 열고, 닫기 버튼·dim·ESC로 닫는 모달 컴포넌트입니다.<br>
+                        YouTube 재생, 모달 체인, 오버레이 클릭 옵션 등을 지원하여 다양한 인터랙션을 구현할 수 있습니다.
+                    </p>
+                </div>
 
-{#                <div class=" fc_white1">#}
-{#                    <button class="wv_modal_btn" data-modal="testModal">열기</button>#}
-{#                </div>#}
+                <div class="pf_container">
 
-{#            </div>#}
+                    <!-- ======================================= -->
+                    <!-- ATTRIBUTE REFERENCE -->
+                    <!-- ======================================= -->
+                    <div class="tit">
+                        <h3 class="fs_24 fw_medium fc_white1">ATTRIBUTE REFERENCE</h3>
+                    </div>
 
-{#        </div>#}
-{#    </main>#}
-{#    {% include "slot.njk" %}#}
+                    <table class="pf_table attr_table mt_20">
+                        <thead>
+                        <tr>
+                            <th>속성명</th>
+                            <th>필수</th>
+                            <th>타입 / 예시</th>
+                            <th>기본값</th>
+                            <th>설명</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-{#    <div class="dim"></div>#}
-{#    <dialog class="wv_modal" id="testModal">#}
-{#        <p>asjkldnjlasnd</p>#}
+                        <tr>
+                            <td><code>data-modal</code></td>
+                            <td>필수</td>
+                            <td>string<br><small>"modal_basic"</small></td>
+                            <td>-</td>
+                            <td>열릴 모달의 <code>id</code> 값을 지정합니다.</td>
+                        </tr>
 
-{#        <button class="wv_modal_btn close_modal">닫기</button>#}
-{#    </dialog>#}
-{#</div>#}
-{#</body>#}
+                        <tr>
+                            <td><code>data-youtube</code></td>
+                            <td>선택</td>
+                            <td>string<br><small>"Xx123AbCd"</small></td>
+                            <td>-</td>
+                            <td>YouTube 영상 ID. iframe에 자동으로 embed URL이 입력됩니다.</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>data-chain</code></td>
+                            <td>선택</td>
+                            <td>boolean<br><small>속성 선언만 해도 true</small></td>
+                            <td>false</td>
+                            <td>활성화 시, 새 모달이 열릴 때 기존 활성 모달을 모두 닫습니다.</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>.close_modal</code></td>
+                            <td>선택</td>
+                            <td>class</td>
+                            <td>-</td>
+                            <td>모달 닫기 버튼 역할을 합니다.</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>.dim</code></td>
+                            <td>필수</td>
+                            <td>element</td>
+                            <td>-</td>
+                            <td>모달 배경 오버레이. 옵션에 따라 클릭 시 모달을 닫습니다.</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- ======================================= -->
+                    <!-- EXAMPLE 1 : BASIC MODAL -->
+                    <!-- ======================================= -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – 기본 모달</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap dp_f gap20">
+
+                            <button type="button"
+                                    class="wv_modal_btn pf_btn1"
+                                    data-modal="modal_basic">
+                                Open Modal
+                            </button>
+
+                            <!-- MODAL -->
+                            <div id="modal_basic"
+                                 class="wv_modal pf_modal_box"
+                                 tabindex="-1">
+                                <div class="modal_inner">
+                                    <h4 class="fs_20 fw_medium mb_10">Basic Modal</h4>
+                                    <p class="mb_20 txtClr1">일반적인 모달 창입니다.</p>
+                                    <button type="button"
+                                            class="wv_modal_btn close_modal pf_btn1">
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dim"></div>
+
+                        </div>
+
+                        <!-- HTML PREVIEW -->
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button"
+                                        class="wv_copy_btn copy_btn"
+                                        data-target="hl1"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl1">
+    &lt;button type="button" class="wv_modal_btn" data-modal="modal_basic"&gt;
+      Open Modal
+    &lt;/button&gt;
+
+    &lt;div id="modal_basic" class="wv_modal" tabindex="-1"&gt;
+      &lt;div class="modal_inner"&gt;
+        &lt;h4&gt;Basic Modal&lt;/h4&gt;
+        &lt;p&gt;일반적인 모달 창입니다.&lt;/p&gt;
+        &lt;button type="button" class="wv_modal_btn close_modal"&gt;닫기&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+
+                    </div>
+
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-modal</code> 속성을 사용하여 모달을 열 수 있습니다.
+                        닫기는 <code>.close_modal</code> 또는 dim/ESC로 가능합니다.
+                    </p>
+
+                    <!-- ======================================= -->
+                    <!-- EXAMPLE 2 : YOUTUBE MODAL -->
+                    <!-- ======================================= -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – YouTube 모달</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap dp_f gap20">
+
+                            <button type="button"
+                                    class="wv_modal_btn pf_btn1"
+                                    data-modal="modal_youtube"
+                                    data-youtube="ScMzIvxBSi4">
+                                Open YouTube Modal
+                            </button>
+
+                            <!-- YOUTUBE MODAL -->
+                            <div id="modal_youtube"
+                                 class="wv_modal pf_modal_box"
+                                 tabindex="-1">
+                                <div class="modal_inner video_wrap">
+                                    <iframe src="" frameborder="0" allowfullscreen></iframe>
+
+                                    <button type="button"
+                                            class="wv_modal_btn close_modal pf_btn1 mt_20">
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- HTML PREVIEW -->
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button"
+                                        class="wv_copy_btn copy_btn"
+                                        data-target="hl2"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl2">
+    &lt;button class="wv_modal_btn"
+            data-modal="modal_youtube"
+            data-youtube="ScMzIvxBSi4"&gt;
+      Open YouTube Modal
+    &lt;/button&gt;
+
+    &lt;div id="modal_youtube" class="wv_modal" tabindex="-1"&gt;
+      &lt;div class="modal_inner"&gt;
+        &lt;iframe src="" allowfullscreen&gt;&lt;/iframe&gt;
+        &lt;button class="wv_modal_btn close_modal"&gt;닫기&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+
+                    </div>
+
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-youtube</code>를 사용하면 YouTube 영상 ID를 자동으로 iframe에 로드합니다.<br>
+                        모달 닫기 시 자동으로 <code>src=""</code>로 초기화되어 영상 재생이 중지됩니다.
+                    </p>
+
+                    <!-- ======================================= -->
+                    <!-- EXAMPLE 3 : CHAIN MODAL -->
+                    <!-- ======================================= -->
+                    <div class="tit mt_100">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – Chain Modal</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+
+                        <div class="example_wrap dp_f gap20">
+
+                            <button type="button"
+                                    class="wv_modal_btn pf_btn1"
+                                    data-modal="modal_chain_1">
+                                Open Modal #1
+                            </button>
+
+                            <button type="button"
+                                    class="wv_modal_btn pf_btn1"
+                                    data-modal="modal_chain_2">
+                                Open Modal #2 (Chain)
+                            </button>
+
+                            <!-- MODAL 1 -->
+                            <div id="modal_chain_1"
+                                 class="wv_modal pf_modal_box"
+                                 tabindex="-1">
+                                <div class="modal_inner">
+                                    <h4 class="fs_20">Chain Modal #1</h4>
+                                    <button type="button" class="wv_modal_btn pf_btn1"  data-modal="modal_chain_2">#2 열기</button>
+                                    <button type="button" class="wv_modal_btn close_modal pf_btn1 mt_20">닫기</button>
+                                </div>
+                            </div>
+
+                            <!-- MODAL 2 (CHAIN) -->
+                            <div id="modal_chain_2"
+                                 class="wv_modal pf_modal_box"
+                                 data-chain
+                                 tabindex="-1">
+                                <div class="modal_inner">
+                                    <h4 class="fs_20">Chain Modal #2</h4>
+                                    <p class="txtClr1 mt_10">이 모달이 열리면 다른 활성 모달은 자동으로 닫힙니다.</p>
+                                    <button type="button" class="wv_modal_btn close_modal pf_btn1 mt_20">닫기</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- HTML PREVIEW -->
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button type="button"
+                                        class="wv_copy_btn copy_btn"
+                                        data-target="hl3"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0 pr_0 pl_0" id="hl3">
+    &lt;button class="wv_modal_btn" data-modal="modal_chain_1"&gt;Open Modal #1&lt;/button&gt;
+    &lt;button class="wv_modal_btn" data-modal="modal_chain_2"&gt;Open Modal #2&lt;/button&gt;
+
+    &lt;div id="modal_chain_1" class="wv_modal"&gt; ... &lt;/div&gt;
+
+    &lt;div id="modal_chain_2" class="wv_modal" data-chain&gt;
+      ...
+    &lt;/div&gt;
+</code></pre>
+
+                    </div>
+
+                    <p class="fs_16 fw_regular mt_10 txtClr1">
+                        <code>data-chain</code>이 선언된 모달은 열릴 때 기존 활성 모달을 모두 닫고 단독으로 표시됩니다.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>hljs.highlightAll();</script>
+</body>
