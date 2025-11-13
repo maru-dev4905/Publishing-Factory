@@ -1,42 +1,172 @@
-{#---#}
-{#pageTitle: "FP 프로젝트 - Tab"#}
-{#pageDir: [Components, Tab]#}
-{#permalink: /compoTab.html#}
-{#---#}
-{#{% include "head.njk" %}#}
-{#<body>#}
-{#<div class="dp_f">#}
-{#    {% include "header.njk" %}#}
+---
+pageTitle: "PF - Demo"
+pageDir: ["demo"]
+permalink: /demo/tab.html
+---
+{% include "head.njk" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</head>
+<body class="bg-glass-dark">
 
-{#    <main>#}
-{#        <div class="pf_inner">#}
-{#            <div class="tit">#}
-{#                <h2 class="fs_48">Components - Tab</h2>#}
-{#                <p class="fs_18 mt_20">#}
-{#                    asdasdasdasd#}
-{#                </p>#}
-{#            </div>#}
+<div class="pf_main">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section>
+            <div class="pf_inner scrollbar_custom pb_100">
 
-{#            <div class="tit mt_80">#}
-{#                <h3 class="fs_40">사용 방법</h3>#}
+                <!-- SEC TITLE -->
+                <div class="sec_tit">
+                    <h2 class="fs_36">Components – Tab</h2>
+                    <p class="fs_16 mt_10 txtClr1 lih150per">
+                        탭 버튼을 클릭해 서로 다른 패널을 표시하는 기본 탭 컴포넌트입니다.<br>
+                        이벤트 위임 방식으로 동작하며, 버튼과 패널의 <code>active</code> 클래스를 토글하여 상태를 변경합니다.
+                    </p>
+                </div>
 
-{#                <div class=" fc_white1">#}
-{#                    <div class="wv_tab">#}
-{#                        <div class="wv_tab_menu">#}
-{#                            <button type="button" class="wv_tab_btn active">Tab 1</button>#}
-{#                            <button type="button" class="wv_tab_btn">Tab 2</button>#}
-{#                            <button type="button" class="wv_tab_btn">Tab 3</button>#}
-{#                        </div>#}
-{#                        <div class="wv_tab_content">#}
-{#                            <div class="wv_tab_panel">Content for Tab 1</div>#}
-{#                            <div class="wv_tab_panel">Content for Tab 2</div>#}
-{#                            <div class="wv_tab_panel">Content for Tab 3</div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </main>#}
-{#    {% include "slot.njk" %}#}
-{#</div>#}
-{#</body>#}
+                <div class="pf_container">
+
+                    <!-- STRUCTURE GUIDE -->
+                    <div class="tit">
+                        <h3 class="fs_24 fw_medium fc_white1">STRUCTURE GUIDE</h3>
+                    </div>
+
+                    <p class="fs_16 txtClr1 mt_16">
+                        탭은 아래 구조를 따라야 정상적으로 동작합니다.<br>
+                        <code>.wv_tab_btn</code>은 탭 버튼, <code>.wv_tab_panel</code>은 탭 콘텐츠 영역입니다.
+                    </p>
+
+                    <pre class="hljs mt_20"><code class="language-html">
+&lt;div class="wv_tab"&gt;
+  &lt;div class="wv_tab_menu"&gt;
+    &lt;button class="wv_tab_btn active"&gt;Tab 1&lt;/button&gt;
+    &lt;button class="wv_tab_btn"&gt;Tab 2&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class="wv_tab_content"&gt;
+    &lt;div class="wv_tab_panel active"&gt;Content 1&lt;/div&gt;
+    &lt;div class="wv_tab_panel"&gt;Content 2&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+                    <p class="fs_16 txtClr1 mt_10">
+                        <code>active</code> 클래스가 없으면 스크립트가 자동으로 첫 번째 탭을 활성화합니다.
+                    </p>
+
+                    <!-- ========================================================= -->
+                    <!-- EXAMPLE – 기본 -->
+                    <!-- ========================================================= -->
+                    <div class="tit mt_80">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – 기본 탭</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+
+                            <!-- 실제 동작하는 탭 -->
+                            <div class="wv_tab pf_tab">
+                                <div class="wv_tab_menu dp_f gap10">
+                                    <button type="button" class="wv_tab_btn pf_btn1 active">Tab 1</button>
+                                    <button type="button" class="wv_tab_btn pf_btn1">Tab 2</button>
+                                    <button type="button" class="wv_tab_btn pf_btn1">Tab 3</button>
+                                </div>
+
+                                <div class="wv_tab_content mt_16">
+                                    <div class="wv_tab_panel fc_white1 active pf_box">Tab 1 Content</div>
+                                    <div class="wv_tab_panel fc_white1 pf_box">Tab 2 Content</div>
+                                    <div class="wv_tab_panel fc_white1 pf_box">Tab 3 Content</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- 코드 -->
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center ">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="tab_ex1"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0" id="tab_ex1">
+    &lt;div class="wv_tab"&gt;
+      &lt;div class="wv_tab_menu"&gt;
+        &lt;button class="wv_tab_btn active"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="wv_tab_btn"&gt;Tab 2&lt;/button&gt;
+        &lt;button class="wv_tab_btn"&gt;Tab 3&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class="wv_tab_content"&gt;
+        &lt;div class="wv_tab_panel active"&gt;Tab 1 Content&lt;/div&gt;
+        &lt;div class="wv_tab_panel"&gt;Tab 2 Content&lt;/div&gt;
+        &lt;div class="wv_tab_panel"&gt;Tab 3 Content&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+                    </div>
+
+                    <p class="fs_16 txtClr1 mt_10">
+                        기본적인 사용 예제입니다. 여러 개의 탭 세트가 있어도 각각 독립적으로 동작합니다.
+                    </p>
+
+                    <!-- ========================================================= -->
+                    <!-- EXAMPLE – 초기 active 없는 경우 -->
+                    <!-- ========================================================= -->
+                    <div class="tit mt_80">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – 초기 active 자동 처리</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap">
+
+                            <div class="wv_tab pf_tab">
+                                <div class="wv_tab_menu dp_f gap10">
+                                    <button type="button" class="wv_tab_btn pf_btn1">No Active</button>
+                                    <button type="button" class="wv_tab_btn pf_btn1">Second</button>
+                                </div>
+
+                                <div class="wv_tab_content mt_16">
+                                    <div class="wv_tab_panel fc_white1 pf_box">Auto Active 1</div>
+                                    <div class="wv_tab_panel fc_white1 pf_box">Auto Active 2</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center">
+                                <p>HTML</p>
+                                <button class="wv_copy_btn copy_btn" data-target="tab_ex2"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html" id="tab_ex2">
+    &lt;div class="wv_tab"&gt;
+      &lt;div class="wv_tab_menu"&gt;
+        &lt;button class="wv_tab_btn"&gt;Tab A&lt;/button&gt;
+        &lt;button class="wv_tab_btn"&gt;Tab B&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class="wv_tab_content"&gt;
+        &lt;div class="wv_tab_panel"&gt;Content A&lt;/div&gt;
+        &lt;div class="wv_tab_panel"&gt;Content B&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+
+                    </div>
+
+                    <p class="fs_16 txtClr1 mt_10">
+                        <code>active</code>가 지정되지 않은 경우, 스크립트가 첫 번째 탭을 자동 활성화합니다.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>

@@ -1,43 +1,274 @@
-{#---#}
-{#pageTitle: "FP 프로젝트 - Target Button"#}
-{#pageDir: [Components, Target Button]#}
-{#permalink: /compoTargetButton.html#}
-{#---#}
-{#{% include "head.njk" %}#}
-{#<body>#}
-{#<div class="dp_f">#}
-{#    {% include "header.njk" %}#}
+---
+pageTitle: "PF - Demo"
+pageDir: ["demo"]
+permalink: /demo/targetButton.html
+---
+{% include "head.njk" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</head>
+<body class="bg-glass-dark">
 
-{#    <main>#}
-{#        <div class="pf_inner">#}
-{#            <div class="tit">#}
-{#                <h2 class="fs_48">Components - Target Button</h2>#}
-{#                <p class="fs_18 mt_20">#}
-{#                    이 컴포넌트는 사용자가 특정 버튼(<strong>.wv_target_btn</strong>)을 클릭했을 때, <br>#}
-{#                    버튼의 <strong>data-target</strong> 속성에 지정된 값을 파싱하여, <br>#}
-{#                    해당 ID를 가진 타겟 요소에 클래스 추가/제거 또는 토글 동작을 수행하도록 돕는 기능을 제공합니다.#}
-{#                </p>#}
-{#            </div>#}
+<div class="pf_main">
+    {% include "side.njk" %}
+    {% include "header.njk" %}
+    <main>
+        <section>
+            <div class="pf_inner scrollbar_custom pb_100">
 
-{#            <div class="tit mt_80">#}
-{#                <h3 class="fs_40">사용 방법</h3>#}
+                <!-- TITLE -->
+                <div class="sec_tit">
+                    <h2 class="fs_36">Components – Target Button</h2>
+                    <p class="fs_16 mt_10 txtClr1 lih150per">
+                        버튼 클릭 시 특정 타깃 요소에 클래스를 토글 / 추가 / 제거하는 컴포넌트입니다.<br>
+                        <code>data-target</code> 속성에 배열 형태로 타깃 ID, 클래스명, 동작 타입을 지정합니다.
+                    </p>
+                </div>
 
-{#                <button class="wv_target_btn fs_20 fc_white1" data-target="['test1', 'on', 'toggle']">타겟 버튼</button>#}
-{#                <style>#}
-{#                    #test1{#}
-{#                      color: #1e76e9;#}
-{#                    }#}
-{#                    #test1.on{#}
-{#                      color: red;#}
-{#                      background-color: #000;#}
-{#                    }#}
-{#                </style>#}
-{#                <div id="test1">TEST</div>#}
+                <div class="pf_container">
 
-{#            </div>#}
+                    <!-- ATTRIBUTE REFERENCE -->
+                    <div class="tit">
+                        <h3 class="fs_24 fw_medium fc_white1">ATTRIBUTE REFERENCE</h3>
+                    </div>
 
-{#        </div>#}
-{#    </main>#}
-{#    {% include "slot.njk" %}#}
-{#</div>#}
-{#</body>#}
+                    <table class="pf_table attr_table mt_20">
+                        <thead>
+                        <tr>
+                            <th>속성명</th>
+                            <th>필수</th>
+                            <th>타입 / 예시</th>
+                            <th>기본값</th>
+                            <th>설명</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><code>data-target</code></td>
+                            <td>필수</td>
+                            <td>
+                                array-like string<br>
+                                <small>
+                                    <code>['targetBox', 'on', 'toggle']</code><br>
+                                    <code>['myLayer', 'is-open', 'add']</code>
+                                </small>
+                            </td>
+                            <td>없음</td>
+                            <td>
+                                <code>['타깃ID', '클래스명', '동작']</code> 형식의 배열 문자열입니다.<br>
+                                HTML 특성상 작은따옴표(<code>'</code>)로 감싸고, 스크립트에서 JSON으로 파싱됩니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>배열[0]</td>
+                            <td>필수</td>
+                            <td>string<br><small>"targetBox"</small></td>
+                            <td>-</td>
+                            <td>클래스를 적용할 타깃 요소의 <code>id</code> 값입니다.</td>
+                        </tr>
+                        <tr>
+                            <td>배열[1]</td>
+                            <td>선택</td>
+                            <td>string<br><small>"on"</small></td>
+                            <td>"on"</td>
+                            <td>토글할 클래스명입니다. 지정하지 않으면 기본값 <code>on</code>을 사용합니다.</td>
+                        </tr>
+                        <tr>
+                            <td>배열[2]</td>
+                            <td>선택</td>
+                            <td>
+                                string<br>
+                                <small>"toggle" / "add" / "remove"</small>
+                            </td>
+                            <td>"toggle"</td>
+                            <td>
+                                동작 타입을 지정합니다.<br>
+                                <code>toggle</code> : 타깃과 버튼 모두 클래스 토글<br>
+                                <code>add</code> : 클래스 추가<br>
+                                <code>remove</code> : 클래스 제거
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="fs_14 txtClr1 mt_16">
+                        ⚠ <code>data-target</code>는 내부에서 <code>JSON.parse</code>로 파싱되므로 형식을 반드시 배열 형태로 맞춰야 합니다.<br>
+                        예: <code>data-target="['targetBox','on','toggle']"</code>
+                    </p>
+
+                    <!-- ========================================================= -->
+                    <!-- EXAMPLE – 기본 토글 -->
+                    <!-- ========================================================= -->
+                    <div class="tit mt_80">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – Toggle (기본)</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap dp_f gap20 al_start">
+
+                            <!-- TARGET BOX -->
+                            <div id="targetBox1" class="pf_box br_16 p_16 fx_8">
+                                <p class="fc_white1">타깃 박스 (#targetBox1)</p>
+                                <p class="fs_14 txtClr1 mt_6">버튼을 클릭하면 이 요소에 <code>on</code> 클래스가 토글됩니다.</p>
+                            </div>
+
+                            <!-- BUTTON -->
+                            <button type="button"
+                                    class="wv_target_btn pf_btn1 fx_2"
+                                    data-target="['targetBox1','on','toggle']">
+                                Toggle Class
+                            </button>
+
+                        </div>
+
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center ">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="tg_ex1"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0" id="tg_ex1">
+    &lt;div id="targetBox1" class="target_box"&gt;
+      타깃 박스 내용
+    &lt;/div&gt;
+
+    &lt;button type="button"
+            class="wv_target_btn"
+            data-target="['targetBox1','on','toggle']"&gt;
+      Toggle Class
+    &lt;/button&gt;
+
+</code></pre>
+                    </div>
+
+                    <p class="fs_16 txtClr1 mt_10">
+                        기본값은 <code>toggle</code>이며, 타깃 요소와 버튼 모두에 동일한 클래스(<code>on</code>)가 토글됩니다.
+                    </p>
+
+                    <!-- ========================================================= -->
+                    <!-- EXAMPLE – Add / Remove -->
+                    <!-- ========================================================= -->
+                    <div class="tit mt_80">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – Add / Remove</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap dp_f gap20 al_start">
+
+                            <!-- TARGET BOX -->
+                            <div id="targetBox2" class="pf_box br_16 p_16 fx_8">
+                                <p class="fc_white1">타깃 박스 (#targetBox2)</p>
+                                <p class="fs_14 txtClr1 mt_6">
+                                    위 버튼: <code>is-active</code> 클래스 추가<br>
+                                    아래 버튼: <code>is-active</code> 클래스 제거
+                                </p>
+                            </div>
+
+                            <!-- BUTTONS -->
+                            <div class="dp_f fd_col gap10 fx_2">
+                                <button type="button"
+                                        class="wv_target_btn pf_btn1"
+                                        data-target="['targetBox2','is-active','add']">
+                                    Add <br />is-active
+                                </button>
+
+                                <button type="button"
+                                        class="wv_target_btn pf_btn2"
+                                        data-target="['targetBox2','is-active','remove']">
+                                    Remove <br />is-active
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center ">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="tg_ex2"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0" id="tg_ex2">
+    &lt;div id="targetBox2" class="target_box"&gt;
+      ...
+    &lt;/div&gt;
+
+    &lt;button type="button"
+            class="wv_target_btn"
+            data-target="['targetBox2','is-active','add']"&gt;
+      Add is-active
+    &lt;/button&gt;
+
+    &lt;button type="button"
+            class="wv_target_btn"
+            data-target="['targetBox2','is-active','remove']"&gt;
+      Remove is-active
+    &lt;/button&gt;
+
+</code></pre>
+                    </div>
+
+                    <p class="fs_16 txtClr1 mt_10">
+                        <code>add</code>/<code>remove</code> 동작을 분리해서 사용하면 상태를 명확하게 제어할 수 있습니다.
+                        (토글이 아닌 확실한 on/off 시나리오에 적합)
+                    </p>
+
+                    <!-- ========================================================= -->
+                    <!-- EXAMPLE – 클래스명 생략 -->
+                    <!-- ========================================================= -->
+                    <div class="tit mt_80">
+                        <h3 class="fs_24 fw_medium fc_white1">EXAMPLE – 클래스명 생략 (기본 on 사용)</h3>
+                    </div>
+
+                    <div class="code_wrap pf_box mt_20">
+                        <div class="example_wrap dp_f gap20 al_start">
+
+                            <div id="targetBox3" class="pf_box br_16 p_16 fx_8">
+                                <p class="fc_white1">타깃 박스 (#targetBox3)</p>
+                                <p class="fs_14 txtClr1 mt_6">
+                                    클래스명을 생략하면 자동으로 <code>on</code>이 사용됩니다.
+                                </p>
+                            </div>
+
+                            <button type="button"
+                                    class="wv_target_btn pf_btn1 fx_2"
+                                    data-target="['targetBox3']">
+                                Toggle (default "on")
+                            </button>
+
+                        </div>
+
+                        <div class="cont_wrap">
+                            <div class="dp_f jtf_bet al_center ">
+                                <p>HTML</p>
+                                <button type="button" class="wv_copy_btn copy_btn" data-target="tg_ex3"></button>
+                            </div>
+                        </div>
+
+                        <pre class="hljs"><code class="language-html pt_0 pb_0" id="tg_ex3">
+    &lt;div id="targetBox3"&gt; ... &lt;/div&gt;
+
+    &lt;button type="button"
+            class="wv_target_btn"
+            data-target="['targetBox3']"&gt;
+      Toggle (default "on")
+    &lt;/button&gt;
+
+</code></pre>
+                    </div>
+
+                    <p class="fs_16 txtClr1 mt_10">
+                        <code>['targetId']</code>처럼 첫 번째 값만 지정하면,
+                        두 번째 값은 <code>on</code>, 세 번째 값은 <code>toggle</code>로 처리됩니다.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>hljs.highlightAll();</script>
+</body>
