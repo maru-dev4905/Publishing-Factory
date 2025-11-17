@@ -1,27 +1,129 @@
 ---
-pageTitle: "PF - download"
-pageDir: ["downloads"]
+pageTitle: "PF - Download"
+pageDir: ["download"]
 permalink: /download.html
 ---
 {% include "head.njk" %}
 </head>
 <body class="bg-glass-dark">
 
-<div class="pf_main ">
+<div class="pf_main">
     {% include "side.njk" %}
     {% include "header.njk" %}
+
     <main>
-        <section class="">
-            <div class="pf_inner scrollbar_custom ipt_st1"  data-pf-tool="pxvw">
+        <section>
+            <div class="pf_inner scrollbar_custom pb_100">
+
+                <!-- TITLE -->
                 <div class="sec_tit">
                     <h2 class="fs_36">Download</h2>
+                    <p class="fs_16 mt_10 txtClr1 lih150per">
+                        PF 스타일 가이드를 프로젝트에 적용하기 위한 CSS 파일과 버전 별 히스토리를 제공합니다.
+                    </p>
                 </div>
 
-                <div class="pf_cont">
+                <div class="pf_container">
+
+                    <!-- CURRENT VERSION -->
+                    <div class="tit">
+                        <h3 class="fs_24 fw_medium fc_white1">Current Version</h3>
+                    </div>
+
+                    <div class="pf_box br_16 p_24 mt_20">
+                        <div class="dp_f jtf_bet al_center gap20 fd_col_mo">
+                            <div>
+                                <p class="fs_16 fc_white1 fw_medium">
+                                    PF CSS – v1.0.0
+                                </p>
+                                <p class="fs_14 txtClr1 mt_4">
+                                    최신 버전의 PF 스타일 시트를 개별 파일로 제공합니다.<br>
+                                    필요에 따라 일반/압축 버전 중 선택하여 사용하세요.
+                                </p>
+                            </div>
+                            <div class="dp_f gap10 mt_mo_12">
+                                {# 실제 경로는 프로젝트 구조에 맞게 수정하세요 #}
+                                <a href="/assets/css/pf.css" class="pf_btn1" download>
+                                    Download pf.css
+                                </a>
+                                <a href="/assets/css/pf.min.css" class="pf_btn2" download>
+                                    Download pf.min.css
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VERSION HISTORY -->
+                    <div class="tit mt_80">
+                        <h3 class="fs_24 fw_medium fc_white1">Version History</h3>
+                    </div>
+
+                    <p class="fs_14 txtClr1 mt_8">
+                        각 버전 별 전체 패키지는 압축 파일(.zip)로 제공되며, 변경 사항은 노트 영역에 정리합니다.
+                    </p>
+
+                    <div class="pf_box br_16 p_20 mt_20">
+                        <table class="pf_table ver_table">
+                            <thead>
+                            <tr>
+                                <th style="width:120px;">Version</th>
+                                <th style="width:140px;">Release Date</th>
+                                <th style="width:200px;">Download</th>
+                                <th>Notes</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- v1.0.0 예시 -->
+                            <tr>
+                                <td>v1.0.0</td>
+                                <td>2025-01-01</td>
+                                <td>
+                                    <a href="/download/pf-1.0.0.zip" class="pf_btn1 pf_btn_sm" download>
+                                        pf-1.0.0.zip
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="ver_notes">
+                                        <p class="fs_14 txtClr1">
+                                            <!-- 여기에 변경 사항을 자유롭게 작성 -->
+                                            - 초기 릴리즈 버전<br>
+                                            - 기본 그리드, 타이포그래피, 버튼 스타일 추가<br>
+                                            - 공통 유틸리티 클래스 1차 정리
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- v1.0.1 예시 -->
+                            <tr>
+                                <td>v1.0.1</td>
+                                <td>2025-02-10</td>
+                                <td class="w_max_content">
+                                    <a href="/download/pf-1.0.1.zip" class="pf_btn1 pf_btn_sm" download>
+                                        pf-1.0.1.zip
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="ver_notes">
+                                        <p class="fs_14 txtClr1">
+                                            - 버튼 라운딩 옵션 추가 (pf_btn_round)<br>
+                                            - 폼 요소 기본 스타일 개선<br>
+                                            - 모바일 브레이크포인트에서 마진/패딩 재조정
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 새로운 버전 추가 시 이 아래에 tr 추가해서 확장 -->
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
+
             </div>
         </section>
     </main>
-    <script type="module" src="/assets/js/custom/github-widgets.js"></script>
 </div>
+
 </body>
