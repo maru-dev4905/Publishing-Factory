@@ -47,6 +47,12 @@
     flex: #{$i} !important;
   }
 }
+
+@for $i from 0 through 12 {
+  .fx_order#{$i} {
+    order: #{$i} !important;
+  }
+}
 /* Flex END */
 
 /* Position */
@@ -548,6 +554,11 @@ caption.a11y-hidden {
   @for $i from 0 through 12 {
     .md_fx_#{$i} {
       flex: #{$i} !important;
+    }
+  }
+  @for $i from 0 through 12 {
+    .md_fx_order#{$i} {
+      order: #{$i} !important;
     }
   }
 
