@@ -1,10 +1,4 @@
-
-
-
-{# _data/navigation.json → navigation.gnb 사용 #}
 {% set nav = navigation.gnb %}
-
-{# 보이는 라벨/아이콘 매핑 (원하면 취향대로 교체) #}
 {% set labels = {
     main: 'Home',
     demo: 'Demo',
@@ -19,11 +13,9 @@
     tools: 'tools',
     downloads: 'download'
 } %}
-
 <aside class="pf_side">
     <nav aria-label="Primary">
         <ul>
-            {# key = main/demo/notes/tools/downloads, url = "/..." #}
             {% for key, url in nav %}
                 {% set active = (pageDir and (pageDir[0] | lower) == (key | lower)) %}
                 <li>
